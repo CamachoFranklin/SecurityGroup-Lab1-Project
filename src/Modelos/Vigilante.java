@@ -4,7 +4,7 @@
 *Andres Jiménez C.I: 27.212.052
 *Jesús Leal C.I:26.561.030
 *Elias Escalona C.I 26.568.921
-*Jesús Lopez C.I: 
+*Jesús Lopez C.I 27.479.039: 
  */
 package Modelos;
 
@@ -17,20 +17,24 @@ public class Vigilante {
             nombre,
             apellido,
             direccion,
+            correo,
             telefono;
     private Date fechaNacimiento;
-    public char estatus;
+    private double sueldo;
+    private char estatus;
     
     // Constructor de la clase
-    public Vigilante(String cedula, String nombre,
-            String apellido, String direccion, String telefono,
-            Date fechaNacimiento, char estatus) {
+    public Vigilante(String cedula, String nombre, String apellido,
+            String direccion, String correo, String telefono,
+            Date fechaNacimiento, double sueldo, char estatus) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
+        this.correo = correo;
         this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;
+        this.sueldo = sueldo;
         this.estatus = estatus;
     }
     
@@ -67,6 +71,14 @@ public class Vigilante {
         this.direccion = direccion;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     public String getTelefono() {
         return telefono;
     }
@@ -83,6 +95,14 @@ public class Vigilante {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public double getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(double sueldo) {
+        this.sueldo = sueldo;
+    }
+
     public char getEstatus() {
         return estatus;
     }
@@ -90,5 +110,5 @@ public class Vigilante {
     public void setEstatus(char estatus) {
         this.estatus = estatus;
     }
-
+    
 }

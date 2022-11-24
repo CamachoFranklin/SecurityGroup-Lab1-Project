@@ -4,7 +4,7 @@
 *Andres Jiménez C.I: 27.212.052
 *Jesús Leal C.I:26.561.030
 *Elias Escalona C.I 26.568.921
-*Jesús Lopez C.I: 
+*Jesús Lopez C.I 27.479.039: 
  */
 package Modelos;
 
