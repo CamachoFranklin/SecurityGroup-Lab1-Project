@@ -17,11 +17,11 @@ public class ClienteTienda extends Cliente {
     // Constructor de la clase
     public ClienteTienda(int numeroLocal, String rif, String nombre,
             String descripcion, String telefono, String direccion,
-            int tipoCliente, char estatus) {
+            String tipoCliente,String estatus) {
         
         // Caracteristicas heredadas
         super(rif, nombre, descripcion, telefono,
-                direccion, tipoCliente, estatus);
+                direccion, tipoCliente,estatus);
         this.numeroLocal = numeroLocal;
     }
 

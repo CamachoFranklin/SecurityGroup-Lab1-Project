@@ -17,22 +17,30 @@ public class Servicio {
     // Declaración de atributos
     private int idServicio,
             cantidadVigilantes;
-    private double costo;
-    private Date fechaInicio, fechaFinal;
+    private double monto, costo;
+
+    
+    
+    private Date fechaInicio;
     private String descripcion;
     private char estatus;
 
     // Constructor de la clase
-    public Servicio(int idServicio, int cantidadVigilantes, double costo,
-            Date fechaInicio, Date fechaFinal, String descripcion,
+    public Servicio(int idServicio, int cantidadVigilantes,double monto, double costo,
+            Date fechaInicio,  String descripcion,
             char estatus) {
         this.idServicio = idServicio;
         this.cantidadVigilantes = cantidadVigilantes;
         this.costo = costo;
         this.fechaInicio = fechaInicio;
-        this.fechaFinal = fechaFinal;
+       
         this.descripcion = descripcion;
         this.estatus = estatus;
+        this.monto=monto;
+    }
+
+    public Servicio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // Creación de los Metodos Getter y Setter
@@ -68,13 +76,7 @@ public class Servicio {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFinal() {
-        return fechaFinal;
-    }
-
-    public void setFechaFinal(Date fechaFinal) {
-        this.fechaFinal = fechaFinal;
-    }
+    
 
     public String getDescripcion() {
         return descripcion;
@@ -90,6 +92,13 @@ public class Servicio {
 
     public void setEstatus(char estatus) {
         this.estatus = estatus;
+    }
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
     }
 
     // Método para calcular cantidad de turnos

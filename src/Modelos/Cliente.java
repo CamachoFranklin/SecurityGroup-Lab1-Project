@@ -16,13 +16,13 @@ public class Cliente {
             descripcion,
             telefono,
             direccion;
-    private int tipoCliente;
-    private char estatus;
+    private String tipoCliente;
+    private String estatus;
 
     // Constructor de la clase
     public Cliente(String rif, String nombre,
             String descripcion, String telefono,
-            String direccion, int tipoCliente, char estatus) {
+            String direccion, String tipoCliente,String estatus) {
 
         //Características que se heredarán
         super();
@@ -32,7 +32,12 @@ public class Cliente {
         this.telefono = telefono;
         this.direccion = direccion;
         this.tipoCliente = tipoCliente;
-        this.estatus = estatus;
+        
+       this.estatus = estatus;
+    }
+
+    public Cliente() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // Creación de los Metodos Getter y Setter
@@ -76,19 +81,19 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public int getTipoCliente() {
+    public String getTipoCliente() {
         return tipoCliente;
     }
 
-    public void setTipoCliente(int tipoCliente) {
+    public void setTipoCliente(String tipoCliente) {
         this.tipoCliente = tipoCliente;
     }
 
-    public char getEstatus() {
+    public String getEstatus() {
         return estatus;
     }
 
-    public void setEstatus(char estatus) {
+    public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
 

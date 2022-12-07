@@ -18,14 +18,22 @@ public class Factura {
     private Date fechaFactura;
     private double montoFactura;
     private String rifCliente;
+    private char estatus;
+
+  
 
     // Constructor de la clase
-    public Factura(int idFactura, int idServicio, Date fechaFactura, double montoFactura, String rifCliente) {
+    public Factura(int idFactura, int idServicio, Date fechaFactura, double montoFactura, String rifCliente,char estatus) {
         this.idFactura = idFactura;
         this.idServicio = idServicio;
         this.fechaFactura = fechaFactura;
         this.montoFactura = montoFactura;
         this.rifCliente = rifCliente;
+        this.estatus=estatus;
+    }
+
+    public Factura() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // Creación de los Metodos Getter y Setter
@@ -68,5 +76,11 @@ public class Factura {
     public void setRifCliente(String rifCliente) {
         this.rifCliente = rifCliente;
     }
+  public char getEstatus() {
+        return estatus;
+    }
 
+    public void setEstatus(char estatus) {
+        this.estatus = estatus;
+    }
 }

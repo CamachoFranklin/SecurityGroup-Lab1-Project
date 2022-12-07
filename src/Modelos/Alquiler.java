@@ -12,41 +12,35 @@ package Modelos;
 import java.util.Date;
 
 public class Alquiler {
+
+    
     
     // Declaración de atributos
-    private Date fechaInicio, fechaFinal;
-    private double precio;
+    
+   private int cantBicicletas, cantRadios;
     
     // Constructor de la clase
-    public Alquiler(Date fechaInicio, Date fechaFinal, double precio) {
-        this.fechaInicio = fechaInicio;
-        this.fechaFinal = fechaFinal;
-        this.precio = precio;
+    public Alquiler(int cantBicicletas, int cantRadios) {
+        this.cantBicicletas = cantBicicletas;
+        this.cantRadios = cantRadios;
+        
     }
     
     // Creación de los Metodos Getter y Setter
-    public Date getFechaInicio() {
-        return fechaInicio;
+    
+public int getCantBicicletas() {
+        return cantBicicletas;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setCantBicicletas(int cantBicicletas) {
+        this.cantBicicletas = cantBicicletas;
     }
 
-    public Date getFechaFinal() {
-        return fechaFinal;
+    public int getCantRadios() {
+        return cantRadios;
     }
 
-    public void setFechaFinal(Date fechaFinal) {
-        this.fechaFinal = fechaFinal;
+    public void setCantRadios(int cantRadios) {
+        this.cantRadios = cantRadios;
     }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
 }

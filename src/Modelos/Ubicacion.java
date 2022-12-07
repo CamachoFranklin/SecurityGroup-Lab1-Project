@@ -11,17 +11,34 @@ package Modelos;
 //Para usar el tipo de variable Date es necesario importar
 import java.util.Date;
 
-public class Turno {
+public class Ubicacion {
 
     // Declaración de atributos
+    private String cedulaVigilante;
+
+    public String getCedulaVigilante() {
+        return cedulaVigilante;
+    }
+
+    public void setCedulaVigilante(String cedulaVigilante) {
+        this.cedulaVigilante = cedulaVigilante;
+    }
     private int tipoTurno;
-    private Date fecha;
-    private char estatus;
+    private String idServicio;
+        private char estatus;
+
+    public String getIdServicio() {
+        return idServicio;
+    }
+
+    public void setIdServicio(String idServicio) {
+        this.idServicio = idServicio;
+    }
 
     // Constructor de la clase
-    public Turno(int tipoTurno, Date fecha, char estatus) {
+    public Ubicacion(String cedulaVigilante, int tipoTurno,String idServicio, char estatus) {
         this.tipoTurno = tipoTurno;
-        this.fecha = fecha;
+      
         this.estatus = estatus;
     }
 
@@ -34,13 +51,7 @@ public class Turno {
         this.tipoTurno = tipoTurno;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
+    
 
     public char getEstatus() {
         return estatus;

@@ -37,6 +37,10 @@ public class Vigilante {
         this.sueldo = sueldo;
         this.estatus = estatus;
     }
+
+    public Vigilante() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     // Creación de los Metodos Getter y Setter
     public String getCedula() {

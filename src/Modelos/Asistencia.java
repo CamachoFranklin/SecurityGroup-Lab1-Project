@@ -11,27 +11,45 @@ package Modelos;
 public class Asistencia {
 
     // Declaración de atributos
-    private String descripcion, cedulaVigilante;
-    private int tipoAsistencia, contadorAsistencia;
+    private  String  cedulaVigilante, mes, anno;
+   private int inasistencia, inasistenciaJus, contadorAsistencia;
+   private char estatus;
+
+   
 
     // Constructor de la clase
-    public Asistencia(String descripcion, String cedulaVigilante,
-            int tipoAsistencia, int contadorAsistencia) {
-        this.descripcion = descripcion;
+    public Asistencia(String cedulaVigilante,String mes, String anno,
+        int inasistencia, int inasistenciaJus, int contadorAsistencia,char estatus) {
         this.cedulaVigilante = cedulaVigilante;
-        this.tipoAsistencia = tipoAsistencia;
+        this.inasistencia = inasistencia;
         this.contadorAsistencia = contadorAsistencia;
     }
 
+    public String getMes() {
+        return mes;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
+    }
+
+    public String getAnno() {
+        return anno;
+    }
+
+    public void setAnno(String anno) {
+        this.anno = anno;
+    }
+
+    public int getInasistencia() {
+        return inasistencia;
+    }
+
+    public void setInasistencia(int inasistencia) {
+        this.inasistencia = inasistencia;
+    }
+
     // Creación de los Metodos Getter y Setter
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public String getCedulaVigilante() {
         return cedulaVigilante;
     }
@@ -40,13 +58,6 @@ public class Asistencia {
         this.cedulaVigilante = cedulaVigilante;
     }
 
-    public int getTipoAsistencia() {
-        return tipoAsistencia;
-    }
-
-    public void setTipoAsistencia(int tipoAsistencia) {
-        this.tipoAsistencia = tipoAsistencia;
-    }
 
     public int getContadorAsistencia() {
         return contadorAsistencia;
@@ -55,5 +66,20 @@ public class Asistencia {
     public void setContadorAsistencia(int contadorAsistencia) {
         this.contadorAsistencia = contadorAsistencia;
     }
+ public int getInasistenciaJus() {
+        return inasistenciaJus;
+    }
 
+    public void setInasistenciaJus(int inasistenciaJus) {
+        this.inasistenciaJus = inasistenciaJus;
+    }
+  
+
+    public char getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(char estatus) {
+        this.estatus = estatus;
+    }
 }

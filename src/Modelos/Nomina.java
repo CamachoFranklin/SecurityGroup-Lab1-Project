@@ -18,6 +18,10 @@ public class Nomina {
         this.cedulaVigilante = cedulaVigilante;
     }
 
+    public Nomina() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     // Creación de los Metodos Getter y Setter
     public String getCedulaVigilante() {
         return cedulaVigilante;
