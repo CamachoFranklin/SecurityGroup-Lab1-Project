@@ -10,8 +10,8 @@ package Modelos;
 
 public class Radio extends Herramienta {
 
-    public Radio(int id, String nombre, String modelo,
-            String descripcion, double mantenimiento, char estatus) {
-        super(id, nombre, modelo, descripcion, mantenimiento, estatus);
+    public Radio(int cantidad, String tipoHerramienta, double mantenimiento,
+            double precio, String estado) {
+        super(cantidad, tipoHerramienta, mantenimiento, precio, estado);
     }
 }

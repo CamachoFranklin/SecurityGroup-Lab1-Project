@@ -11,6 +11,7 @@ package Controladores;
 import Datos.DAOCliente;
 import Modelos.Cliente;
 import Vistas.VGestionCliente;
+import static java.awt.Frame.ICONIFIED;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -18,14 +19,10 @@ import javax.swing.JOptionPane;
 public class ControladorCliente implements ActionListener {
 
     private final VGestionCliente vcliente;
-    private final Cliente mcliente;
 
     public ControladorCliente() {
         //Se instancia la vista de cliente
         vcliente = new VGestionCliente();
-
-        //Se instancia el modelo de cliente
-        mcliente = new Cliente();
 
         // Botones de la vista
         this.vcliente.btnBuscar.addActionListener(this);
@@ -33,8 +30,9 @@ public class ControladorCliente implements ActionListener {
         this.vcliente.btnLimpiar.addActionListener(this);
         this.vcliente.btnEliminar.addActionListener(this);
         this.vcliente.btnModificar.addActionListener(this);
+        this.vcliente.btnVolver.addActionListener(this);
         // Campo de la llave primaria
-        vcliente.txtRif.setEditable(true);
+        vcliente.txtNombre.setEditable(true);
         // Se desactivan los botones
         vcliente.btnModificar.setEnabled(false);
         vcliente.btnEliminar.setEnabled(false);
@@ -57,7 +55,7 @@ public class ControladorCliente implements ActionListener {
         Cliente clie = new DAOCliente().Buscar(rif);
         if (clie == null) {
             JOptionPane.showMessageDialog(null, "Cliente No encontrado");
-            vcliente.txtRif.setEditable(true);
+            vcliente.txtNombre.setEditable(true);
             vcliente.btnAgregar.setEnabled(true);
             return;
         }
@@ -68,8 +66,7 @@ public class ControladorCliente implements ActionListener {
         vcliente.txtDescripcion.setText(clie.getDescripcion());
         vcliente.txtTelefono.setText(clie.getTelefono());
 
-        //  vcliente.txtDireccion.setText(clie.getDireccion());
-        vcliente.txtDireccion.setText(clie.getTipoCliente());
+        vcliente.txtDireccion.setText(clie.getDireccion());
         if (clie.getTipoCliente().equals("Edificio")) {
             vcliente.cbxTipoCliente.setSelectedIndex(1);
         } else if ("Urbanizacion".equals(clie.getTipoCliente())) {
@@ -117,8 +114,6 @@ public class ControladorCliente implements ActionListener {
         vcliente.txtRif.setText("");
         vcliente.txtNombre.setText("");
         vcliente.txtDescripcion.setText("");
-
-        vcliente.txtDireccion.setText("");
         vcliente.txtTelefono.setText("");
         vcliente.txtDireccion.setText("");
         vcliente.cbxTipoCliente.setSelectedIndex(0);
@@ -182,6 +177,29 @@ public class ControladorCliente implements ActionListener {
         }
         if (e.getSource() == vcliente.btnModificar) {
             Modificar();
+        }
+
+        /*  Boton Volver.
+            Cierra la Vista Cliente
+            Regresa al Menu Principal
+         */
+        if (e.getSource() == vcliente.btnVolver) {
+            vcliente.dispose();
+            new ControladorMenuPrincipal();
+        }
+
+        /*  Boton Minimizar.
+            Minimiza la vista actual
+         */
+        if (e.getSource() == vcliente.btnMinimizar) {
+            vcliente.setExtendedState(ICONIFIED);
+        }
+
+        /*  Boton Salir.
+            Cierra el programa
+         */
+        if (e.getSource() == vcliente.btnSalir) {
+            System.exit(0);
         }
     }
 }

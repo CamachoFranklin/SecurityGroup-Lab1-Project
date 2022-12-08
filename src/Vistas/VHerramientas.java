@@ -8,15 +8,17 @@
  */
 package Vistas;
 
+import java.awt.Color;
+import javax.swing.JComboBox;
+
 public class VHerramientas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VHerramientas
-     */
+    // creamos variables para saber en que posición se encuenta el mouse
+    int xMouse, yMouse;
+
     public VHerramientas() {
+        // Inicializa todas las variables (o mejor dicho componentes) que usa el JFrame.
         initComponents();
-        radio.setVisible(false);
-         bicicleta.setVisible(false);
     }
 
     /**
@@ -29,328 +31,553 @@ public class VHerramientas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabelNombre = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        btnMenu1 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        btnLimpiar1 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jComboBox = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        txtModelo = new javax.swing.JTextField();
-        jLabelNombre1 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        txtNombre2 = new javax.swing.JTextField();
-        jLabelDescripcion = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        txtMantenimiento = new javax.swing.JTextField();
-        jLabelMantenimiento = new javax.swing.JLabel();
-        bicicleta = new javax.swing.JLabel();
-        radio = new javax.swing.JLabel();
+        lblGestionHerramientas = new javax.swing.JLabel();
+        lblCantidad = new javax.swing.JLabel();
+        txtCantidad = new javax.swing.JTextField();
+        lblLineaCantidad = new javax.swing.JLabel();
+        lblCantidadDisponible = new javax.swing.JLabel();
+        txtCantidadDisponible = new javax.swing.JTextField();
+        lblLineaCantDisponible = new javax.swing.JLabel();
+        lblPrecioAlquiler = new javax.swing.JLabel();
+        txtPrecioAlquiler = new javax.swing.JTextField();
+        lblLineaPrecioAlquiler = new javax.swing.JLabel();
+        lblPrecioMantenimiento = new javax.swing.JLabel();
+        txtPrecioMantenimiento = new javax.swing.JTextField();
+        lblLineaPrecioMant = new javax.swing.JLabel();
+        btnAgregar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        jComboBoxTipo = new javax.swing.JComboBox<>();
+        lblTipoHerramienta = new javax.swing.JLabel();
+        lblBicicleta = new javax.swing.JLabel();
+        lblRadio = new javax.swing.JLabel();
+        btnRestar = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
+        Header = new javax.swing.JPanel();
+        btnVolver = new javax.swing.JButton();
+        btnMinimizar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setUndecorated(true);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 600));
+        jPanel1.setMinimumSize(new java.awt.Dimension(800, 600));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelNombre.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelNombre.setText("Cantidad que se desea agregar");
+        lblGestionHerramientas.setBackground(new java.awt.Color(204, 255, 204));
+        lblGestionHerramientas.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        lblGestionHerramientas.setForeground(new java.awt.Color(0, 0, 0));
+        lblGestionHerramientas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblGestionHerramientas.setText("Gestion Herramientas");
+        jPanel1.add(lblGestionHerramientas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, -1));
 
-        txtNombre.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombre.setText("In7");
-        txtNombre.setBorder(null);
-        txtNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+        lblCantidad.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblCantidad.setForeground(new java.awt.Color(0, 0, 0));
+        lblCantidad.setText("Cantidad ");
+        jPanel1.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 26));
+
+        txtCantidad.setBackground(new java.awt.Color(255, 255, 255));
+        txtCantidad.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        txtCantidad.setForeground(new java.awt.Color(153, 153, 153));
+        txtCantidad.setText("0");
+        txtCantidad.setBorder(null);
+        txtCantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtCantidadActionPerformed(evt);
             }
         });
+        jPanel1.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 200, 20));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
-        jLabel10.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel10.setMinimumSize(new java.awt.Dimension(252, 2));
+        lblLineaCantidad.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaCantidad.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaCantidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        jPanel1.add(lblLineaCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 200, 3));
 
-        jLabel11.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel11.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel11.setText("Gestion Herramientas");
+        lblCantidadDisponible.setBackground(new java.awt.Color(0, 0, 0));
+        lblCantidadDisponible.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblCantidadDisponible.setForeground(new java.awt.Color(0, 0, 0));
+        lblCantidadDisponible.setText("Cantidad disponible");
+        jPanel1.add(lblCantidadDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, 26));
 
-        btnMenu1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnMenu1.setText("volver");
-        btnMenu1.addActionListener(new java.awt.event.ActionListener() {
+        txtCantidadDisponible.setBackground(new java.awt.Color(255, 255, 255));
+        txtCantidadDisponible.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        txtCantidadDisponible.setForeground(new java.awt.Color(153, 153, 153));
+        txtCantidadDisponible.setText("0");
+        txtCantidadDisponible.setBorder(null);
+        txtCantidadDisponible.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCantidadDisponible.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenu1ActionPerformed(evt);
+                txtCantidadDisponibleActionPerformed(evt);
             }
         });
+        jPanel1.add(txtCantidadDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 200, 20));
 
-        jButton6.setBackground(new java.awt.Color(51, 204, 0));
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton6.setText("Agregar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        lblLineaCantDisponible.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaCantDisponible.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaCantDisponible.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
+        jPanel1.add(lblLineaCantDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 3));
+
+        lblPrecioAlquiler.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblPrecioAlquiler.setForeground(new java.awt.Color(0, 0, 0));
+        lblPrecioAlquiler.setText("Precio del Alquiler");
+        jPanel1.add(lblPrecioAlquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, 27));
+
+        txtPrecioAlquiler.setBackground(new java.awt.Color(255, 255, 255));
+        txtPrecioAlquiler.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        txtPrecioAlquiler.setForeground(new java.awt.Color(153, 153, 153));
+        txtPrecioAlquiler.setText("0");
+        txtPrecioAlquiler.setBorder(null);
+        txtPrecioAlquiler.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtPrecioAlquiler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                txtPrecioAlquilerActionPerformed(evt);
             }
         });
+        jPanel1.add(txtPrecioAlquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 200, 20));
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton7.setText("Modificar");
+        lblLineaPrecioAlquiler.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaPrecioAlquiler.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaPrecioAlquiler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        jPanel1.add(lblLineaPrecioAlquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 200, 3));
 
-        btnLimpiar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnLimpiar1.setText("Limpiar");
-        btnLimpiar1.addActionListener(new java.awt.event.ActionListener() {
+        lblPrecioMantenimiento.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblPrecioMantenimiento.setForeground(new java.awt.Color(0, 0, 0));
+        lblPrecioMantenimiento.setText("Precio del Mantenimiento");
+        jPanel1.add(lblPrecioMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, 24));
+
+        txtPrecioMantenimiento.setBackground(new java.awt.Color(255, 255, 255));
+        txtPrecioMantenimiento.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        txtPrecioMantenimiento.setForeground(new java.awt.Color(153, 153, 153));
+        txtPrecioMantenimiento.setText("0");
+        txtPrecioMantenimiento.setBorder(null);
+        txtPrecioMantenimiento.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtPrecioMantenimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiar1ActionPerformed(evt);
+                txtPrecioMantenimientoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtPrecioMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 200, 20));
 
-        jButton8.setBackground(new java.awt.Color(255, 0, 0));
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton8.setText("Eliminar");
+        lblLineaPrecioMant.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaPrecioMant.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaPrecioMant.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
+        jPanel1.add(lblLineaPrecioMant, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 200, 3));
 
-        jComboBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Radio", "Bicicleta" }));
-        jComboBox.setToolTipText("");
-        jComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxActionPerformed(evt);
+        btnAgregar.setBackground(new java.awt.Color(38, 172, 239));
+        btnAgregar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setText("Agregar");
+        btnAgregar.setBorder(null);
+        btnAgregar.setBorderPainted(false);
+        btnAgregar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseExited(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Seleccione el tipo de Herramienta");
-
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
-        jLabel12.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel12.setMinimumSize(new java.awt.Dimension(252, 2));
-
-        txtModelo.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtModelo.setForeground(new java.awt.Color(153, 153, 153));
-        txtModelo.setText("100");
-        txtModelo.setBorder(null);
-        txtModelo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtModelo.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtModeloActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, -1, -1));
 
-        jLabelNombre1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelNombre1.setText("Cantidad disponible");
-
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
-        jLabel13.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel13.setMinimumSize(new java.awt.Dimension(252, 2));
-
-        txtNombre2.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtNombre2.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombre2.setText("Ingrese la descripcion");
-        txtNombre2.setBorder(null);
-        txtNombre2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtNombre2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombre2ActionPerformed(evt);
+        btnModificar.setBackground(new java.awt.Color(38, 172, 239));
+        btnModificar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.setBorder(null);
+        btnModificar.setBorderPainted(false);
+        btnModificar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnModificarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnModificarMouseExited(evt);
             }
         });
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, -1, -1));
 
-        jLabelDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelDescripcion.setText("Precio del Alquiler");
-
-        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
-        jLabel14.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel14.setMinimumSize(new java.awt.Dimension(252, 2));
-
-        txtMantenimiento.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtMantenimiento.setForeground(new java.awt.Color(153, 153, 153));
-        txtMantenimiento.setText("Ingrese el precio del mantenimiento");
-        txtMantenimiento.setBorder(null);
-        txtMantenimiento.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtMantenimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMantenimientoActionPerformed(evt);
+        btnLimpiar.setBackground(new java.awt.Color(38, 172, 239));
+        btnLimpiar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setBorder(null);
+        btnLimpiar.setBorderPainted(false);
+        btnLimpiar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseExited(evt);
             }
         });
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 480, 98, -1));
 
-        jLabelMantenimiento.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelMantenimiento.setText("Precio del Mantenimiento");
+        btnEliminar.setBackground(new java.awt.Color(38, 172, 239));
+        btnEliminar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorder(null);
+        btnEliminar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseExited(evt);
+            }
+        });
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, -1, -1));
 
-        bicicleta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\bici.png")); // NOI18N
+        jComboBoxTipo.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxTipo.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        jComboBoxTipo.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Radio", "Bicicleta" }));
+        jComboBoxTipo.setToolTipText("");
+        jComboBoxTipo.setBorder(null);
+        jComboBoxTipo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTipoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 200, -1));
 
-        radio.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\dd.jpg")); // NOI18N
+        lblTipoHerramienta.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblTipoHerramienta.setForeground(new java.awt.Color(0, 0, 0));
+        lblTipoHerramienta.setText("Tipo de Herramienta");
+        jPanel1.add(lblTipoHerramienta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnMenu1)
-                                .addGap(136, 136, 136)
-                                .addComponent(jLabel11))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelDescripcion)
-                                    .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelMantenimiento)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelNombre1)
-                                    .addComponent(jLabelNombre)
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMantenimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(214, 214, 214)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(65, 65, 65)
-                                        .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 207, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(jButton6)
-                .addGap(18, 18, 18)
-                .addComponent(jButton7)
-                .addGap(18, 18, 18)
-                .addComponent(btnLimpiar1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(526, Short.MAX_VALUE)
-                    .addComponent(radio)
-                    .addGap(10, 10, 10)))
+        lblBicicleta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/VHerramientas_Bicicletas.png"))); // NOI18N
+        jPanel1.add(lblBicicleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 450, 350));
+
+        lblRadio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/VHerramientas_Radios.png"))); // NOI18N
+        jPanel1.add(lblRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 450, 350));
+
+        btnRestar.setBackground(new java.awt.Color(38, 172, 239));
+        btnRestar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnRestar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRestar.setText("Restar");
+        btnRestar.setBorder(null);
+        btnRestar.setBorderPainted(false);
+        btnRestar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnRestar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnRestarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnRestarMouseExited(evt);
+            }
+        });
+        btnRestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRestar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, -1, -1));
+
+        btnAceptar.setBackground(new java.awt.Color(38, 172, 239));
+        btnAceptar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAceptar.setText("Aceptar");
+        btnAceptar.setBorder(null);
+        btnAceptar.setBorderPainted(false);
+        btnAceptar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAceptarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAceptarMouseExited(evt);
+            }
+        });
+        jPanel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 480, -1, -1));
+
+        Header.setBackground(new java.awt.Color(255, 255, 255));
+        Header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                HeaderMouseDragged(evt);
+            }
+        });
+        Header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                HeaderMousePressed(evt);
+            }
+        });
+        Header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolver.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Iconos/IconVolver.png"))); // NOI18N
+        btnVolver.setBorder(null);
+        btnVolver.setBorderPainted(false);
+        btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVolver.setHideActionText(true);
+        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVolverMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVolverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVolverMouseExited(evt);
+            }
+        });
+        Header.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btnMinimizar.setBackground(new java.awt.Color(255, 255, 255));
+        btnMinimizar.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        btnMinimizar.setText("_");
+        btnMinimizar.setBorder(null);
+        btnMinimizar.setBorderPainted(false);
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.setPreferredSize(new java.awt.Dimension(40, 40));
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseExited(evt);
+            }
+        });
+        Header.add(btnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, -1));
+
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        btnSalir.setText("X");
+        btnSalir.setBorder(null);
+        btnSalir.setBorderPainted(false);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setPreferredSize(new java.awt.Dimension(40, 40));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        Header.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
+
+        jPanel1.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
+
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Login_Logo.png"))); // NOI18N
+        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, 70, 70));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnMenu1)
-                    .addComponent(jLabel11))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabelNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelNombre1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelMantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMantenimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bicicleta, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(62, 62, 62)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLimpiar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(105, 105, 105)
-                    .addComponent(radio, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(109, Short.MAX_VALUE)))
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
+    }//GEN-LAST:event_txtCantidadActionPerformed
 
-    private void btnMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenu1ActionPerformed
-        VMenuPrincipal menu = new VMenuPrincipal();
-        menu.show();
-        dispose();
-    }//GEN-LAST:event_btnMenu1ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar1ActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
-        // txtRif.setText("");
-        txtNombre.setText("");
-        // txtDescripcion.setText("");
-        // txtDireccion.setText("");
-        //txtTelefono.setText("");
-      
-    }//GEN-LAST:event_btnLimpiar1ActionPerformed
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    private void jComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxActionPerformed
+    private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
         // TODO add your handling code here:
-String valor=(String)jComboBox.getSelectedItem();
-        if(valor.equals("Seleccionar")){
-             radio.setVisible(false);
-              radio.setVisible(false);
-            
-    } 
-        if (valor.equals("Bicicleta")){
-         bicicleta.setVisible(true);
-          radio.setVisible(false);
+    }//GEN-LAST:event_jComboBoxTipoActionPerformed
+
+    public JComboBox<String> getCbxTipoHerramienta() {
+        return jComboBoxTipo;
     }
-        if (valor.equals("Radio")){
-         radio.setVisible(true);
-          bicicleta.setVisible(false);
+
+    public void setCbxElegirEstatus(JComboBox<String> cbxElegirEstatus) {
+        this.jComboBoxTipo = cbxElegirEstatus;
     }
-    }//GEN-LAST:event_jComboBoxActionPerformed
 
-    private void txtNombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombre2ActionPerformed
+    private void txtPrecioAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioAlquilerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombre2ActionPerformed
+    }//GEN-LAST:event_txtPrecioAlquilerActionPerformed
 
-    private void txtMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMantenimientoActionPerformed
+    private void txtPrecioMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioMantenimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtMantenimientoActionPerformed
+    }//GEN-LAST:event_txtPrecioMantenimientoActionPerformed
 
-    private void txtModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloActionPerformed
+    private void txtCantidadDisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadDisponibleActionPerformed
         // TODO add your handling code here:
-        txtModelo.enable(false);
-    }//GEN-LAST:event_txtModeloActionPerformed
+
+    }//GEN-LAST:event_txtCantidadDisponibleActionPerformed
+
+    private void btnRestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRestarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
+        // Si se da click al boton volver
+    }//GEN-LAST:event_btnVolverMouseClicked
+
+    private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
+        // Se cambia el color de fondo del boton a cyan
+        btnVolver.setBackground(Color.cyan);
+
+        // Se cambio el color de la letra a blanco del boton
+        btnVolver.setForeground(Color.white);
+    }//GEN-LAST:event_btnVolverMouseEntered
+
+    private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
+        // Se cambia el color de fondo del boton al original
+        btnVolver.setBackground(Color.white);
+
+        // Se cambia el color de la letra del boton a negro
+        btnVolver.setForeground(Color.black);
+    }//GEN-LAST:event_btnVolverMouseExited
+
+    private void btnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseClicked
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_btnMinimizarMouseClicked
+
+    private void btnMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseEntered
+        btnMinimizar.setBackground(Color.GRAY);
+        btnMinimizar.setForeground(Color.white);
+    }//GEN-LAST:event_btnMinimizarMouseEntered
+
+    private void btnMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseExited
+        btnMinimizar.setBackground(Color.white);
+        btnMinimizar.setForeground(Color.black);
+    }//GEN-LAST:event_btnMinimizarMouseExited
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        // Se cierra el sistema
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // Se cambia el color a Rojo
+        btnSalir.setBackground(Color.red);
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(Color.black);
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void HeaderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMouseDragged
+        // Obtenemos la posición del Mouse en la pantalla en el eje X
+        int x = evt.getXOnScreen();
+
+        // Obtenemos la posición del Mouse en la pantalla en el eje Y
+        int y = evt.getYOnScreen();
+
+        // Movemos la pantalla a la posición especificada
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_HeaderMouseDragged
+
+    private void HeaderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_HeaderMousePressed
+
+    // Evento cuando el mouse entra al boton "Agregar"
+    private void btnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseEntered
+        btnAgregar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnAgregarMouseEntered
+
+    // Evento cuando el mouse sale al boton "Agregar"
+    private void btnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseExited
+        btnAgregar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnAgregarMouseExited
+
+    // Evento cuando el mouse entra al boton "Modificar"
+    private void btnModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseEntered
+        btnModificar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnModificarMouseEntered
+
+    // Evento cuando el mouse sale al boton "Modificar"
+    private void btnModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseExited
+        btnModificar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnModificarMouseExited
+
+    // Evento cuando el mouse entra al boton "Aceptar"
+    private void btnAceptarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAceptarMouseEntered
+        btnAceptar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnAceptarMouseEntered
+
+    // Evento cuando el mouse sale al boton "Aceptar"
+    private void btnAceptarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAceptarMouseExited
+        btnAceptar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnAceptarMouseExited
+
+    // Evento cuando el mouse entra al boton "Eliminar"
+    private void btnEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseEntered
+        btnEliminar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnEliminarMouseEntered
+
+    // Evento cuando el mouse sale al boton "Eliminar"
+    private void btnEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseExited
+        btnEliminar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnEliminarMouseExited
+
+    // Evento cuando el mouse entra al boton "Restar"
+    private void btnRestarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRestarMouseEntered
+        btnRestar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnRestarMouseEntered
+
+    // Evento cuando el mouse sale al boton "Restar"
+    private void btnRestarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRestarMouseExited
+        btnRestar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnRestarMouseExited
+
+    // Evento cuando el mouse entra al boton "Limpiar"
+    private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
+        btnLimpiar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnLimpiarMouseEntered
+
+    // Evento cuando el mouse sale al boton "Limpiar"
+    private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
+        btnLimpiar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnLimpiarMouseExited
 
     /**
      * @param args the command line arguments
@@ -369,13 +596,13 @@ String valor=(String)jComboBox.getSelectedItem();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VHerramientas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VGestionVigilante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VHerramientas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VGestionVigilante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VHerramientas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VGestionVigilante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VHerramientas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VGestionVigilante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -388,28 +615,34 @@ String valor=(String)jComboBox.getSelectedItem();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel bicicleta;
-    private javax.swing.JButton btnLimpiar1;
-    private javax.swing.JButton btnMenu1;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabelDescripcion;
-    private javax.swing.JLabel jLabelMantenimiento;
-    private javax.swing.JLabel jLabelNombre;
-    private javax.swing.JLabel jLabelNombre1;
+    public javax.swing.JPanel Header;
+    public javax.swing.JButton btnAceptar;
+    public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnLimpiar;
+    public javax.swing.JButton btnMinimizar;
+    public javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnRestar;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnVolver;
+    public javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel radio;
-    private javax.swing.JTextField txtMantenimiento;
-    private javax.swing.JTextField txtModelo;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombre2;
+    public javax.swing.JLabel lblBicicleta;
+    private javax.swing.JLabel lblCantidad;
+    private javax.swing.JLabel lblCantidadDisponible;
+    private javax.swing.JLabel lblGestionHerramientas;
+    private javax.swing.JLabel lblLineaCantDisponible;
+    private javax.swing.JLabel lblLineaCantidad;
+    private javax.swing.JLabel lblLineaPrecioAlquiler;
+    private javax.swing.JLabel lblLineaPrecioMant;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblPrecioAlquiler;
+    private javax.swing.JLabel lblPrecioMantenimiento;
+    public javax.swing.JLabel lblRadio;
+    private javax.swing.JLabel lblTipoHerramienta;
+    public javax.swing.JTextField txtCantidad;
+    public javax.swing.JTextField txtCantidadDisponible;
+    public javax.swing.JTextField txtPrecioAlquiler;
+    public javax.swing.JTextField txtPrecioMantenimiento;
     // End of variables declaration//GEN-END:variables
 }

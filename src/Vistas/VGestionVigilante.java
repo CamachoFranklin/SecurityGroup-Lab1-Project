@@ -8,17 +8,16 @@
  */
 package Vistas;
 
+import java.awt.Color;
+
 public class VGestionVigilante extends javax.swing.JFrame {
 
+    // Creamos variables para saber en que posición se encuenta el mouse
+    int xMouse, yMouse;
+
     public VGestionVigilante() {
-        // Inicializa todas las variables (o mejor dicho componentes) que usa el JFrame.
+        // Inicializa todos los componentes que usa el JFrame.
         initComponents();
-
-        // Ubica el JFrame en el centro de la pantalla.
-        setLocationRelativeTo(null);
-
-        // Muestra el JFrame.
-        setVisible(true);
     }
 
     /**
@@ -31,92 +30,117 @@ public class VGestionVigilante extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        txtRif = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jLabelCedula = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        btnMenu1 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        lblGestionVigilante = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
+        lblLineaCedula = new javax.swing.JLabel();
+        txtCedula = new javax.swing.JTextField();
+        lblNombre = new javax.swing.JLabel();
+        lblLineaNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabelNombre = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
+        lblLineaApellido = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
-        jLabelApellido = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        txtCorreo = new javax.swing.JTextField();
-        jLabelCorreo = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        txtSueldo = new javax.swing.JTextField();
-        jLabelSueldo = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        txtDireccion = new javax.swing.JTextField();
-        jLabelDireccion = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        txtTelefono = new javax.swing.JTextField();
-        jLabelTelefono = new javax.swing.JLabel();
+        lblFechaNacimiento = new javax.swing.JLabel();
+        lblLineaFechaNac = new javax.swing.JLabel();
         jDateFechaNaci = new com.toedter.calendar.JDateChooser();
-        jButton8 = new javax.swing.JButton();
-        btnLimpiar1 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblCorreo = new javax.swing.JLabel();
+        lblLineaCorreo = new javax.swing.JLabel();
+        txtCorreo = new javax.swing.JTextField();
+        txtSueldo = new javax.swing.JTextField();
+        lblSueldo = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
+        lblLineaDirección = new javax.swing.JLabel();
+        txtDireccion = new javax.swing.JTextField();
+        lblTelefono = new javax.swing.JLabel();
+        lblLineaTelefono = new javax.swing.JLabel();
+        txtTelefono = new javax.swing.JTextField();
+        btnAgregar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        lblVigilante = new javax.swing.JLabel();
+        Header = new javax.swing.JPanel();
+        btnVolver = new javax.swing.JButton();
+        btnMinimizar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        lblLineaSueldo = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(800, 600));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel9.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 159, 203, 3));
-
-        txtRif.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtRif.setForeground(new java.awt.Color(153, 153, 153));
-        txtRif.setText("Ingrese la Cedula");
-        txtRif.setBorder(null);
-        txtRif.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtRif.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRifActionPerformed(evt);
+        btnBuscar.setBackground(new java.awt.Color(38, 172, 239));
+        btnBuscar.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Iconos/IconBuscar.png"))); // NOI18N
+        btnBuscar.setBorder(null);
+        btnBuscar.setBorderPainted(false);
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar.setPreferredSize(new java.awt.Dimension(35, 35));
+        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseExited(evt);
             }
         });
-        jPanel1.add(txtRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 134, 192, 22));
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 123, -1, -1));
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 128, -1, -1));
 
-        jLabelCedula.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
-        jLabelCedula.setText("Cedula");
-        jPanel1.add(jLabelCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 95, -1, -1));
+        lblGestionVigilante.setBackground(new java.awt.Color(255, 255, 255));
+        lblGestionVigilante.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        lblGestionVigilante.setForeground(new java.awt.Color(0, 0, 0));
+        lblGestionVigilante.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblGestionVigilante.setText("Gestion Vigilante");
+        jPanel1.add(lblGestionVigilante, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 760, -1));
 
-        jLabel11.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel11.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel11.setText("Gestion Vigilante");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 6, -1, -1));
+        lblCedula.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(0, 0, 0));
+        lblCedula.setText("Cedula");
+        jPanel1.add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        btnMenu1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnMenu1.setText("volver");
-        btnMenu1.addActionListener(new java.awt.event.ActionListener() {
+        lblLineaCedula.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaCedula.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaCedula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        jPanel1.add(lblLineaCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 200, 3));
+
+        txtCedula.setBackground(null);
+        txtCedula.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        txtCedula.setForeground(new java.awt.Color(153, 153, 153));
+        txtCedula.setText("Ingrese la Cedula");
+        txtCedula.setBorder(null);
+        txtCedula.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenu1ActionPerformed(evt);
+                txtCedulaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 155, 20));
 
-        jLabel10.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel10.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 227, 203, 3));
+        lblNombre.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 0, 0));
+        lblNombre.setText("Nombre");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 24));
 
-        txtNombre.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        lblLineaNombre.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaNombre.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
+        jPanel1.add(lblLineaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, 3));
+
+        txtNombre.setBackground(null);
+        txtNombre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtNombre.setText("Ingrese el nombre");
         txtNombre.setBorder(null);
@@ -126,17 +150,20 @@ public class VGestionVigilante extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 199, 192, 22));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 200, 20));
 
-        jLabelNombre.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelNombre.setText("Nombre");
-        jPanel1.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 168, -1, 25));
+        lblApellido.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(0, 0, 0));
+        lblApellido.setText("Apellido");
+        jPanel1.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
-        jLabel12.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel12.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 292, 203, 3));
+        lblLineaApellido.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaApellido.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaApellido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        jPanel1.add(lblLineaApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 200, 3));
 
-        txtApellido.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtApellido.setBackground(null);
+        txtApellido.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(153, 153, 153));
         txtApellido.setText("Ingrese el apellido");
         txtApellido.setBorder(null);
@@ -146,25 +173,35 @@ public class VGestionVigilante extends javax.swing.JFrame {
                 txtApellidoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 264, 192, 22));
+        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 200, 20));
 
-        jLabelApellido.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelApellido.setText("Apellido");
-        jPanel1.add(jLabelApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 236, -1, -1));
+        lblFechaNacimiento.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblFechaNacimiento.setForeground(new java.awt.Color(0, 0, 0));
+        lblFechaNacimiento.setText("Fecha de nacimiento");
+        jPanel1.add(lblFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
-        jLabel13.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel13.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 364, 203, 3));
+        lblLineaFechaNac.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaFechaNac.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaFechaNac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
+        jPanel1.add(lblLineaFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 373, 200, 3));
 
-        jLabel8.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel8.setText("Fecha de nacimiento");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 301, -1, -1));
+        jDateFechaNaci.setBackground(new java.awt.Color(255, 255, 255));
+        jDateFechaNaci.setDateFormatString("yyyy-MM-dd");
+        jDateFechaNaci.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        jPanel1.add(jDateFechaNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 345, 200, 25));
 
-        jLabel14.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel14.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 429, 203, 3));
+        lblCorreo.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblCorreo.setForeground(new java.awt.Color(0, 0, 0));
+        lblCorreo.setText("Correo");
+        jPanel1.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
 
-        txtCorreo.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        lblLineaCorreo.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaCorreo.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaCorreo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
+        jPanel1.add(lblLineaCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 200, 3));
+
+        txtCorreo.setBackground(null);
+        txtCorreo.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
         txtCorreo.setText("Ingrese el correo");
         txtCorreo.setBorder(null);
@@ -174,19 +211,12 @@ public class VGestionVigilante extends javax.swing.JFrame {
                 txtCorreoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 401, 192, 22));
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 200, 20));
 
-        jLabelCorreo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelCorreo.setText("Correo");
-        jPanel1.add(jLabelCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 373, -1, -1));
-
-        jLabel16.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel16.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 429, 203, 3));
-
-        txtSueldo.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtSueldo.setBackground(null);
+        txtSueldo.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtSueldo.setForeground(new java.awt.Color(153, 153, 153));
-        txtSueldo.setText("Ingrese el sueldo");
+        txtSueldo.setText("0");
         txtSueldo.setBorder(null);
         txtSueldo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtSueldo.addActionListener(new java.awt.event.ActionListener() {
@@ -194,17 +224,25 @@ public class VGestionVigilante extends javax.swing.JFrame {
                 txtSueldoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 401, 192, 22));
+        jPanel1.add(txtSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 347, 200, 20));
 
-        jLabelSueldo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelSueldo.setText("Sueldo");
-        jPanel1.add(jLabelSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 373, -1, -1));
+        lblSueldo.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblSueldo.setForeground(new java.awt.Color(0, 0, 0));
+        lblSueldo.setText("Sueldo");
+        jPanel1.add(lblSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
 
-        jLabel18.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel18.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 292, 203, 3));
+        lblDireccion.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblDireccion.setForeground(new java.awt.Color(0, 0, 0));
+        lblDireccion.setText("Direccion");
+        jPanel1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
-        txtDireccion.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        lblLineaDirección.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaDirección.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaDirección.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
+        jPanel1.add(lblLineaDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 200, 3));
+
+        txtDireccion.setBackground(null);
+        txtDireccion.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
         txtDireccion.setText("Ingrese la direccion");
         txtDireccion.setBorder(null);
@@ -214,17 +252,20 @@ public class VGestionVigilante extends javax.swing.JFrame {
                 txtDireccionActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 264, 192, 22));
+        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 200, 20));
 
-        jLabelDireccion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelDireccion.setText("Direccion");
-        jPanel1.add(jLabelDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 236, -1, -1));
+        lblTelefono.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblTelefono.setForeground(new java.awt.Color(0, 0, 0));
+        lblTelefono.setText("Telefono");
+        jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
 
-        jLabel20.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel20.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 364, 203, 3));
+        lblLineaTelefono.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaTelefono.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaTelefono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        jPanel1.add(lblLineaTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 200, 3));
 
-        txtTelefono.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtTelefono.setBackground(null);
+        txtTelefono.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(153, 153, 153));
         txtTelefono.setText("Ingrese el telefono");
         txtTelefono.setBorder(null);
@@ -234,69 +275,204 @@ public class VGestionVigilante extends javax.swing.JFrame {
                 txtTelefonoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 336, 192, 22));
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 200, 20));
 
-        jLabelTelefono.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelTelefono.setText("Telefono");
-        jPanel1.add(jLabelTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 301, -1, 29));
-        jPanel1.add(jDateFechaNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 329, 203, -1));
-
-        jButton8.setBackground(new java.awt.Color(255, 0, 0));
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton8.setText("Eliminar");
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 508, -1, -1));
-
-        btnLimpiar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnLimpiar1.setText("Limpiar");
-        btnLimpiar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiar1ActionPerformed(evt);
+        btnAgregar.setBackground(new java.awt.Color(38, 172, 239));
+        btnAgregar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setText("Agregar");
+        btnAgregar.setBorder(null);
+        btnAgregar.setBorderPainted(false);
+        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgregar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseExited(evt);
             }
         });
-        jPanel1.add(btnLimpiar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 508, 98, -1));
-
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton7.setText("Modificar");
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 508, -1, -1));
-
-        jButton6.setBackground(new java.awt.Color(51, 204, 0));
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton6.setText("Agregar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 508, -1, -1));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(544, 0, 256, 600));
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 200, -1));
+
+        btnModificar.setBackground(new java.awt.Color(38, 172, 239));
+        btnModificar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.setBorder(null);
+        btnModificar.setBorderPainted(false);
+        btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnModificar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnModificarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnModificarMouseExited(evt);
+            }
+        });
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 200, -1));
+
+        btnLimpiar.setBackground(new java.awt.Color(38, 172, 239));
+        btnLimpiar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setBorder(null);
+        btnLimpiar.setBorderPainted(false);
+        btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimpiar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseExited(evt);
+            }
+        });
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 200, -1));
+
+        btnEliminar.setBackground(new java.awt.Color(38, 172, 239));
+        btnEliminar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorder(null);
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseExited(evt);
+            }
+        });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 200, -1));
+
+        lblVigilante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/VGestionVigilante_Background.png"))); // NOI18N
+        jPanel1.add(lblVigilante, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 290, 560));
+
+        Header.setBackground(new java.awt.Color(255, 255, 255));
+        Header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                HeaderMouseDragged(evt);
+            }
+        });
+        Header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                HeaderMousePressed(evt);
+            }
+        });
+        Header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolver.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Iconos/IconVolver.png"))); // NOI18N
+        btnVolver.setBorder(null);
+        btnVolver.setBorderPainted(false);
+        btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVolver.setHideActionText(true);
+        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVolverMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVolverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVolverMouseExited(evt);
+            }
+        });
+        Header.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btnMinimizar.setBackground(new java.awt.Color(255, 255, 255));
+        btnMinimizar.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        btnMinimizar.setText("_");
+        btnMinimizar.setBorder(null);
+        btnMinimizar.setBorderPainted(false);
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.setPreferredSize(new java.awt.Dimension(40, 40));
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseExited(evt);
+            }
+        });
+        Header.add(btnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, -1));
+
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        btnSalir.setText("X");
+        btnSalir.setBorder(null);
+        btnSalir.setBorderPainted(false);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setPreferredSize(new java.awt.Dimension(40, 40));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        Header.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
+
+        jPanel1.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
+
+        lblLineaSueldo.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaSueldo.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaSueldo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        jPanel1.add(lblLineaSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 373, 200, 3));
+
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Login_Logo.png"))); // NOI18N
+        jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 70, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtRifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRifActionPerformed
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtRifActionPerformed
+    }//GEN-LAST:event_txtCedulaActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void btnMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenu1ActionPerformed
-        VMenuPrincipal menu = new VMenuPrincipal();
-        menu.show();
-        dispose();
-    }//GEN-LAST:event_btnMenu1ActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
@@ -322,19 +498,125 @@ public class VGestionVigilante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
-    private void btnLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar1ActionPerformed
-        // TODO add your handling code here:
-        // txtRif.setText("");
-        txtNombre.setText("");
-        // txtDescripcion.setText("");
-        // txtDireccion.setText("");
-        //txtTelefono.setText("");
-       
-    }//GEN-LAST:event_btnLimpiar1ActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
+        // Si se da click al boton volver
+    }//GEN-LAST:event_btnVolverMouseClicked
+
+    private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
+        // Se cambia el color de fondo del boton a cyan
+        btnVolver.setBackground(Color.cyan);
+
+        // Se cambio el color de la letra a blanco del boton
+        btnVolver.setForeground(Color.white);
+    }//GEN-LAST:event_btnVolverMouseEntered
+
+    private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
+        // Se cambia el color de fondo del boton al original
+        btnVolver.setBackground(Color.white);
+
+        // Se cambia el color de la letra del boton a negro
+        btnVolver.setForeground(Color.black);
+    }//GEN-LAST:event_btnVolverMouseExited
+
+    private void btnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseClicked
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_btnMinimizarMouseClicked
+
+    private void btnMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseEntered
+        btnMinimizar.setBackground(Color.GRAY);
+        btnMinimizar.setForeground(Color.white);
+    }//GEN-LAST:event_btnMinimizarMouseEntered
+
+    private void btnMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseExited
+        btnMinimizar.setBackground(Color.white);
+        btnMinimizar.setForeground(Color.black);
+    }//GEN-LAST:event_btnMinimizarMouseExited
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        // Se cierra el sistema
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // Se cambia el color a Rojo
+        btnSalir.setBackground(Color.red);
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(Color.black);
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void HeaderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMouseDragged
+        // Obtenemos la posición del Mouse en la pantalla en el eje X
+        int x = evt.getXOnScreen();
+
+        // Obtenemos la posición del Mouse en la pantalla en el eje Y
+        int y = evt.getYOnScreen();
+
+        // Movemos la pantalla a la posición especificada
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_HeaderMouseDragged
+
+    private void HeaderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_HeaderMousePressed
+
+    // Evento cuando el mouse entra al boton "Buscar"
+    private void btnBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseEntered
+        btnBuscar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnBuscarMouseEntered
+
+    // Evento cuando el mouse sale al boton "Buscar"
+    private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
+        btnBuscar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnBuscarMouseExited
+
+    private void btnAgregarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseEntered
+        btnAgregar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnAgregarMouseEntered
+
+    private void btnAgregarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseExited
+        btnAgregar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnAgregarMouseExited
+
+    private void btnModificarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseEntered
+        btnModificar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnModificarMouseEntered
+
+    private void btnModificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseExited
+        btnModificar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnModificarMouseExited
+
+    private void btnEliminarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseEntered
+        btnEliminar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnEliminarMouseEntered
+
+    private void btnEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseExited
+        btnEliminar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnEliminarMouseExited
+
+    private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
+        btnLimpiar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnLimpiarMouseEntered
+
+    private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
+        btnLimpiar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnLimpiarMouseExited
 
     /**
      * @param args the command line arguments
@@ -372,38 +654,42 @@ public class VGestionVigilante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLimpiar1;
-    private javax.swing.JButton btnMenu1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private com.toedter.calendar.JDateChooser jDateFechaNaci;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelApellido;
-    private javax.swing.JLabel jLabelCedula;
-    private javax.swing.JLabel jLabelCorreo;
-    private javax.swing.JLabel jLabelDireccion;
-    private javax.swing.JLabel jLabelNombre;
-    private javax.swing.JLabel jLabelSueldo;
-    private javax.swing.JLabel jLabelTelefono;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtRif;
-    private javax.swing.JTextField txtSueldo;
-    private javax.swing.JTextField txtTelefono;
+    public javax.swing.JPanel Header;
+    public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnLimpiar;
+    public javax.swing.JButton btnMinimizar;
+    public javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnVolver;
+    public com.toedter.calendar.JDateChooser jDateFechaNaci;
+    public javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblApellido;
+    private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblDireccion;
+    private javax.swing.JLabel lblFechaNacimiento;
+    private javax.swing.JLabel lblGestionVigilante;
+    private javax.swing.JLabel lblLineaApellido;
+    private javax.swing.JLabel lblLineaCedula;
+    private javax.swing.JLabel lblLineaCorreo;
+    private javax.swing.JLabel lblLineaDirección;
+    private javax.swing.JLabel lblLineaFechaNac;
+    private javax.swing.JLabel lblLineaNombre;
+    private javax.swing.JLabel lblLineaSueldo;
+    private javax.swing.JLabel lblLineaTelefono;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblSueldo;
+    private javax.swing.JLabel lblTelefono;
+    public javax.swing.JLabel lblVigilante;
+    public javax.swing.JTextField txtApellido;
+    public javax.swing.JTextField txtCedula;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtDireccion;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtSueldo;
+    public javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

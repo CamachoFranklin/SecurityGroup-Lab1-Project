@@ -18,12 +18,6 @@ public class VLogin extends javax.swing.JFrame {
     public VLogin() {
         // Inicializa todas las variables (o mejor dicho componentes) que usa el JFrame.
         initComponents();
-
-        // Ubica el JFrame en el centro de la pantalla.
-        setLocationRelativeTo(null);
-
-        // Muestra el JFrame.
-        setVisible(true);
     }
 
     public void addEvents(java.awt.event.ActionListener evt) {
@@ -285,8 +279,11 @@ public class VLogin extends javax.swing.JFrame {
 
     // Cuando el mouse de click en el campo de usuario
     private void txtNombreUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreUsuarioMousePressed
+        // Si el campo tiene el valor por defecto
         if (txtNombreUsuario.getText().equals("Ingrese su nombre de usuario")) {
+            // Se le hace un set a vacío
             txtNombreUsuario.setText("");
+            // Se cambia el color de la letra
             txtNombreUsuario.setForeground(Color.black);
         }
         if (String.valueOf(txtContrasenna.getPassword()).isEmpty()) {

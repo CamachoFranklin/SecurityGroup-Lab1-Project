@@ -16,13 +16,8 @@ public class VMenuPrincipal extends javax.swing.JFrame {
     int xMouse, yMouse;
 
     public VMenuPrincipal() {
+        // Inicializa todas las variables (o mejor dicho componentes) que usa el JFrame.
         initComponents();
-
-        // Ubica el JFrame en el centro de la pantalla.
-        setLocationRelativeTo(null);
-
-        // Muestra el JFrame.
-        setVisible(true);
     }
 
     /**
@@ -265,9 +260,6 @@ public class VMenuPrincipal extends javax.swing.JFrame {
         btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVolver.setHideActionText(true);
         btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVolverMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnVolverMouseEntered(evt);
             }
@@ -285,9 +277,6 @@ public class VMenuPrincipal extends javax.swing.JFrame {
         btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMinimizar.setPreferredSize(new java.awt.Dimension(40, 40));
         btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnMinimizarMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseEntered(evt);
             }
@@ -305,9 +294,6 @@ public class VMenuPrincipal extends javax.swing.JFrame {
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.setPreferredSize(new java.awt.Dimension(40, 40));
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalirMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnSalirMouseEntered(evt);
             }
@@ -337,9 +323,7 @@ public class VMenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-        VGestionCliente cliente = new VGestionCliente();
-        cliente.show();
-        dispose();
+
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnVigilanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVigilanteActionPerformed
@@ -370,10 +354,6 @@ public class VMenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFacturacionActionPerformed
 
-    private void btnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseClicked
-        this.setExtendedState(ICONIFIED);
-    }//GEN-LAST:event_btnMinimizarMouseClicked
-
     private void btnMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseEntered
         btnMinimizar.setBackground(Color.GRAY);
         btnMinimizar.setForeground(Color.white);
@@ -383,11 +363,6 @@ public class VMenuPrincipal extends javax.swing.JFrame {
         btnMinimizar.setBackground(Color.white);
         btnMinimizar.setForeground(Color.black);
     }//GEN-LAST:event_btnMinimizarMouseExited
-
-    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
-        // Se cierra el sistema
-        System.exit(0);
-    }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
         // Se cambia el color a Rojo
@@ -416,13 +391,9 @@ public class VMenuPrincipal extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_HeaderMousePressed
 
-    private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
-        // Si se da click al boton volver
-    }//GEN-LAST:event_btnVolverMouseClicked
-
     private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
-        // Se cambia el color de fondo del boton a gris
-        btnVolver.setBackground(Color.GRAY);
+        // Se cambia el color de fondo del boton a cyan
+        btnVolver.setBackground(Color.cyan);
 
         // Se cambio el color de la letra a blanco del boton
         btnVolver.setForeground(Color.white);

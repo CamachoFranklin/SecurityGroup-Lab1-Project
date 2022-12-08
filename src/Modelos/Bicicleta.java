@@ -10,9 +10,8 @@ package Modelos;
 
 public class Bicicleta extends Herramienta {
 
-    public Bicicleta(int id, String nombre, String modelo,
-            String descripcion, double mantenimiento, char estatus) {
-        super(id, nombre, modelo, descripcion, mantenimiento, estatus);
+    public Bicicleta(int cantidad, String tipoHerramienta, double mantenimiento,
+            double precio, String estado) {
+        super(cantidad, tipoHerramienta, mantenimiento, precio, estado);
     }
-
 }

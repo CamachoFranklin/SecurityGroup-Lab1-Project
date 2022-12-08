@@ -52,13 +52,24 @@ public class ControladorLogin implements ActionListener {
      */
     public void actionPerformed(java.awt.event.ActionEvent evt) {
 
-        // Boton Minimizar aplicación.
+        /*  Boton Minimizar.
+            Minimiza la pantalla
+         */
         if (evt.getSource() == vlogin.btnMinimizar) {
             vlogin.setExtendedState(ICONIFIED);
-        } // Boton Salir de la aplicación.
+        }
+
+        /*  Boton Salir.
+            Cierra la aplicación
+         */
         if (evt.getSource() == vlogin.btnSalir) {
             System.exit(0);
-        } // Botón para ingresar al sistema.
+
+        }
+        /*  Boton Entrar.
+            Ingresa al sistema si las credenciales predeterminadas,
+            son correctas, en caso contrario muestra un mensaje de error.
+         */
         if (evt.getSource() == vlogin.btnEntrar) {
             if (Ingresar() == 1) {
                 vlogin.dispose();

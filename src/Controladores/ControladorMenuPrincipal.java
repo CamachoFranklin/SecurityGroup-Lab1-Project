@@ -10,6 +10,7 @@ package Controladores;
 
 // Se importan las views que se van a utilizar
 import Vistas.*;
+import static java.awt.Frame.ICONIFIED;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,6 +30,8 @@ public class ControladorMenuPrincipal implements ActionListener {
         this.vmp.btnReportes.addActionListener(this);
         this.vmp.btnConsultas.addActionListener(this);
         this.vmp.btnVolver.addActionListener(this);
+        this.vmp.btnSalir.addActionListener(this);
+        this.vmp.btnMinimizar.addActionListener(this);
     }
 
     @Override
@@ -48,8 +51,7 @@ public class ControladorMenuPrincipal implements ActionListener {
         //Botón Gestion Herramientas. Abre la vista gestión de Herramientas.
         if (e.getSource() == vmp.btnHerramientas) {
             vmp.dispose();
-            VHerramientas vh = new VHerramientas();
-            vh.setVisible(true);
+            new ControladorHerramienta();
         }
 
         //Botón Gestion Servicios. Abre la vista gestión de Servicios.
@@ -79,11 +81,28 @@ public class ControladorMenuPrincipal implements ActionListener {
             VConsultas vc = new VConsultas();
             vc.setVisible(true);
         }
-        
-        //Boton Volver. Regresa a Login
-        if (e.getSource() == vmp.btnVolver){
+
+        /*  Boton Volver.
+            Cierra la Vista Menu Principal
+            Regresa al Login
+         */
+        if (e.getSource() == vmp.btnVolver) {
             vmp.dispose();
             new ControladorLogin();
+        }
+
+        /*  Boton Minimizar.
+            Minimiza la vista actual
+         */
+        if (e.getSource() == vmp.btnMinimizar) {
+            vmp.setExtendedState(ICONIFIED);
+        }
+
+        /*  Boton Salir.
+            Cierra el programa
+         */
+        if (e.getSource() == vmp.btnSalir) {
+            System.exit(0);
         }
     }
 }

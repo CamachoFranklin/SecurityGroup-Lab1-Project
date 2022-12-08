@@ -36,10 +36,6 @@ public class Cliente {
        this.estatus = estatus;
     }
 
-    public Cliente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     // Creación de los Metodos Getter y Setter
     public String getRif() {
         return rif;

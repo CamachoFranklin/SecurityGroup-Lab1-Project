@@ -8,51 +8,27 @@
  */
 package Datos;
 
+import Datos.Conexion;
 import Modelos.Vigilante;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import java.util.*;
+import java.util.Calendar;
 
-public class DAOVigilante {
+public class DAOVigilante extends Conexion {
 
-    public Vigilante Agregar(
-            String cedula,
-            String nombre,
-            String apellidos,
-            String direccion,
-            String correo,
-            Date fechaNacimiento,
-            String telefono,
-            double sueldo,
-            char estado) {
-        String sql = "INSERT INTO vigilante (cedula,nombre,apellido,direccion,correo,fechaNacimiento,telefono,sueldo,estado) VALUES('"
-                + cedula + "','"
-                + nombre + "','"
-                + apellidos + "','" //se esta concatenando lo que se esta recibiendo como parametro
-                + direccion + "','"
-                + correo + "','"
-                + fechaNacimiento + "','"
-                + telefono + "','"
-                + sueldo + "','"
-                + estado + "')";
-
-        if (new Conexion().queryInsertar(sql)> 0) {
-
-            return new Vigilante(cedula, nombre, apellidos, direccion, correo, telefono, fechaNacimiento, sueldo, estado);
-
-        }
-        return null;
-
-    }
-
-    public int Modificar(String cedula, String nombre, String apellidos, String direccion, String correo, Date fechaNacimiento, String telefono, double sueldo) {
+    public int Modificar(String cedula, String nombre, String apellidos, String direccion, String correo, String telefono, Date fechaNacimiento, double sueldo) {
         String sql = "UPDATE  vigilante SET nombre = '"
                 + nombre + "',apellido='"
                 + apellidos + "',direccion='"
                 + direccion + "',correo='"
-                + correo + "',fechaNacimiento='"
-                + fechaNacimiento + "',telefono='"
-                + telefono + "',sueldo='"
+                + correo + "',telefono='"
+                + telefono + "',fechanacimiento='"
+                + fechaNacimiento + "',sueldo='"
                 + sueldo + "' WHERE cedula='"
                 + cedula + "'";
         return new Conexion().queryInsertar(sql);
@@ -72,10 +48,9 @@ public class DAOVigilante {
                     (String) registro.get("direccion"),
                     (String) registro.get("correo"),
                     (String) registro.get("telefono"),
-                    (Date) registro.get("fechaNacimiento"),
+                    (Date) registro.get("fechanacimiento"),
                     (double) registro.get("sueldo"),
-                    (char) registro.get("estatus"));
-
+                    (String) registro.get("estado"));
         }
         return vigi;
     }
@@ -86,4 +61,25 @@ public class DAOVigilante {
         return new Conexion().queryInsertar(sql);
 
     }
+
+    public Vigilante Agregar(String cedula, String nombre, String apellidos, String direccion, String correo, String telefono, Date fechaNacimiento, double sueldo, String estatus) {
+        String sql = "INSERT INTO vigilante (cedula,nombre,apellido,direccion,correo,telefono,fechanacimiento,sueldo,estado) VALUES('"
+                + cedula + "','"
+                + nombre + "','"
+                + apellidos + "','" //se esta concatenando lo que se esta recibiendo como parametro
+                + direccion + "','"
+                + correo + "','"
+                + telefono + "','"
+                + fechaNacimiento + "','"
+                + sueldo + "','"
+                + estatus + "')";
+
+        if (new Conexion().queryInsertar(sql) > 0) {
+
+            return new Vigilante(cedula, nombre, apellidos, direccion, correo, telefono, fechaNacimiento, sueldo, estatus);
+
+        }
+        return null;
+    }
+
 }

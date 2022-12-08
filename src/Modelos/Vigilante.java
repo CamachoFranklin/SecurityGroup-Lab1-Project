@@ -8,25 +8,27 @@
  */
 package Modelos;
 
-import java.util.Date; //Para usar el tipo de variable Date es necesario importar
+import java.util.Date;
 
 public class Vigilante {
-    
+
     // Declaración de atributos
     private String cedula,
             nombre,
             apellido,
             direccion,
             correo,
-            telefono;
-    private Date fechaNacimiento;
+            telefono,
+            
+            estado;
     private double sueldo;
-    private char estatus;
+    private Date fechaNacimiento;
     
+
     // Constructor de la clase
     public Vigilante(String cedula, String nombre, String apellido,
             String direccion, String correo, String telefono,
-            Date fechaNacimiento, double sueldo, char estatus) {
+            Date fechaNacimiento, double sueldo, String estado) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -35,13 +37,13 @@ public class Vigilante {
         this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;
         this.sueldo = sueldo;
-        this.estatus = estatus;
+        this.estado = estado;
     }
 
     public Vigilante() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
-    
+
     // Creación de los Metodos Getter y Setter
     public String getCedula() {
         return cedula;
@@ -107,12 +109,12 @@ public class Vigilante {
         this.sueldo = sueldo;
     }
 
-    public char getEstatus() {
-        return estatus;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setEstatus(char estatus) {
-        this.estatus = estatus;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
-    
+
 }
