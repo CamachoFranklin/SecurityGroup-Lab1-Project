@@ -70,7 +70,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -83,7 +82,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         btnBuscar.setBorder(null);
         btnBuscar.setBorderPainted(false);
         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBuscar.setPreferredSize(new java.awt.Dimension(35, 35));
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnBuscarMouseEntered(evt);
@@ -116,7 +114,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaCedula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jPanel1.add(lblLineaCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 200, 3));
 
-        txtCedula.setBackground(null);
         txtCedula.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtCedula.setForeground(new java.awt.Color(153, 153, 153));
         txtCedula.setText("Ingrese la Cedula");
@@ -127,7 +124,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
                 txtCedulaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 155, 20));
+        jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 165, 20));
 
         lblNombre.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(0, 0, 0));
@@ -139,7 +136,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
         jPanel1.add(lblLineaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, 3));
 
-        txtNombre.setBackground(null);
         txtNombre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtNombre.setText("Ingrese el nombre");
@@ -162,7 +158,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaApellido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jPanel1.add(lblLineaApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 200, 3));
 
-        txtApellido.setBackground(null);
         txtApellido.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(153, 153, 153));
         txtApellido.setText("Ingrese el apellido");
@@ -200,7 +195,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaCorreo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
         jPanel1.add(lblLineaCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 200, 3));
 
-        txtCorreo.setBackground(null);
         txtCorreo.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
         txtCorreo.setText("Ingrese el correo");
@@ -213,7 +207,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         });
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 200, 20));
 
-        txtSueldo.setBackground(null);
         txtSueldo.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtSueldo.setForeground(new java.awt.Color(153, 153, 153));
         txtSueldo.setText("0");
@@ -241,7 +234,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaDirección.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
         jPanel1.add(lblLineaDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 200, 3));
 
-        txtDireccion.setBackground(null);
         txtDireccion.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
         txtDireccion.setText("Ingrese la direccion");
@@ -264,7 +256,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaTelefono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jPanel1.add(lblLineaTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 200, 3));
 
-        txtTelefono.setBackground(null);
         txtTelefono.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(153, 153, 153));
         txtTelefono.setText("Ingrese el telefono");

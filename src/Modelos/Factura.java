@@ -14,7 +14,7 @@ import java.util.Date;
 public class Factura {
 
     // Declaración de atributos
-    private int idFactura, idServicio;
+    private String idFactura, idServicio;
     private Date fechaFactura;
     private double montoFactura;
     private String rifCliente;
@@ -23,7 +23,7 @@ public class Factura {
   
 
     // Constructor de la clase
-    public Factura(int idFactura, int idServicio, Date fechaFactura, double montoFactura, String rifCliente,char estatus) {
+    public Factura(String idFactura, String idServicio, Date fechaFactura, double montoFactura, String rifCliente,char estatus) {
         this.idFactura = idFactura;
         this.idServicio = idServicio;
         this.fechaFactura = fechaFactura;
@@ -32,24 +32,20 @@ public class Factura {
         this.estatus=estatus;
     }
 
-    public Factura() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     // Creación de los Metodos Getter y Setter
-    public int getIdFactura() {
+    public String getIdFactura() {
         return idFactura;
     }
 
-    public void setIdFactura(int idFactura) {
+    public void setIdFactura(String idFactura) {
         this.idFactura = idFactura;
     }
 
-    public int getIdServicio() {
+    public String getIdServicio() {
         return idServicio;
     }
 
-    public void setIdServicio(int idServicio) {
+    public void setIdServicio(String idServicio) {
         this.idServicio = idServicio;
     }
 

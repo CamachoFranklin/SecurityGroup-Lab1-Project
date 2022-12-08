@@ -8,15 +8,18 @@
  */
 package Vistas;
 
+import java.awt.Color;
+
 public class VServicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VServicio
-     */
+    // Creamos variables para saber en que posición se encuenta el mouse
+    int xMouse, yMouse;
+
     public VServicio() {
+        // Inicializa todas las variables (o mejor dicho componentes) que usa el JFrame.
         initComponents();
-       jRadioButtonSiServicio.setSelected(true);
-       
+        jRadioButtonSiServicio.setSelected(true);
+
     }
 
     /**
@@ -45,8 +48,8 @@ public class VServicio extends javax.swing.JFrame {
         jLabelNombre4 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jRadioButtonSiServicio = new javax.swing.JRadioButton();
-        jButton6 = new javax.swing.JButton();
-        btnLimpiar1 = new javax.swing.JButton();
+        btnFacturar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
         jLabelCantBicicletas = new javax.swing.JLabel();
         txtCantBicicletas = new javax.swing.JTextField();
         jLabel_cantBici = new javax.swing.JLabel();
@@ -56,20 +59,34 @@ public class VServicio extends javax.swing.JFrame {
         jComboBoxVigilantes = new javax.swing.JComboBox<>();
         jComboBoxMes = new javax.swing.JComboBox<>();
         jLabelRif = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnBuscarR = new javax.swing.JButton();
         txtRif = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabelCosto1 = new javax.swing.JLabel();
-        txtCosto1 = new javax.swing.JTextField();
+        txtmonto = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        jLabelServicio = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        btnBuscarS = new javax.swing.JButton();
+        txtNombreC = new javax.swing.JTextField();
+        btnCalcular = new javax.swing.JButton();
+        Header = new javax.swing.JPanel();
+        btnVolver = new javax.swing.JButton();
+        btnMinimizar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setUndecorated(true);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelDescripcion.setForeground(new java.awt.Color(0, 0, 0));
         jLabelDescripcion.setText("Descripcion");
+        jPanel1.add(jLabelDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 135, -1, -1));
 
         txtDescripcion.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
         txtDescripcion.setForeground(new java.awt.Color(153, 153, 153));
@@ -81,17 +98,20 @@ public class VServicio extends javax.swing.JFrame {
                 txtDescripcionActionPerformed(evt);
             }
         });
+        jPanel1.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 163, 192, 22));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
         jLabel10.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel10.setMinimumSize(new java.awt.Dimension(252, 2));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 191, 203, 3));
 
         jLabelCosto.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelCosto.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCosto.setText("Costo");
+        jPanel1.add(jLabelCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 359, -1, -1));
 
         txtCosto.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
         txtCosto.setForeground(new java.awt.Color(153, 153, 153));
-        txtCosto.setText("Ingrese el costo");
+        txtCosto.setText("Costo");
         txtCosto.setBorder(null);
         txtCosto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtCosto.addActionListener(new java.awt.event.ActionListener() {
@@ -99,28 +119,35 @@ public class VServicio extends javax.swing.JFrame {
                 txtCostoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 402, 192, 22));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
         jLabel11.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel11.setMinimumSize(new java.awt.Dimension(252, 2));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(777, 330, 203, 3));
 
         jLabelFechaInicio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelFechaInicio.setForeground(new java.awt.Color(0, 0, 0));
         jLabelFechaInicio.setText("Fecha de Inicio");
+        jPanel1.add(jLabelFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 191, -1, -1));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
         jLabel12.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel12.setMinimumSize(new java.awt.Dimension(252, 2));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 251, 203, 3));
 
         jLabelNombre3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelNombre3.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre3.setText("Cantidad de vigilantes por turno ");
+        jPanel1.add(jLabelNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 266, -1, 26));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
         jLabel13.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel13.setMinimumSize(new java.awt.Dimension(252, 2));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 330, 203, 3));
 
         jLabel14.setBackground(new java.awt.Color(204, 255, 204));
         jLabel14.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Servicio de Vigilancia");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 361, -1));
 
         ServicioAdicional.add(jRadioButtonNoServicio);
         jRadioButtonNoServicio.setText("No");
@@ -129,13 +156,16 @@ public class VServicio extends javax.swing.JFrame {
                 jRadioButtonNoServicioActionPerformed(evt);
             }
         });
+        jPanel1.add(jRadioButtonNoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 373, -1, -1));
 
         jLabelNombre4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelNombre4.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre4.setText("¿Desea un servicio adicional?");
+        jPanel1.add(jLabelNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 345, -1, -1));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
         jLabel15.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel15.setMinimumSize(new java.awt.Dimension(252, 2));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 407, 203, 4));
 
         ServicioAdicional.add(jRadioButtonSiServicio);
         jRadioButtonSiServicio.setText("Si");
@@ -144,26 +174,31 @@ public class VServicio extends javax.swing.JFrame {
                 jRadioButtonSiServicioActionPerformed(evt);
             }
         });
+        jPanel1.add(jRadioButtonSiServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 373, -1, -1));
 
-        jButton6.setBackground(new java.awt.Color(51, 204, 0));
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton6.setText("Facturar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnFacturar.setBackground(new java.awt.Color(51, 204, 0));
+        btnFacturar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnFacturar.setText("Crear");
+        btnFacturar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnFacturarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnFacturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 500, 113, -1));
 
-        btnLimpiar1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnLimpiar1.setText("Limpiar");
-        btnLimpiar1.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiar1ActionPerformed(evt);
+                btnLimpiarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(543, 500, 98, -1));
 
         jLabelCantBicicletas.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelCantBicicletas.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCantBicicletas.setText("Cantidad de Bicicletas");
+        jPanel1.add(jLabelCantBicicletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 429, 184, -1));
 
         txtCantBicicletas.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
         txtCantBicicletas.setForeground(new java.awt.Color(153, 153, 153));
@@ -175,13 +210,16 @@ public class VServicio extends javax.swing.JFrame {
                 txtCantBicicletasActionPerformed(evt);
             }
         });
+        jPanel1.add(txtCantBicicletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 457, 128, 22));
 
-        jLabel_cantBici.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
         jLabel_cantBici.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel_cantBici.setMinimumSize(new java.awt.Dimension(252, 2));
+        jPanel1.add(jLabel_cantBici, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 485, 128, 3));
 
         jLabelCantRadios.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelCantRadios.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCantRadios.setText("Cantidad de Radios");
+        jPanel1.add(jLabelCantRadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 509, -1, -1));
 
         txtCantRadios.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
         txtCantRadios.setForeground(new java.awt.Color(153, 153, 153));
@@ -193,25 +231,36 @@ public class VServicio extends javax.swing.JFrame {
                 txtCantRadiosActionPerformed(evt);
             }
         });
+        jPanel1.add(txtCantRadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 544, 130, 22));
 
-        jLabel_CantRadios.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
         jLabel_CantRadios.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel_CantRadios.setMinimumSize(new java.awt.Dimension(252, 2));
+        jPanel1.add(jLabel_CantRadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 572, 130, 3));
 
         jComboBoxVigilantes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "1", "2", "3", "4", "5", "6", "7", "8" }));
+        jPanel1.add(jComboBoxVigilantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 298, 203, -1));
 
         jComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-
-        jLabelRif.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelRif.setText("Rif");
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jComboBoxMesActionPerformed(evt);
             }
         });
+        jPanel1.add(jComboBoxMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 219, 203, -1));
+
+        jLabelRif.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelRif.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelRif.setText("Rif");
+        jPanel1.add(jLabelRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 118, 31, -1));
+
+        btnBuscarR.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnBuscarR.setText("Buscar");
+        btnBuscarR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarRActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBuscarR, new org.netbeans.lib.awtextra.AbsoluteConstraints(699, 146, -1, -1));
 
         txtRif.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
         txtRif.setForeground(new java.awt.Color(153, 153, 153));
@@ -223,201 +272,175 @@ public class VServicio extends javax.swing.JFrame {
                 txtRifActionPerformed(evt);
             }
         });
+        jPanel1.add(txtRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 157, 192, 22));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
         jLabel9.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel9.setMinimumSize(new java.awt.Dimension(252, 2));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 182, 203, 3));
 
         jLabelCosto1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelCosto1.setText("Monto");
+        jLabelCosto1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelCosto1.setText("Monto por Vigilante");
+        jPanel1.add(jLabelCosto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 283, -1, -1));
 
-        txtCosto1.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtCosto1.setForeground(new java.awt.Color(153, 153, 153));
-        txtCosto1.setText("Ingrese el costo");
-        txtCosto1.setBorder(null);
-        txtCosto1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtCosto1.addActionListener(new java.awt.event.ActionListener() {
+        txtmonto.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtmonto.setForeground(new java.awt.Color(153, 153, 153));
+        txtmonto.setText("Ingrese monto");
+        txtmonto.setBorder(null);
+        txtmonto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtmonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCosto1ActionPerformed(evt);
+                txtmontoActionPerformed(evt);
             }
         });
+        jPanel1.add(txtmonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 311, 166, 22));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\agua marina.png")); // NOI18N
         jLabel16.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel16.setMinimumSize(new java.awt.Dimension(252, 2));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(777, 407, 203, 3));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("%");
-
-        jButton7.setBackground(new java.awt.Color(255, 204, 153));
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton7.setText("Eliminar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setBackground(new java.awt.Color(255, 204, 153));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 500, 113, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelFechaInicio)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBoxMes, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabelNombre4)
-                            .addComponent(jLabelCantBicicletas, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCantBicicletas, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel_cantBici, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jRadioButtonSiServicio)
-                                .addGap(42, 42, 42)
-                                .addComponent(jRadioButtonNoServicio))
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCantRadios, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel_CantRadios, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelNombre3)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jComboBoxVigilantes, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(71, 71, 71)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtCosto1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel1))
-                                    .addComponent(jLabelCosto1)
-                                    .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelCosto))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelCantRadios)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnLimpiar1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelDescripcion)
-                                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(69, 69, 69)
-                                        .addComponent(jLabelRif, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtRif, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(23, 23, 23)
-                                        .addComponent(jButton3))
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(159, 159, 159))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel14)
-                        .addGap(70, 70, 70)
-                        .addComponent(jLabelDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelRif)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtRif, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton3))
-                                .addGap(1, 1, 1)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelFechaInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelNombre3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBoxVigilantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelCosto)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelNombre4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButtonNoServicio)
-                            .addComponent(jRadioButtonSiServicio))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelCantBicicletas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCantBicicletas, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel_cantBici, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelCantRadios)
-                            .addComponent(btnLimpiar1)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCantRadios, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel_CantRadios, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelCosto1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCosto1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        jLabelServicio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelServicio.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelServicio.setText("Servicio");
+        jPanel1.add(jLabelServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
+        txtCodigo.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtCodigo.setForeground(new java.awt.Color(153, 153, 153));
+        txtCodigo.setText("Codigo del Servicio");
+        txtCodigo.setBorder(null);
+        txtCodigo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 90, 192, 22));
+
+        btnBuscarS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnBuscarS.setText("Buscar");
+        btnBuscarS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarSActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBuscarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 79, -1, -1));
+
+        txtNombreC.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtNombreC.setForeground(new java.awt.Color(153, 153, 153));
+        txtNombreC.setText("Nombre del cliente");
+        txtNombreC.setBorder(null);
+        txtNombreC.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNombreC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreCActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 191, 192, 22));
+
+        btnCalcular.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnCalcular.setText("Calcular Costo");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 399, -1, 22));
+
+        Header.setBackground(new java.awt.Color(255, 255, 255));
+        Header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                HeaderMouseDragged(evt);
+            }
+        });
+        Header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                HeaderMousePressed(evt);
+            }
+        });
+        Header.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolver.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Iconos/IconVolver.png"))); // NOI18N
+        btnVolver.setBorder(null);
+        btnVolver.setBorderPainted(false);
+        btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVolver.setHideActionText(true);
+        btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVolverMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnVolverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnVolverMouseExited(evt);
+            }
+        });
+        Header.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btnMinimizar.setBackground(new java.awt.Color(255, 255, 255));
+        btnMinimizar.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        btnMinimizar.setText("_");
+        btnMinimizar.setBorder(null);
+        btnMinimizar.setBorderPainted(false);
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.setPreferredSize(new java.awt.Dimension(40, 40));
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseExited(evt);
+            }
+        });
+        Header.add(btnMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, -1));
+
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        btnSalir.setText("X");
+        btnSalir.setBorder(null);
+        btnSalir.setBorderPainted(false);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setPreferredSize(new java.awt.Dimension(40, 40));
+        btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSalirMouseExited(evt);
+            }
+        });
+        Header.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
+
+        jPanel1.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -434,12 +457,10 @@ public class VServicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtCantBicicletas.setVisible(false);
         txtCantRadios.setVisible(false);
-       
-        
+
         txtCantBicicletas.setText("");
         txtCantRadios.setText("");
-       
-        
+
         jLabelCantBicicletas.setVisible(false);
         jLabelCantRadios.setVisible(false);
         jLabelCosto.setVisible(false);
@@ -447,21 +468,21 @@ public class VServicio extends javax.swing.JFrame {
         jLabel_cantBici.setVisible(false);
     }//GEN-LAST:event_jRadioButtonNoServicioActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnFacturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnFacturarActionPerformed
 
-    private void btnLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiar1ActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         // TODO add your handling code here:
         // txtRif.setText("");
-       // txtNombre.setText("");
+        // txtNombre.setText("");
         // txtDescripcion.setText("");
         // txtDireccion.setText("");
         //txtTelefono.setText("");
-       // txtNumeroLocal.setText("");
-       
+        // txtNumeroLocal.setText("");
 
-    }//GEN-LAST:event_btnLimpiar1ActionPerformed
+
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void txtCantBicicletasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantBicicletasActionPerformed
         // TODO add your handling code here:
@@ -472,80 +493,138 @@ public class VServicio extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCantRadiosActionPerformed
 
     private void jRadioButtonSiServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSiServicioActionPerformed
- txtCantBicicletas.setVisible(true);
+        txtCantBicicletas.setVisible(true);
         txtCantRadios.setVisible(true);
-               // TODO add your handling code here:
-       
-        
+        // TODO add your handling code here:
         jLabelCantBicicletas.setVisible(true);
         jLabelCantRadios.setVisible(true);
         jLabelCosto.setVisible(true);
-      
+
         jLabel_CantRadios.setVisible(true);
-      
+
         jLabel_cantBici.setVisible(true);
     }//GEN-LAST:event_jRadioButtonSiServicioActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnBuscarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnBuscarRActionPerformed
 
     private void txtRifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRifActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRifActionPerformed
 
-    private void txtCosto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCosto1ActionPerformed
+    private void txtmontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmontoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCosto1ActionPerformed
+    }//GEN-LAST:event_txtmontoActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jComboBoxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxMesActionPerformed
+
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoActionPerformed
+
+    private void btnBuscarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarSActionPerformed
+
+    private void txtNombreCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreCActionPerformed
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void btnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseClicked
+        // Si se da click al boton volver
+    }//GEN-LAST:event_btnVolverMouseClicked
+
+    private void btnVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseEntered
+        // Se cambia el color de fondo del boton a cyan
+        btnVolver.setBackground(Color.cyan);
+
+        // Se cambio el color de la letra a blanco del boton
+        btnVolver.setForeground(Color.white);
+    }//GEN-LAST:event_btnVolverMouseEntered
+
+    private void btnVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVolverMouseExited
+        // Se cambia el color de fondo del boton al original
+        btnVolver.setBackground(Color.white);
+
+        // Se cambia el color de la letra del boton a negro
+        btnVolver.setForeground(Color.black);
+    }//GEN-LAST:event_btnVolverMouseExited
+
+    private void btnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseClicked
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_btnMinimizarMouseClicked
+
+    private void btnMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseEntered
+        btnMinimizar.setBackground(Color.GRAY);
+        btnMinimizar.setForeground(Color.white);
+    }//GEN-LAST:event_btnMinimizarMouseEntered
+
+    private void btnMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseExited
+        btnMinimizar.setBackground(Color.white);
+        btnMinimizar.setForeground(Color.black);
+    }//GEN-LAST:event_btnMinimizarMouseExited
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        // Se cierra el sistema
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseEntered
+        // Se cambia el color a Rojo
+        btnSalir.setBackground(Color.red);
+        btnSalir.setForeground(Color.white);
+    }//GEN-LAST:event_btnSalirMouseEntered
+
+    private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
+        btnSalir.setBackground(Color.white);
+        btnSalir.setForeground(Color.black);
+    }//GEN-LAST:event_btnSalirMouseExited
+
+    private void HeaderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMouseDragged
+        // Obtenemos la posición del Mouse en la pantalla en el eje X
+        int x = evt.getXOnScreen();
+
+        // Obtenemos la posición del Mouse en la pantalla en el eje Y
+        int y = evt.getYOnScreen();
+
+        // Movemos la pantalla a la posición especificada
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_HeaderMouseDragged
+
+    private void HeaderMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeaderMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_HeaderMousePressed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VServicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VServicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VServicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VServicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VServicio().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JPanel Header;
     private javax.swing.ButtonGroup ServicioAdicional;
-    private javax.swing.JButton btnLimpiar1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBoxMes;
-    private javax.swing.JComboBox<String> jComboBoxVigilantes;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JButton btnBuscarR;
+    public javax.swing.JButton btnBuscarS;
+    public javax.swing.JButton btnCalcular;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnFacturar;
+    public javax.swing.JButton btnLimpiar;
+    public javax.swing.JButton btnMinimizar;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnVolver;
+    public javax.swing.JComboBox<String> jComboBoxMes;
+    public javax.swing.JComboBox<String> jComboBoxVigilantes;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -563,16 +642,19 @@ public class VServicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNombre3;
     private javax.swing.JLabel jLabelNombre4;
     private javax.swing.JLabel jLabelRif;
+    private javax.swing.JLabel jLabelServicio;
     private javax.swing.JLabel jLabel_CantRadios;
     private javax.swing.JLabel jLabel_cantBici;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButtonNoServicio;
-    private javax.swing.JRadioButton jRadioButtonSiServicio;
-    private javax.swing.JTextField txtCantBicicletas;
-    private javax.swing.JTextField txtCantRadios;
-    private javax.swing.JTextField txtCosto;
-    private javax.swing.JTextField txtCosto1;
-    private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtRif;
+    public javax.swing.JRadioButton jRadioButtonNoServicio;
+    public javax.swing.JRadioButton jRadioButtonSiServicio;
+    public javax.swing.JTextField txtCantBicicletas;
+    public javax.swing.JTextField txtCantRadios;
+    public javax.swing.JTextField txtCodigo;
+    public javax.swing.JTextField txtCosto;
+    public javax.swing.JTextField txtDescripcion;
+    public javax.swing.JTextField txtNombreC;
+    public javax.swing.JTextField txtRif;
+    public javax.swing.JTextField txtmonto;
     // End of variables declaration//GEN-END:variables
 }

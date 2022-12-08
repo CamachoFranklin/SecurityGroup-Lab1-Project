@@ -20,13 +20,13 @@ import java.util.Map;
 public class DAOFactura {
 
     public Factura Agregar(
-            int idFactura,
-            int idServicio,
+            String idFactura,
+            String idServicio,
             Date fechaFactura,
             double montoFactura,
             String rifCliente,
             char estado) {
-        String sql = "INSERT INTO factura (idFactura,idServicio,fechaFactura,montoFactura,rifCliente,estado) VALUES('"
+        String sql = "INSERT INTO factura (idfactura,idservicio,fechafactura,montofactura,rifcliente,estado) VALUES('"
                 + idFactura + "','"
                 + idServicio + "','"
                 + fechaFactura + "','" //se esta concatenando lo que se esta recibiendo como parametro
@@ -43,39 +43,39 @@ public class DAOFactura {
 
     }
 
-    public int Modificar(int idFactura, int idServicio, Date fechaFactura, double montoFactura, String rifCliente, char estado) {
-        String sql = "UPDATE  factura SET idServicio = '"
-                + idServicio + "',fechaFactura='"
-                + fechaFactura + "',montoFactura='"
-                + montoFactura + "',rifCliente='"
+    public int Modificar(String idFactura, String idServicio, Date fechaFactura, double montoFactura, String rifCliente, char estado) {
+        String sql = "UPDATE  factura SET idservicio = '"
+                + idServicio + "',fechafactura='"
+                + fechaFactura + "',montofactura='"
+                + montoFactura + "',rifcliente='"
                 + rifCliente + "',estado='"
-                + estado + "' WHERE idFactura='"
+                + estado + "' WHERE idfactura='"
                 + idFactura + "'";
         return new Conexion().queryInsertar(sql);
     }
 
     public Factura Buscar(String idServicio) {
-        String sql = "SELECT * FROM  factura WHERE idServicio = '"
+        String sql = "SELECT * FROM  factura WHERE idservicio = '"
                 + idServicio + "'";
 
         List<Map> registros = new Conexion().ejecutar(sql);
         Factura fact = null;
 
         for (Map registro : registros) {
-            fact = new Factura((int) registro.get("idFactura"),
-                    (int) registro.get("idServicio"),
-                    (Date) registro.get("fechaFactura"),
-                    (double) registro.get("montoFactura"),
-                    (String) registro.get("rifCliente"),
+            fact = new Factura((String) registro.get("idfactura"),
+                    (String) registro.get("idservicio"),
+                    (Date) registro.get("fechafactura"),
+                    (double) registro.get("montofactura"),
+                    (String) registro.get("rifcliente"),
                     (char) registro.get("estado"));
 
         }
         return fact;
     }
 
-    public int Eliminar(String cedula) {
-        String sql = "DELETE FROM  factura WHERE cedula = '"
-                + cedula + "'";
+    public int Eliminar(String idfactura) {
+        String sql = "DELETE FROM  factura WHERE idfactura = '"
+                + idfactura + "'";
         return new Conexion().queryInsertar(sql);
 
     }

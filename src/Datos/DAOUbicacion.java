@@ -20,27 +20,27 @@ public class DAOUbicacion {
             int tipoTurno,
             String idServicio,
             Date fecha,
-            char estatus) {
+            String estatus) {
         String sql = "INSERT INTO ubicacion (cedulaVigilante,tipoTurno,idServicio,estatus) VALUES('"
-                 + cedulaVigilante + "','"
+                + cedulaVigilante + "','"
                 + tipoTurno + "','"
                 + idServicio + "','"
                 + estatus + "')";
 
         if (new Conexion().queryInsertar(sql) > 0) {
 
-            return new Ubicacion(cedulaVigilante,tipoTurno,idServicio, estatus);
+            return new Ubicacion(cedulaVigilante, tipoTurno, idServicio, estatus);
 
         }
         return null;
 
     }
 
-    public int Modificar(String cedulaVigilante, int tipoTurno,String idServicio, char estatus) {
+    public int Modificar(String cedulaVigilante, int tipoTurno, String idServicio, String estatus) {
         String sql = "UPDATE  ubicacion SET tipoTurno = '"
-                  + tipoTurno + "',idServicio='"
-                  + idServicio + "',estatus='"
-                  + estatus + "' WHERE cedulaVigilante='"
+                + tipoTurno + "',idServicio='"
+                + idServicio + "',estatus='"
+                + estatus + "' WHERE cedulaVigilante='"
                 + cedulaVigilante + "'";
         return new Conexion().queryInsertar(sql);
     }
@@ -54,15 +54,15 @@ public class DAOUbicacion {
 
         for (Map registro : registros) {
             ubi = new Ubicacion((String) registro.get("cedulaVigilante"),
-                   (int) registro.get("tipoTurno"),
+                    (int) registro.get("tipoTurno"),
                     (String) registro.get("idServicio"),
-                    (char) registro.get("estatus"));
+                    (String) registro.get("estatus"));
 
         }
         return ubi;
     }
 
-    public int Eliminar(String cedulaVigilante){
+    public int Eliminar(String cedulaVigilante) {
         String sql = "DELETE FROM  ubicacion WHERE cedulaVigilante = '"
                 + cedulaVigilante + "'";
         return new Conexion().queryInsertar(sql);

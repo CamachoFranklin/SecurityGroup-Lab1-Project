@@ -15,6 +15,12 @@ public class Ubicacion {
 
     // Declaración de atributos
     private String cedulaVigilante;
+    private int tipoTurno;
+    private String idServicio;
+    private String estatus;
+
+    public Ubicacion() {
+    }
 
     public String getCedulaVigilante() {
         return cedulaVigilante;
@@ -23,9 +29,6 @@ public class Ubicacion {
     public void setCedulaVigilante(String cedulaVigilante) {
         this.cedulaVigilante = cedulaVigilante;
     }
-    private int tipoTurno;
-    private String idServicio;
-        private char estatus;
 
     public String getIdServicio() {
         return idServicio;
@@ -36,9 +39,9 @@ public class Ubicacion {
     }
 
     // Constructor de la clase
-    public Ubicacion(String cedulaVigilante, int tipoTurno,String idServicio, char estatus) {
+    public Ubicacion(String cedulaVigilante, int tipoTurno, String idServicio, String estatus) {
         this.tipoTurno = tipoTurno;
-      
+
         this.estatus = estatus;
     }
 
@@ -51,13 +54,11 @@ public class Ubicacion {
         this.tipoTurno = tipoTurno;
     }
 
-    
-
-    public char getEstatus() {
+    public String getEstatus() {
         return estatus;
     }
 
-    public void setEstatus(char estatus) {
+    public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
 

@@ -11,19 +11,27 @@ package Modelos;
 public class Asistencia {
 
     // Declaración de atributos
-    private  String  cedulaVigilante, mes, anno;
-   private int inasistencia, inasistenciaJus, contadorAsistencia;
-   private char estatus;
+    private  String  cedulaVigilante, mes, anio;
+   private int inasistencia, inasistenciaJus;
+   private String estado;
 
    
 
     // Constructor de la clase
-    public Asistencia(String cedulaVigilante,String mes, String anno,
-        int inasistencia, int inasistenciaJus, int contadorAsistencia,char estatus) {
+    public Asistencia(String cedulaVigilante,String mes, String anio,
+        int inasistencia, int inasistenciaJus, String estado) {
         this.cedulaVigilante = cedulaVigilante;
+        this.mes = mes;
+        this.anio = anio;
         this.inasistencia = inasistencia;
-        this.contadorAsistencia = contadorAsistencia;
+        this.inasistenciaJus = inasistenciaJus;
+        this.estado = estado;
+        
     }
+    
+    public Asistencia() {
+    }
+
 
     public String getMes() {
         return mes;
@@ -33,12 +41,12 @@ public class Asistencia {
         this.mes = mes;
     }
 
-    public String getAnno() {
-        return anno;
+    public String getAnio() {
+        return anio;
     }
 
-    public void setAnno(String anno) {
-        this.anno = anno;
+    public void setAnio(String anio) {
+        this.anio = anio;
     }
 
     public int getInasistencia() {
@@ -59,13 +67,7 @@ public class Asistencia {
     }
 
 
-    public int getContadorAsistencia() {
-        return contadorAsistencia;
-    }
-
-    public void setContadorAsistencia(int contadorAsistencia) {
-        this.contadorAsistencia = contadorAsistencia;
-    }
+    
  public int getInasistenciaJus() {
         return inasistenciaJus;
     }
@@ -75,11 +77,11 @@ public class Asistencia {
     }
   
 
-    public char getEstatus() {
-        return estatus;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setEstatus(char estatus) {
-        this.estatus = estatus;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

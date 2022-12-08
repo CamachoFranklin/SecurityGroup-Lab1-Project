@@ -57,15 +57,13 @@ public class ControladorMenuPrincipal implements ActionListener {
         //Botón Gestion Servicios. Abre la vista gestión de Servicios.
         if (e.getSource() == vmp.btnServicios) {
             vmp.dispose();
-            VServicio vs = new VServicio();
-            vs.setVisible(true);
+            new ControladorServicio();
         }
 
         //Botón Facturación. Abre la vista de Facturación.
         if (e.getSource() == vmp.btnFacturacion) {
             vmp.dispose();
-            VFactura vf = new VFactura();
-            vf.setVisible(true);
+            new ControladorFactura();
         }
 
         //Botón Reporte. Abre la vista de Reporte.
@@ -75,7 +73,7 @@ public class ControladorMenuPrincipal implements ActionListener {
             vn.setVisible(true);
         }
 
-        //Botón Reporte. Abre la vista de Reporte.
+        //Botón Consulta. Abre la vista de Consulta.
         if (e.getSource() == vmp.btnConsultas) {
             vmp.dispose();
             VConsultas vc = new VConsultas();

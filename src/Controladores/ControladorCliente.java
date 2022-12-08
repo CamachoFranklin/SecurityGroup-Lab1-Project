@@ -40,6 +40,11 @@ public class ControladorCliente implements ActionListener {
         // Muestra el JFrame     
         vcliente.setVisible(true);
         vcliente.setLocationRelativeTo(null);
+
+        // Labels de la vista
+        vcliente.lblEdificio.setVisible(false);
+        vcliente.lblUrbanizacion.setVisible(false);
+        vcliente.lblTienda.setVisible(false);
     }
 
     //METODO BUSCAR
@@ -69,10 +74,18 @@ public class ControladorCliente implements ActionListener {
         vcliente.txtDireccion.setText(clie.getDireccion());
         if (clie.getTipoCliente().equals("Edificio")) {
             vcliente.cbxTipoCliente.setSelectedIndex(1);
+            vcliente.lblEdificio.setVisible(true);
         } else if ("Urbanizacion".equals(clie.getTipoCliente())) {
             vcliente.cbxTipoCliente.setSelectedIndex(2);
-        } else {
+            vcliente.lblUrbanizacion.setVisible(true);
+        } else if ("Tienda".equals(clie.getTipoCliente())) {
             vcliente.cbxTipoCliente.setSelectedIndex(3);
+            vcliente.lblTienda.setVisible(true);
+        } else {
+            vcliente.cbxTipoCliente.setSelectedIndex(0);
+            vcliente.lblEdificio.setVisible(false);
+            vcliente.lblUrbanizacion.setVisible(false);
+            vcliente.lblTienda.setVisible(false);
         }
 
         //ACTIVA LOS BOTONES
@@ -120,6 +133,10 @@ public class ControladorCliente implements ActionListener {
         vcliente.btnModificar.setEnabled(false);
         vcliente.btnEliminar.setEnabled(false);
         vcliente.txtRif.setEditable(true);
+        vcliente.lblEdificio.setVisible(false);
+        vcliente.lblUrbanizacion.setVisible(false);
+        vcliente.lblTienda.setVisible(false);
+
     }
 
     public void Eliminar() {

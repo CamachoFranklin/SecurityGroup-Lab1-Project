@@ -8,12 +8,12 @@
  */
 package Vistas;
 
+import java.awt.Color;
+
 public class VAsistencia extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VAsistencia
-     */
     public VAsistencia() {
+        // Inicializa todas las variables (o mejor dicho componentes) que usa el JFrame.
         initComponents();
     }
 
@@ -29,8 +29,8 @@ public class VAsistencia extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtRif = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        txtAnio = new javax.swing.JTextField();
+        btnBuscarMes = new javax.swing.JButton();
         jLabelCedula = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
@@ -40,79 +40,74 @@ public class VAsistencia extends javax.swing.JFrame {
         jLabelApellido = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        txtApellido1 = new javax.swing.JTextField();
+        txtInasistencias = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txtApellido2 = new javax.swing.JTextField();
-        jComboBoxMes = new javax.swing.JComboBox<>();
+        txtInasistenciasJus = new javax.swing.JTextField();
+        txtMes = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
-        jLabelFechaInicio = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        btnMenu1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        txtApellido5 = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        txtApellido6 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        txtApellido7 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        txtApellido8 = new javax.swing.JTextField();
+        btnAgregar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         jLabelFechaInicio1 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jYearChooser1 = new com.toedter.calendar.JYearChooser();
+        txtCedula = new javax.swing.JTextField();
+        btnBuscarCedula = new javax.swing.JButton();
+        btnLimpiarMes = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabelFechaInicio2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setBackground(new java.awt.Color(204, 255, 204));
         jLabel11.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         jLabel11.setText("Gestion Asistencia");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 0, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jLabel9.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel9.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 204, 203, 3));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 203, 3));
 
-        txtRif.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtRif.setForeground(new java.awt.Color(153, 153, 153));
-        txtRif.setText("Ingrese la Cedula");
-        txtRif.setBorder(null);
-        txtRif.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtRif.addActionListener(new java.awt.event.ActionListener() {
+        txtAnio.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtAnio.setForeground(new java.awt.Color(153, 153, 153));
+        txtAnio.setText("2022");
+        txtAnio.setBorder(null);
+        txtAnio.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtAnio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRifActionPerformed(evt);
+                txtAnioActionPerformed(evt);
             }
         });
-        jPanel1.add(txtRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 182, 192, 22));
+        jPanel1.add(txtAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, 90, 20));
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarMes.setBackground(new java.awt.Color(204, 255, 204));
+        btnBuscarMes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnBuscarMes.setText("Buscar");
+        btnBuscarMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnBuscarMesActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 175, -1, -1));
+        jPanel1.add(btnBuscarMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, -1, -1));
 
         jLabelCedula.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabelCedula.setText("Cedula");
-        jPanel1.add(jLabelCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
+        jPanel1.add(jLabelCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jLabel10.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel10.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 203, 3));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 203, 3));
 
         txtNombre.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombre.setText("Ingrese el nombre");
+        txtNombre.setText("Nombre");
         txtNombre.setBorder(null);
         txtNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -120,19 +115,20 @@ public class VAsistencia extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 192, 22));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 192, 22));
 
         jLabelNombre.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelNombre.setText("Nombre");
-        jPanel1.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, 25));
+        jPanel1.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, 25));
 
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jLabel12.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel12.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 203, 3));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 203, 3));
 
         txtApellido.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(153, 153, 153));
-        txtApellido.setText("Ingrese el apellido");
+        txtApellido.setText("Apellido");
         txtApellido.setBorder(null);
         txtApellido.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
@@ -140,205 +136,159 @@ public class VAsistencia extends javax.swing.JFrame {
                 txtApellidoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 192, 22));
+        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 192, 22));
 
         jLabelApellido.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabelApellido.setText("Apellido");
-        jPanel1.add(jLabelApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, 25));
+        jPanel1.add(jLabelApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, 25));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Cantidad de inasistencias");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 200, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 200, -1));
 
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jLabel13.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel13.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, 203, 3));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 203, 3));
 
-        txtApellido1.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtApellido1.setForeground(new java.awt.Color(153, 153, 153));
-        txtApellido1.setText("Ingrese las inasistencia");
-        txtApellido1.setBorder(null);
-        txtApellido1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtApellido1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellido1ActionPerformed(evt);
+        txtInasistencias.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtInasistencias.setForeground(new java.awt.Color(153, 153, 153));
+        txtInasistencias.setText("Ingrese las inasistencias");
+        txtInasistencias.setBorder(null);
+        txtInasistencias.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtInasistencias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtInasistenciasMousePressed(evt);
             }
         });
-        jPanel1.add(txtApellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 192, 22));
+        txtInasistencias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtInasistenciasActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtInasistencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 192, 22));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Cantidad de inasistencias justificadas");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, -1));
 
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jLabel14.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel14.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 203, 3));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 203, 3));
 
-        txtApellido2.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtApellido2.setForeground(new java.awt.Color(153, 153, 153));
-        txtApellido2.setText("Ingrese las inasistencia");
-        txtApellido2.setBorder(null);
-        txtApellido2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtApellido2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellido2ActionPerformed(evt);
+        txtInasistenciasJus.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtInasistenciasJus.setForeground(new java.awt.Color(153, 153, 153));
+        txtInasistenciasJus.setText("Ingrese las inasistencia justificadas");
+        txtInasistenciasJus.setBorder(null);
+        txtInasistenciasJus.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtInasistenciasJus.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtInasistenciasJusMousePressed(evt);
             }
         });
-        jPanel1.add(txtApellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 192, 22));
+        txtInasistenciasJus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtInasistenciasJusActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtInasistenciasJus, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 220, 22));
 
-        jComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-        jPanel1.add(jComboBoxMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 203, -1));
+        txtMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jPanel1.add(txtMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 203, -1));
 
         jLabel15.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel15.setMinimumSize(new java.awt.Dimension(252, 2));
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 203, 3));
 
-        jLabelFechaInicio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelFechaInicio.setText("Ingrese la cantidad de inasistencia por semana");
-        jPanel1.add(jLabelFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Año Laboral");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, -1, -1));
 
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jLabel16.setMaximumSize(new java.awt.Dimension(252, 2));
         jLabel16.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 203, 3));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 203, 10));
 
-        jButton6.setBackground(new java.awt.Color(51, 204, 0));
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton6.setText("Agregar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(51, 204, 0));
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 530, -1, -1));
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 530, -1, -1));
 
-        jButton8.setBackground(new java.awt.Color(255, 0, 0));
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton8.setText("Limpiar");
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 530, -1, -1));
+        btnLimpiar.setBackground(new java.awt.Color(255, 102, 102));
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLimpiar.setText("Limpiar");
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, -1, -1));
 
-        btnMenu1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnMenu1.setText("volver");
-        btnMenu1.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnVolver.setText("volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenu1ActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Semana 1");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, -1, -1));
+        jLabelFechaInicio1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabelFechaInicio1.setText("Limpiar mes y año");
+        jPanel1.add(jLabelFechaInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, 120, 20));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("Semana 2");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, -1, -1));
-
-        jLabel18.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel18.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 100, 4));
-
-        txtApellido5.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtApellido5.setForeground(new java.awt.Color(153, 153, 153));
-        txtApellido5.setText("2002");
-        txtApellido5.setBorder(null);
-        txtApellido5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtApellido5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellido5ActionPerformed(evt);
+        txtCedula.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtCedula.setForeground(new java.awt.Color(153, 153, 153));
+        txtCedula.setText("Ingrese la Cedula");
+        txtCedula.setBorder(null);
+        txtCedula.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCedula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCedulaMousePressed(evt);
             }
         });
-        jPanel1.add(txtApellido5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 350, 100, 22));
-
-        jLabel19.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel19.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 100, 4));
-
-        txtApellido6.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtApellido6.setForeground(new java.awt.Color(153, 153, 153));
-        txtApellido6.setText("2002");
-        txtApellido6.setBorder(null);
-        txtApellido6.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtApellido6.addActionListener(new java.awt.event.ActionListener() {
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellido6ActionPerformed(evt);
+                txtCedulaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtApellido6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 100, 22));
+        jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 192, 22));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Semana 3");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, -1, -1));
-
-        jLabel20.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel20.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 450, 100, 4));
-
-        txtApellido7.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtApellido7.setForeground(new java.awt.Color(153, 153, 153));
-        txtApellido7.setText("2002");
-        txtApellido7.setBorder(null);
-        txtApellido7.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtApellido7.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarCedula.setBackground(new java.awt.Color(153, 204, 255));
+        btnBuscarCedula.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnBuscarCedula.setText("Buscar");
+        btnBuscarCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellido7ActionPerformed(evt);
+                btnBuscarCedulaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtApellido7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 100, 22));
+        jPanel1.add(btnBuscarCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("Semana 4");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, -1, -1));
+        btnLimpiarMes.setBackground(new java.awt.Color(255, 102, 102));
+        btnLimpiarMes.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLimpiarMes.setText(" Limpiar");
+        jPanel1.add(btnLimpiarMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, -1, -1));
 
-        jLabel21.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel21.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, 100, 4));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Login_Logo.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 80, 110));
 
-        txtApellido8.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtApellido8.setForeground(new java.awt.Color(153, 153, 153));
-        txtApellido8.setText("2002");
-        txtApellido8.setBorder(null);
-        txtApellido8.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtApellido8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtApellido8ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtApellido8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 100, 22));
+        jLabelFechaInicio2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelFechaInicio2.setText("Mes Laborado");
+        jPanel1.add(jLabelFechaInicio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
 
-        jLabelFechaInicio1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelFechaInicio1.setText("Mes Laborado");
-        jPanel1.add(jLabelFechaInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
-
-        jLabel17.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel17.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 320, 260, 140));
-        jPanel1.add(jYearChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 60, -1));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtRifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRifActionPerformed
+    private void txtAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtRifActionPerformed
+    }//GEN-LAST:event_txtAnioActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnBuscarMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarMesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnBuscarMesActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
@@ -348,81 +298,68 @@ public class VAsistencia extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoActionPerformed
 
-    private void txtApellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellido1ActionPerformed
+    private void txtInasistenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInasistenciasActionPerformed
 
-    private void txtApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellido2ActionPerformed
+    }//GEN-LAST:event_txtInasistenciasActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void txtInasistenciasJusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInasistenciasJusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_txtInasistenciasJusActionPerformed
 
-    private void btnMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenu1ActionPerformed
-        VMenuPrincipal menu = new VMenuPrincipal();
-        menu.show();
-        dispose();
-    }//GEN-LAST:event_btnMenu1ActionPerformed
-
-    private void txtApellido5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido5ActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellido5ActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void txtApellido6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellido6ActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
 
-    private void txtApellido7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellido7ActionPerformed
+    }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void txtApellido8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellido8ActionPerformed
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellido8ActionPerformed
+    }//GEN-LAST:event_txtCedulaActionPerformed
+
+    private void btnBuscarCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarCedulaActionPerformed
+
+    private void txtCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMousePressed
+        if (txtCedula.getText().equals("Ingrese la Cedula")) {
+            // Se le hace un set a vacío
+            txtCedula.setText("");
+            // Se cambia el color de la letra
+            txtCedula.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtCedulaMousePressed
+
+    private void txtInasistenciasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtInasistenciasMousePressed
+        if (txtInasistencias.getText().equals("Ingrese las inasistencias")) {
+            // Se le hace un set a vacío
+            txtInasistencias.setText("");
+            // Se cambia el color de la letra
+            txtInasistencias.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtInasistenciasMousePressed
+
+    private void txtInasistenciasJusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtInasistenciasJusMousePressed
+        if (txtInasistenciasJus.getText().equals("Ingrese las inasistencia justificadas")) {
+            // Se le hace un set a vacío
+            txtInasistenciasJus.setText("");
+            // Se cambia el color de la letra
+            txtInasistenciasJus.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtInasistenciasJusMousePressed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VAsistencia().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnMenu1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBoxMes;
+    public javax.swing.JButton btnAgregar;
+    public javax.swing.JButton btnBuscarCedula;
+    public javax.swing.JButton btnBuscarMes;
+    public javax.swing.JButton btnLimpiar;
+    public javax.swing.JButton btnLimpiarMes;
+    public javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -431,33 +368,22 @@ public class VAsistencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelApellido;
     private javax.swing.JLabel jLabelCedula;
-    private javax.swing.JLabel jLabelFechaInicio;
     private javax.swing.JLabel jLabelFechaInicio1;
+    private javax.swing.JLabel jLabelFechaInicio2;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JPanel jPanel1;
-    private com.toedter.calendar.JYearChooser jYearChooser1;
-    private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtApellido1;
-    private javax.swing.JTextField txtApellido2;
-    private javax.swing.JTextField txtApellido5;
-    private javax.swing.JTextField txtApellido6;
-    private javax.swing.JTextField txtApellido7;
-    private javax.swing.JTextField txtApellido8;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtRif;
+    public javax.swing.JTextField txtAnio;
+    public javax.swing.JTextField txtApellido;
+    public javax.swing.JTextField txtCedula;
+    public javax.swing.JTextField txtInasistencias;
+    public javax.swing.JTextField txtInasistenciasJus;
+    public javax.swing.JComboBox<String> txtMes;
+    public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

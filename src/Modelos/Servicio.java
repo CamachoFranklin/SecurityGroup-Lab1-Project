@@ -15,49 +15,94 @@ import java.util.Date; //Para usar el tipo de variable Date es necesario importa
 public class Servicio {
 
     // Declaración de atributos
-    private int idServicio,
-            cantidadVigilantes;
-    private double monto, costo;
-
-    
-    
-    private Date fechaInicio;
-    private String descripcion;
-    private char estatus;
+    private String Id, descripcion, rif, estado;
+    private int cantidadvigi, cantidadbici, cantidadradio;
+    private double monto, costo, preciobici, precioradio;
+    private String fechaInicio;
 
     // Constructor de la clase
-    public Servicio(int idServicio, int cantidadVigilantes,double monto, double costo,
-            Date fechaInicio,  String descripcion,
-            char estatus) {
-        this.idServicio = idServicio;
-        this.cantidadVigilantes = cantidadVigilantes;
-        this.costo = costo;
-        this.fechaInicio = fechaInicio;
-       
+    public Servicio(String Id, String descripcion, String fechaInicio, String rif, int cantidadvigi, int cantidadbici, int cantidadradio, double costo, double monto, double preciobici, double precioradio, String estado) {
+        this.Id = Id;
         this.descripcion = descripcion;
-        this.estatus = estatus;
-        this.monto=monto;
+        this.fechaInicio = fechaInicio;
+        this.rif = rif;
+        this.cantidadvigi = cantidadvigi;
+        this.cantidadbici = cantidadbici;
+        this.cantidadradio = cantidadradio;
+        this.costo = costo;
+        this.monto = monto;
+        this.preciobici = preciobici;
+        this.precioradio = precioradio;
+        this.descripcion = descripcion;
+        this.estado = estado;
     }
 
     public Servicio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     // Creación de los Metodos Getter y Setter
-    public int getIdServicio() {
-        return idServicio;
+    public String getId() {
+        return Id;
     }
 
-    public void setIdServicio(int idServicio) {
-        this.idServicio = idServicio;
+    public void setId(String Id) {
+        this.Id = Id;
     }
 
-    public int getCantidadVigilantes() {
-        return cantidadVigilantes;
+    public String getRif() {
+        return rif;
     }
 
-    public void setCantidadVigilantes(int cantidadVigilantes) {
-        this.cantidadVigilantes = cantidadVigilantes;
+    public void setRif(String rif) {
+        this.rif = rif;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public int getCantidadvigi() {
+        return cantidadvigi;
+    }
+
+    public void setCantidadvigi(int cantidadvigi) {
+        this.cantidadvigi = cantidadvigi;
+    }
+
+    public int getCantidadbici() {
+        return cantidadbici;
+    }
+
+    public void setCantidadbici(int cantidadbici) {
+        this.cantidadbici = cantidadbici;
+    }
+
+    public int getCantidadradio() {
+        return cantidadradio;
+    }
+
+    public void setCantidadradio(int cantidadradio) {
+        this.cantidadradio = cantidadradio;
+    }
+
+    public double getPreciobici() {
+        return preciobici;
+    }
+
+    public void setPreciobici(double preciobici) {
+        this.preciobici = preciobici;
+    }
+
+    public double getPrecioradio() {
+        return precioradio;
+    }
+
+    public void setPrecioradio(double precioradio) {
+        this.precioradio = precioradio;
     }
 
     public double getCosto() {
@@ -68,15 +113,13 @@ public class Servicio {
         this.costo = costo;
     }
 
-    public Date getFechaInicio() {
+    public String getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(String fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
-
-    
 
     public String getDescripcion() {
         return descripcion;
@@ -86,13 +129,6 @@ public class Servicio {
         this.descripcion = descripcion;
     }
 
-    public char getEstatus() {
-        return estatus;
-    }
-
-    public void setEstatus(char estatus) {
-        this.estatus = estatus;
-    }
     public double getMonto() {
         return monto;
     }
