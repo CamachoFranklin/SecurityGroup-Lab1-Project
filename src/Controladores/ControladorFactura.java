@@ -14,6 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import Datos.DAOHerramienta;
+import Modelos.Herramienta;
 
 /**
  *
@@ -32,6 +34,7 @@ public class ControladorFactura implements ActionListener {
         this.vfac.btnVolver.addActionListener(this);
         this.vfac.btnMinimizar.addActionListener(this);
         this.vfac.btnSalir.addActionListener(this);
+        this.vfac.btnLimpiar.addActionListener(this);
         vfac.setVisible(true);
         vfac.setLocationRelativeTo(null);
         vfac.txtnumfac.setText(getRandomString(4));
@@ -48,6 +51,7 @@ public class ControladorFactura implements ActionListener {
         vfac.txtnumfac.setEditable(false);
         vfac.txtpreciounitario.setEditable(false);
         vfac.txtRif.setEditable(false);
+        vfac.jDateChooserfecha.setEnabled(false);
     }
 
     //METODO BUSCAR
@@ -74,14 +78,25 @@ public class ControladorFactura implements ActionListener {
         vfac.txtpreciounitario.setText(String.valueOf(serv.getMonto()));
         vfac.txtCantidadRadios.setText(String.valueOf(serv.getCantidadradio()));
         vfac.txtCantidadBicicletas.setText(String.valueOf(serv.getCantidadbici()));
+        vfac.btnbuscar.setEnabled(false);
+        vfac.jDateChooserfecha.setEnabled(true);
+        Herramienta nuevaherra = new DAOHerramienta().Buscar("Bicicleta");
+        double mantebici = nuevaherra.getMantenimiento();
+        Herramienta nuevaherra1 = new DAOHerramienta().Buscar("Radio");
+        double manteradio = nuevaherra1.getMantenimiento();
+        vfac.txtMantenimientoBicicletas.setText(String.valueOf(mantebici));
+        vfac.txtMantenimientoRadio.setText(String.valueOf(manteradio));
 
         Double PrecioServ = serv.getCantidadvigi() * serv.getMonto();
         vfac.txtPrecioServicio.setText(String.valueOf(PrecioServ));
-        Double PrecioAdi = (serv.getPreciobici() * serv.getCantidadbici()) + (serv.getCantidadradio() * serv.getPrecioradio());
+        Double PrecioAdi = (serv.getPreciobici() * serv.getCantidadbici()) + (serv.getCantidadradio() * serv.getPrecioradio() + manteradio  + mantebici );
         vfac.txtPrecioAdicional.setText(String.valueOf(PrecioAdi));
         Double SubTotal = PrecioServ + PrecioAdi;
         vfac.txtSubTotal.setText(String.valueOf(SubTotal));
         vfac.txtTotal.setText(String.valueOf(SubTotal));
+        vfac.txtcodigo.setEditable(false);
+        
+        
 
     }
 
@@ -100,11 +115,13 @@ public class ControladorFactura implements ActionListener {
             JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
             return;
         }
-        Factura fact = new DAOFactura().Agregar(numfactura, idservicio, fecha2, montot, rif, 'A');
+        Factura fact = new DAOFactura().Agregar(numfactura, idservicio, fecha2, montot, rif, "A");
         if (fact == null) {
             JOptionPane.showMessageDialog(null, "No se pudo registrar la factura");
             return;
         }
+        vfac.jDateChooserfecha.setEnabled(false);
+        vfac.btnagregar.setEnabled(false);
         JOptionPane.showMessageDialog(null, "Nueva Factura Registrada");
 
     }
@@ -134,6 +151,27 @@ public class ControladorFactura implements ActionListener {
 
         return builder.toString();
     }
+    
+   public void Limpiar(){
+     vfac.txtRif.setText(""); 
+     vfac.txtcodigo.setEditable(true);
+      vfac.txtCantidadBicicletas.setText(""); 
+        vfac.txtCantidadRadios.setText(""); 
+        vfac.txtCantidadVigilantes.setText(""); 
+        vfac.txtDescripcion.setText(""); 
+        vfac.txtMantenimientoBicicletas.setText(""); 
+        vfac.txtMantenimientoRadio.setText(""); 
+        vfac.txtPrecioAdicional.setText(""); 
+        vfac.txtPrecioServicio.setText(""); 
+        vfac.txtSubTotal.setText(""); 
+        vfac.txtTotal.setText(""); 
+        vfac.txtnumfac.setText(""); 
+        vfac.txtpreciounitario.setText(""); 
+        vfac.txtcodigo.setText(""); 
+       vfac.btnbuscar.setEnabled(true);
+       vfac.jDateChooserfecha.setCalendar(null);
+       vfac.jDateChooserfecha.setEnabled(false);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -142,6 +180,9 @@ public class ControladorFactura implements ActionListener {
         }
         if (e.getSource() == vfac.btnagregar) {
             Registrar();
+        }
+        if (e.getSource() == vfac.btnLimpiar) {
+            Limpiar();
         }
 
         /*  Boton Volver.

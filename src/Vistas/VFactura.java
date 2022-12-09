@@ -84,6 +84,7 @@ public class VFactura extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -95,7 +96,6 @@ public class VFactura extends javax.swing.JFrame {
 
         jLabel14.setBackground(new java.awt.Color(204, 255, 204));
         jLabel14.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Factura");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 50, 140, -1));
 
@@ -104,7 +104,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 530, 10));
 
         jLabelRif.setFont(new java.awt.Font("Roboto", 2, 18)); // NOI18N
-        jLabelRif.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif.setText("Fecha");
         jPanel1.add(jLabelRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 50, 30));
 
@@ -127,17 +126,14 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, -1));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("J-102454174-0");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Security Group");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("securitygroup@gmail.com");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 170, 30));
 
@@ -157,7 +153,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 203, 3));
 
         jLabelRif2.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabelRif2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif2.setText("Nro. Factura#");
         jPanel1.add(jLabelRif2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 100, 20));
 
@@ -178,12 +173,10 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 100, 10));
 
         jLabelRif3.setFont(new java.awt.Font("Roboto", 2, 18)); // NOI18N
-        jLabelRif3.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif3.setText("Codigo");
         jPanel1.add(jLabelRif3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 60, -1));
 
         jLabelRif4.setFont(new java.awt.Font("Roboto", 2, 18)); // NOI18N
-        jLabelRif4.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif4.setText("Descripcion");
         jPanel1.add(jLabelRif4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 120, 20));
 
@@ -199,7 +192,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(txtRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 192, 30));
 
         jLabelRif5.setFont(new java.awt.Font("Roboto", 2, 18)); // NOI18N
-        jLabelRif5.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif5.setText("Rif");
         jPanel1.add(jLabelRif5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 40, 20));
 
@@ -215,7 +207,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(txtCantidadVigilantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 50, 30));
 
         jLabelRif6.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabelRif6.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif6.setText("Cantidad");
         jPanel1.add(jLabelRif6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 70, 20));
 
@@ -231,7 +222,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(txtpreciounitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 300, 100, 30));
 
         jLabelRif7.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabelRif7.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif7.setText("Precio unitario");
         jPanel1.add(jLabelRif7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, 100, 20));
 
@@ -247,7 +237,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(txtPrecioServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 300, 100, 40));
 
         jLabelRif8.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabelRif8.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif8.setText("Precio servicio");
         jPanel1.add(jLabelRif8, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 100, 20));
 
@@ -263,7 +252,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(txtCantidadBicicletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 100, 40));
 
         jLabelRif9.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabelRif9.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif9.setText("Cantidad Bicicletas");
         jPanel1.add(jLabelRif9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 130, 20));
 
@@ -279,7 +267,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(txtPrecioAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 370, 100, 40));
 
         jLabelRif10.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabelRif10.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif10.setText("Precio adicional");
         jPanel1.add(jLabelRif10, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 350, 120, 20));
 
@@ -295,9 +282,8 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(txtCantidadRadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 100, 40));
 
         jLabelRif11.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabelRif11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelRif11.setText("Mantenimiento Radio");
-        jPanel1.add(jLabelRif11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 150, 20));
+        jLabelRif11.setText("Mantenimiento Bicicleta");
+        jPanel1.add(jLabelRif11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 160, 20));
 
         txtSubTotal.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         txtSubTotal.setForeground(new java.awt.Color(153, 153, 153));
@@ -326,7 +312,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 550, 120, 30));
 
         jLabelRif14.setFont(new java.awt.Font("Roboto", 3, 18)); // NOI18N
-        jLabelRif14.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif14.setText("Total");
         jPanel1.add(jLabelRif14, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 520, 100, 20));
 
@@ -335,7 +320,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 800, 8));
 
         jLabelRif16.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabelRif16.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif16.setText("SubTotal");
         jPanel1.add(jLabelRif16, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 440, 100, 20));
 
@@ -359,7 +343,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 560, -1, -1));
 
         jLabelRif12.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabelRif12.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif12.setText("Cantidad Radio");
         jPanel1.add(jLabelRif12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 110, 20));
 
@@ -375,7 +358,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(txtMantenimientoBicicletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 370, 100, 40));
 
         jLabelRif17.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabelRif17.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRif17.setText("Mantenimiento Radio");
         jPanel1.add(jLabelRif17, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 140, 20));
 
@@ -391,7 +373,6 @@ public class VFactura extends javax.swing.JFrame {
         jPanel1.add(txtMantenimientoRadio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 100, 40));
 
         jLabel5.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Security Group");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, -1, -1));
 
@@ -493,6 +474,15 @@ public class VFactura extends javax.swing.JFrame {
         Header.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
 
         jPanel1.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
+
+        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
@@ -629,9 +619,14 @@ public class VFactura extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_HeaderMousePressed
 
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel Header;
+    public javax.swing.JButton btnLimpiar;
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnVolver;

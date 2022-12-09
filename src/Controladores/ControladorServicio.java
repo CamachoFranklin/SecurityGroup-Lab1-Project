@@ -40,6 +40,7 @@ public class ControladorServicio implements ActionListener {
         this.vservicio.btnVolver.addActionListener(this);
         this.vservicio.btnMinimizar.addActionListener(this);
         this.vservicio.btnSalir.addActionListener(this);
+        this.vservicio.btnBuscarS.addActionListener(this);
         
         vservicio.txtCodigo.setEditable(true);
         vservicio.txtCantBicicletas.setEditable(false);
@@ -105,6 +106,7 @@ public class ControladorServicio implements ActionListener {
             }
             return;
         }
+        JOptionPane.showMessageDialog(null, "Ya se ha creado el servicio");
         vservicio.btnEliminar.setEnabled(true);
         vservicio.btnBuscarR.setEnabled(false);
         vservicio.txtCodigo.setEditable(false);
@@ -168,9 +170,12 @@ public class ControladorServicio implements ActionListener {
         double preciobici = nuevaherra.getPrecio();
         Herramienta nuevaherra1 = new DAOHerramienta().Buscar("Radio");
         double precioradio = nuevaherra1.getPrecio();
+        // Se almacena la cantidad de vigilantes en la variable cantv
         int cantv = Integer.parseInt(vservicio.jComboBoxVigilantes.getSelectedItem().toString());
+        int cantradio = Integer.parseInt(vservicio.txtCantRadios.getText());
+        int cantbici = Integer.parseInt(vservicio.txtCantBicicletas.getText());
         double preciovigi = Double.parseDouble(vservicio.txtmonto.getText());
-        double costo = (preciobici + precioradio + cantv * preciovigi);
+        double costo = ((preciobici * cantbici) + (precioradio * cantradio) + (cantv * preciovigi));
         vservicio.txtCosto.setText(String.valueOf(costo));
     }
 
@@ -260,7 +265,7 @@ public class ControladorServicio implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == vservicio.btnBuscarR) {
+        if (e.getSource() == vservicio.btnBuscarS) {
             Buscar();
         }
         if (e.getSource() == vservicio.btnCalcular) {

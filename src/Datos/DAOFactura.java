@@ -25,7 +25,7 @@ public class DAOFactura {
             Date fechaFactura,
             double montoFactura,
             String rifCliente,
-            char estado) {
+            String estado) {
         String sql = "INSERT INTO factura (idfactura,idservicio,fechafactura,montofactura,rifcliente,estado) VALUES('"
                 + idFactura + "','"
                 + idServicio + "','"
@@ -43,7 +43,7 @@ public class DAOFactura {
 
     }
 
-    public int Modificar(String idFactura, String idServicio, Date fechaFactura, double montoFactura, String rifCliente, char estado) {
+    public int Modificar(String idFactura, String idServicio, Date fechaFactura, double montoFactura, String rifCliente, String estado) {
         String sql = "UPDATE  factura SET idservicio = '"
                 + idServicio + "',fechafactura='"
                 + fechaFactura + "',montofactura='"
@@ -67,7 +67,7 @@ public class DAOFactura {
                     (Date) registro.get("fechafactura"),
                     (double) registro.get("montofactura"),
                     (String) registro.get("rifcliente"),
-                    (char) registro.get("estado"));
+                    (String) registro.get("estado"));
 
         }
         return fact;

@@ -99,13 +99,11 @@ public class VGestionVigilante extends javax.swing.JFrame {
 
         lblGestionVigilante.setBackground(new java.awt.Color(255, 255, 255));
         lblGestionVigilante.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        lblGestionVigilante.setForeground(new java.awt.Color(0, 0, 0));
         lblGestionVigilante.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblGestionVigilante.setText("Gestion Vigilante");
         jPanel1.add(lblGestionVigilante, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 760, -1));
 
         lblCedula.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblCedula.setForeground(new java.awt.Color(0, 0, 0));
         lblCedula.setText("Cedula");
         jPanel1.add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
@@ -119,6 +117,11 @@ public class VGestionVigilante extends javax.swing.JFrame {
         txtCedula.setText("Ingrese la Cedula");
         txtCedula.setBorder(null);
         txtCedula.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCedula.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCedulaMousePressed(evt);
+            }
+        });
         txtCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedulaActionPerformed(evt);
@@ -127,7 +130,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 165, 20));
 
         lblNombre.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(0, 0, 0));
         lblNombre.setText("Nombre");
         jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 24));
 
@@ -141,6 +143,11 @@ public class VGestionVigilante extends javax.swing.JFrame {
         txtNombre.setText("Ingrese el nombre");
         txtNombre.setBorder(null);
         txtNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtNombreMousePressed(evt);
+            }
+        });
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
@@ -149,7 +156,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 200, 20));
 
         lblApellido.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblApellido.setForeground(new java.awt.Color(0, 0, 0));
         lblApellido.setText("Apellido");
         jPanel1.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
@@ -163,6 +169,11 @@ public class VGestionVigilante extends javax.swing.JFrame {
         txtApellido.setText("Ingrese el apellido");
         txtApellido.setBorder(null);
         txtApellido.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtApellido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtApellidoMousePressed(evt);
+            }
+        });
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
@@ -171,7 +182,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 200, 20));
 
         lblFechaNacimiento.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblFechaNacimiento.setForeground(new java.awt.Color(0, 0, 0));
         lblFechaNacimiento.setText("Fecha de nacimiento");
         jPanel1.add(lblFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
@@ -186,7 +196,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(jDateFechaNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 345, 200, 25));
 
         lblCorreo.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblCorreo.setForeground(new java.awt.Color(0, 0, 0));
         lblCorreo.setText("Correo");
         jPanel1.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
 
@@ -200,6 +209,11 @@ public class VGestionVigilante extends javax.swing.JFrame {
         txtCorreo.setText("Ingrese el correo");
         txtCorreo.setBorder(null);
         txtCorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCorreoMousePressed(evt);
+            }
+        });
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
@@ -212,6 +226,11 @@ public class VGestionVigilante extends javax.swing.JFrame {
         txtSueldo.setText("0");
         txtSueldo.setBorder(null);
         txtSueldo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtSueldo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtSueldoMousePressed(evt);
+            }
+        });
         txtSueldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSueldoActionPerformed(evt);
@@ -220,12 +239,10 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(txtSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 347, 200, 20));
 
         lblSueldo.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblSueldo.setForeground(new java.awt.Color(0, 0, 0));
         lblSueldo.setText("Sueldo");
         jPanel1.add(lblSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
 
         lblDireccion.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblDireccion.setForeground(new java.awt.Color(0, 0, 0));
         lblDireccion.setText("Direccion");
         jPanel1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
@@ -239,6 +256,11 @@ public class VGestionVigilante extends javax.swing.JFrame {
         txtDireccion.setText("Ingrese la direccion");
         txtDireccion.setBorder(null);
         txtDireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtDireccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtDireccionMousePressed(evt);
+            }
+        });
         txtDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDireccionActionPerformed(evt);
@@ -247,7 +269,6 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 200, 20));
 
         lblTelefono.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblTelefono.setForeground(new java.awt.Color(0, 0, 0));
         lblTelefono.setText("Telefono");
         jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
 
@@ -261,6 +282,11 @@ public class VGestionVigilante extends javax.swing.JFrame {
         txtTelefono.setText("Ingrese el telefono");
         txtTelefono.setBorder(null);
         txtTelefono.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtTelefonoMousePressed(evt);
+            }
+        });
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTelefonoActionPerformed(evt);
@@ -608,6 +634,76 @@ public class VGestionVigilante extends javax.swing.JFrame {
     private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
         btnLimpiar.setBackground(new java.awt.Color(38, 172, 239));
     }//GEN-LAST:event_btnLimpiarMouseExited
+
+    private void txtCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMousePressed
+        // Si el campo tiene el valor por defecto
+        if (txtCedula.getText().equals("Ingrese la Cedula")) {
+            // Se le hace un set a vacío
+            txtCedula.setText("");
+            // Se cambia el color de la letra
+            txtCedula.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtCedulaMousePressed
+
+    private void txtNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMousePressed
+        // Si el campo tiene el valor por defecto
+        if (txtNombre.getText().equals("Ingrese el nombre")) {
+            // Se le hace un set a vacío
+            txtNombre.setText("");
+            // Se cambia el color de la letra
+            txtNombre.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtNombreMousePressed
+
+    private void txtApellidoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtApellidoMousePressed
+        // Si el campo tiene el valor por defecto
+        if (txtApellido.getText().equals("Ingrese el apellido")) {
+            // Se le hace un set a vacío
+            txtApellido.setText("");
+            // Se cambia el color de la letra
+            txtApellido.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtApellidoMousePressed
+
+    private void txtDireccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDireccionMousePressed
+        // Si el campo tiene el valor por defecto
+        if (txtDireccion.getText().equals("Ingrese la direccion")) {
+            // Se le hace un set a vacío
+            txtDireccion.setText("");
+            // Se cambia el color de la letra
+            txtDireccion.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtDireccionMousePressed
+
+    private void txtTelefonoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTelefonoMousePressed
+        // Si el campo tiene el valor por defecto
+        if (txtTelefono.getText().equals("Ingrese el telefono")) {
+            // Se le hace un set a vacío
+            txtTelefono.setText("");
+            // Se cambia el color de la letra
+            txtTelefono.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtTelefonoMousePressed
+
+    private void txtCorreoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCorreoMousePressed
+        // Si el campo tiene el valor por defecto
+        if (txtCorreo.getText().equals("Ingrese el correo")) {
+            // Se le hace un set a vacío
+            txtCorreo.setText("");
+            // Se cambia el color de la letra
+            txtCorreo.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtCorreoMousePressed
+
+    private void txtSueldoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSueldoMousePressed
+        // Si el campo tiene el valor por defecto
+        if (txtSueldo.getText().equals("0")) {
+            // Se le hace un set a vacío
+            txtSueldo.setText("");
+            // Se cambia el color de la letra
+            txtSueldo.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtSueldoMousePressed
 
     /**
      * @param args the command line arguments

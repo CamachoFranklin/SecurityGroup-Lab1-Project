@@ -72,22 +72,24 @@ public class VHerramientas extends javax.swing.JFrame {
 
         lblGestionHerramientas.setBackground(new java.awt.Color(204, 255, 204));
         lblGestionHerramientas.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        lblGestionHerramientas.setForeground(new java.awt.Color(0, 0, 0));
         lblGestionHerramientas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblGestionHerramientas.setText("Gestion Herramientas");
         jPanel1.add(lblGestionHerramientas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, -1));
 
         lblCantidad.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblCantidad.setForeground(new java.awt.Color(0, 0, 0));
         lblCantidad.setText("Cantidad ");
         jPanel1.add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 26));
 
-        txtCantidad.setBackground(new java.awt.Color(255, 255, 255));
         txtCantidad.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtCantidad.setForeground(new java.awt.Color(153, 153, 153));
         txtCantidad.setText("0");
         txtCantidad.setBorder(null);
         txtCantidad.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCantidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtCantidadMousePressed(evt);
+            }
+        });
         txtCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCantidadActionPerformed(evt);
@@ -102,11 +104,9 @@ public class VHerramientas extends javax.swing.JFrame {
 
         lblCantidadDisponible.setBackground(new java.awt.Color(0, 0, 0));
         lblCantidadDisponible.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblCantidadDisponible.setForeground(new java.awt.Color(0, 0, 0));
         lblCantidadDisponible.setText("Cantidad disponible");
         jPanel1.add(lblCantidadDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, 26));
 
-        txtCantidadDisponible.setBackground(new java.awt.Color(255, 255, 255));
         txtCantidadDisponible.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtCantidadDisponible.setForeground(new java.awt.Color(153, 153, 153));
         txtCantidadDisponible.setText("0");
@@ -125,11 +125,9 @@ public class VHerramientas extends javax.swing.JFrame {
         jPanel1.add(lblLineaCantDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 3));
 
         lblPrecioAlquiler.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblPrecioAlquiler.setForeground(new java.awt.Color(0, 0, 0));
         lblPrecioAlquiler.setText("Precio del Alquiler");
         jPanel1.add(lblPrecioAlquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, 27));
 
-        txtPrecioAlquiler.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecioAlquiler.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtPrecioAlquiler.setForeground(new java.awt.Color(153, 153, 153));
         txtPrecioAlquiler.setText("0");
@@ -148,11 +146,9 @@ public class VHerramientas extends javax.swing.JFrame {
         jPanel1.add(lblLineaPrecioAlquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 200, 3));
 
         lblPrecioMantenimiento.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblPrecioMantenimiento.setForeground(new java.awt.Color(0, 0, 0));
         lblPrecioMantenimiento.setText("Precio del Mantenimiento");
         jPanel1.add(lblPrecioMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, 24));
 
-        txtPrecioMantenimiento.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecioMantenimiento.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtPrecioMantenimiento.setForeground(new java.awt.Color(153, 153, 153));
         txtPrecioMantenimiento.setText("0");
@@ -252,9 +248,7 @@ public class VHerramientas extends javax.swing.JFrame {
         });
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, -1, -1));
 
-        jComboBoxTipo.setBackground(new java.awt.Color(255, 255, 255));
         jComboBoxTipo.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        jComboBoxTipo.setForeground(new java.awt.Color(0, 0, 0));
         jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Radio", "Bicicleta" }));
         jComboBoxTipo.setToolTipText("");
         jComboBoxTipo.setBorder(null);
@@ -267,7 +261,6 @@ public class VHerramientas extends javax.swing.JFrame {
         jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 200, -1));
 
         lblTipoHerramienta.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblTipoHerramienta.setForeground(new java.awt.Color(0, 0, 0));
         lblTipoHerramienta.setText("Tipo de Herramienta");
         jPanel1.add(lblTipoHerramienta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
@@ -578,6 +571,16 @@ public class VHerramientas extends javax.swing.JFrame {
     private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
         btnLimpiar.setBackground(new java.awt.Color(38, 172, 239));
     }//GEN-LAST:event_btnLimpiarMouseExited
+
+    private void txtCantidadMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCantidadMousePressed
+        // Si el campo tiene el valor por defecto
+        if (txtCantidad.getText().equals("0")) {
+            // Se le hace un set a vacío
+            txtCantidad.setText("");
+            // Se cambia el color de la letra
+            txtCantidad.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtCantidadMousePressed
 
     /**
      * @param args the command line arguments

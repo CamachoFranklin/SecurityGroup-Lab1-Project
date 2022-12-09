@@ -227,7 +227,7 @@ public class ControladorHerramienta implements ActionListener {
             vherra.btnRestar.setEnabled(false);
             vherra.btnAgregar.setEnabled(false);
             vherra.btnEliminar.setEnabled(false);
-
+            vherra.btnModificar.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Se ha habilitado la opcion de modificar ambos precios");
         }
         // Boton Aceptar. Se usa para aceptar la modificación realizada
@@ -263,6 +263,7 @@ public class ControladorHerramienta implements ActionListener {
             vherra.btnAceptar.setEnabled(false);
             vherra.btnModificar.setEnabled(false);
             vherra.btnAgregar.setEnabled(false);
+            vherra.btnEliminar.setEnabled(false);
             JOptionPane.showMessageDialog(null, "En la casilla de cantidad, coloque la cantidad a eliminar");
         }
 

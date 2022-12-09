@@ -18,12 +18,12 @@ public class Factura {
     private Date fechaFactura;
     private double montoFactura;
     private String rifCliente;
-    private char estatus;
+    private String estatus;
 
   
 
     // Constructor de la clase
-    public Factura(String idFactura, String idServicio, Date fechaFactura, double montoFactura, String rifCliente,char estatus) {
+    public Factura(String idFactura, String idServicio, Date fechaFactura, double montoFactura, String rifCliente,String estatus) {
         this.idFactura = idFactura;
         this.idServicio = idServicio;
         this.fechaFactura = fechaFactura;
@@ -72,11 +72,11 @@ public class Factura {
     public void setRifCliente(String rifCliente) {
         this.rifCliente = rifCliente;
     }
-  public char getEstatus() {
+  public String getEstatus() {
         return estatus;
     }
 
-    public void setEstatus(char estatus) {
+    public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
 }

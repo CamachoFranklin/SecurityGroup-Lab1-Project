@@ -73,7 +73,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cbxTipoCliente.setBackground(new java.awt.Color(255, 255, 255));
         cbxTipoCliente.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         cbxTipoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Edificio", "Urbanizacion", "Tienda" }));
         cbxTipoCliente.setToolTipText("");
@@ -86,7 +85,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         jPanel1.add(cbxTipoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 200, 25));
 
         lblRif.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblRif.setForeground(new java.awt.Color(0, 0, 0));
         lblRif.setText("Rif");
         jPanel1.add(lblRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 31, -1));
 
@@ -95,7 +93,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         lblLineaRif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jPanel1.add(lblLineaRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 200, 3));
 
-        txtRif.setBackground(new java.awt.Color(255, 255, 255));
         txtRif.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtRif.setForeground(new java.awt.Color(153, 153, 153));
         txtRif.setText("Ingrese el Rif");
@@ -114,7 +111,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         jPanel1.add(txtRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 155, 20));
 
         lblNombre.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(0, 0, 0));
         lblNombre.setText("Nombre");
         jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 21));
 
@@ -123,7 +119,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         lblLineaNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
         jPanel1.add(lblLineaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, 3));
 
-        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtNombre.setText("Ingrese el nombre");
@@ -142,7 +137,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 200, 20));
 
         lblDescripcion.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblDescripcion.setForeground(new java.awt.Color(0, 0, 0));
         lblDescripcion.setText("Descripcion");
         jPanel1.add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
@@ -151,7 +145,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         lblLineaDescripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jPanel1.add(lblLineaDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 200, 3));
 
-        txtDescripcion.setBackground(new java.awt.Color(255, 255, 255));
         txtDescripcion.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtDescripcion.setForeground(new java.awt.Color(153, 153, 153));
         txtDescripcion.setText("Ingrese la descripcion");
@@ -170,7 +163,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         jPanel1.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 200, 20));
 
         lblTelefono.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblTelefono.setForeground(new java.awt.Color(0, 0, 0));
         lblTelefono.setText("Telefono");
         jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, 20));
 
@@ -179,7 +171,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         lblLineaTelefono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
         jPanel1.add(lblLineaTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 200, 3));
 
-        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefono.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(153, 153, 153));
         txtTelefono.setText("Ingrese el telefono");
@@ -198,7 +189,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 200, 20));
 
         lblDireccion.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblDireccion.setForeground(new java.awt.Color(0, 0, 0));
         lblDireccion.setText("Direccion");
         jPanel1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
 
@@ -207,7 +197,6 @@ public class VGestionCliente extends javax.swing.JFrame {
         lblLineaDireccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jPanel1.add(lblLineaDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 200, 3));
 
-        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
         txtDireccion.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
         txtDireccion.setText("Ingrese la direccion");
@@ -326,13 +315,11 @@ public class VGestionCliente extends javax.swing.JFrame {
         jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 128, -1, -1));
 
         lblTipoCliente.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        lblTipoCliente.setForeground(new java.awt.Color(0, 0, 0));
         lblTipoCliente.setText("Tipo de cliente");
         jPanel1.add(lblTipoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
         lblGestionCliente.setBackground(new java.awt.Color(255, 255, 255));
         lblGestionCliente.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        lblGestionCliente.setForeground(new java.awt.Color(0, 0, 0));
         lblGestionCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblGestionCliente.setText("Gestion Cliente");
         jPanel1.add(lblGestionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 760, -1));
