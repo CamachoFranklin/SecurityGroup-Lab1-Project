@@ -14,7 +14,7 @@
 
 ## IDE:
 
-* [NetBeans 8.2 IDE](https://netbeans.org/downloads/8.2/rc/) - El IDE utilizado para realizar esta aplicaciónn.
+* [NetBeans 8.2 IDE](https://netbeans.org/downloads/8.2/rc/) - El IDE utilizado para realizar esta aplicación.
 
 ## Base de Datos PostgreSQL:
 
@@ -23,7 +23,7 @@
 ## Autores:
 
 * *Franklin Camacho.* [@CamachoFranklin](https://github.com/CamachoFranklin)
-* *Andres Jiménez.* [@XxAndres19xX](https://github.com/XxAndres19xX)
+* *Andres Jiménez.* [@Antrexes](https://github.com/Antrexes)
 * *Jesús Leal.* [@Alex1leal](https://github.com/Alex1leal)
 * *Elias Escalona.* 
 * *Jesús Lopez.*
