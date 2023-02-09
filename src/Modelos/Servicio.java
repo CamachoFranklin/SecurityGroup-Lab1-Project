@@ -10,7 +10,6 @@ package Modelos;
 
 import com.toedter.calendar.JDateChooser;
 import java.util.Calendar;
-import java.util.Date; //Para usar el tipo de variable Date es necesario importar
 
 public class Servicio {
 

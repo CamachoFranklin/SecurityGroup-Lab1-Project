@@ -1,0 +1,18 @@
+-- Table: public.asistencia
+
+-- DROP TABLE IF EXISTS public.asistencia;
+
+CREATE TABLE IF NOT EXISTS public.asistencia
+(
+    cedulavigilante character varying(40) COLLATE pg_catalog."default" NOT NULL,
+    mes character varying(15) COLLATE pg_catalog."default" NOT NULL,
+    anio character varying(6) COLLATE pg_catalog."default" NOT NULL,
+    inasistencia integer NOT NULL,
+    inasistenciajus integer NOT NULL,
+    estado character varying(1) COLLATE pg_catalog."default" NOT NULL
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.asistencia
+    OWNER to postgres;

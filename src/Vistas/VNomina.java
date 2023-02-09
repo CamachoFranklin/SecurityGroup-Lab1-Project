@@ -28,7 +28,12 @@ public class VNomina extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
         btnMenu1 = new javax.swing.JButton();
+        txtMes = new javax.swing.JComboBox<>();
+        jLabelFechaInicio2 = new javax.swing.JLabel();
+        txtAnio = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -42,6 +47,28 @@ public class VNomina extends javax.swing.JFrame {
         jLabel11.setText("Gestion Nómina");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 0, -1, -1));
 
+        btnBuscar.setBackground(new java.awt.Color(38, 172, 239));
+        btnBuscar.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Iconos/IconBuscar.png"))); // NOI18N
+        btnBuscar.setBorder(null);
+        btnBuscar.setBorderPainted(false);
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarMouseExited(evt);
+            }
+        });
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, -1, -1));
+
         btnMenu1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnMenu1.setText("volver");
         btnMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +78,29 @@ public class VNomina extends javax.swing.JFrame {
         });
         jPanel1.add(btnMenu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        txtMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jPanel1.add(txtMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 203, -1));
+
+        jLabelFechaInicio2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jLabelFechaInicio2.setText("Mes Laborado");
+        jPanel1.add(jLabelFechaInicio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+
+        txtAnio.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtAnio.setForeground(new java.awt.Color(153, 153, 153));
+        txtAnio.setText("2022");
+        txtAnio.setBorder(null);
+        txtAnio.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtAnio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAnioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtAnio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 90, 20));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Año Laboral");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -59,12 +109,12 @@ public class VNomina extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Semana 1", "Semana 2", "Semana 3", "Semana 4", "Mes"
+                "RIF", "Semana 1", "Semana 2", "Semana 3", "Semana 4", "Mensual"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 800, 490));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 790, 400));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
@@ -76,6 +126,22 @@ public class VNomina extends javax.swing.JFrame {
         menu.show();
         dispose();
     }//GEN-LAST:event_btnMenu1ActionPerformed
+
+    private void txtAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnioActionPerformed
+
+    private void btnBuscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseEntered
+        btnBuscar.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnBuscarMouseEntered
+
+    private void btnBuscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseExited
+        btnBuscar.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnBuscarMouseExited
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,10 +179,15 @@ public class VNomina extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnMenu1;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelFechaInicio2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    public javax.swing.JTextField txtAnio;
+    public javax.swing.JComboBox<String> txtMes;
     // End of variables declaration//GEN-END:variables
 }

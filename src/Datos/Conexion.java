@@ -18,14 +18,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author lorena
- */
 public class Conexion {
 
     //atributos privados final ; los describen como constantes y no pueden cambiar su valor , durante la ejecucion de la ´plicacion 
@@ -34,10 +28,12 @@ public class Conexion {
     private final String USUARIO = "postgres";
     private final String CONTRASENNA = "1234";
     private final String DRIVER = "org.postgresql.Driver";
+
+    public static Conexion instance; //SINGLENTON
     private Connection conectar;
 
     //creamos el constructor, y se abrira la coneccion. cunado se cree el objeto nuestra clase va a ejecutar la coneccion con la base de datos
-    public Conexion() {
+    private Conexion() {
 
         try {
             Class.forName(DRIVER);
@@ -51,11 +47,22 @@ public class Conexion {
         }
 
     }
+
+    public static Conexion saberEstado() {
+        if (instance == null) {
+            instance = new Conexion();
+        }
+        return instance;
+    }
+
+    public Connection getConectar() {
+        return conectar;
+    }
+
     //se crea un metodo publico que va a devolver un entero y ejecutara consultas que no devuelven datos , recibe por parametro un String        
     //  Sera un metodo que ejecute cualquier consulta de cualquier tabla que no requiera que devuelva datos como DELETE,UPDATE,INSERT     
-    // el Statement sirve para proocesar una sentencia SQL estatica y obtener los resultados obtenida por ella 
-
-    public int queryInsertar(String consulta) {
+    // el Statement sirve para procesar una sentencia SQL estatica y obtener los resultados obtenida por ella 
+    public int actualizar(String consulta) {
         //recibe una consulta crea el Statement atraves de la coneccion que se establece cuando se crea el objeto y ejecuta la consulta 
 
         try {
@@ -63,6 +70,8 @@ public class Conexion {
             return st.executeUpdate(consulta);
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error en la consulta" + e.getMessage());
+        } finally {
+            cerrarConeccion();
         }
         return 0; //si hay un error muestra el mensaje y retorna 0 es decir que se modifico nada
     }
@@ -82,10 +91,10 @@ public class Conexion {
             resultado = datosAcomodados(rs); // si no hay registros para mostrar retorna la lista vacia, delo contrario se acomodan los registros 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error en la consulta" + e.getMessage());
+        } finally {
+            cerrarConeccion();
         }
-
         return resultado;
-
     }
 
     private List datosAcomodados(ResultSet rs) {
@@ -110,10 +119,12 @@ public class Conexion {
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ocurrio un error " + e.getMessage());
+        } finally {
+            cerrarConeccion();
         }
         return renglones;
     }
-    //metdo que nos permita invocar un procedimiento almacenado  
+    //metodo que nos permita invocar un procedimiento almacenado  
 
     public boolean EjecutarProcedimiento(String nombreProcedimiento) {
         try {
@@ -121,6 +132,8 @@ public class Conexion {
             return cs.execute();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ocurrio un error " + e.getMessage());
+        } finally {
+            cerrarConeccion();
         }
         return false;
     }
@@ -135,19 +148,33 @@ public class Conexion {
             resultado = datosAcomodados(rs);
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            cerrarConeccion();
         }
         return resultado;
+    }
 
+    public int cant(String consulta) {
+        ResultSet rs = null;
+        int resultado = 0;
+
+        try {
+            Statement st = conectar.createStatement();
+            rs = st.executeQuery(consulta);
+            if (rs.next()) {
+                resultado = rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            cerrarConeccion();
+        }
+        return resultado;
     }
 
     public void cerrarConeccion() {
-        try {
-            conectar.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+        instance = null;
     }
-
 }
-//<> {}
-

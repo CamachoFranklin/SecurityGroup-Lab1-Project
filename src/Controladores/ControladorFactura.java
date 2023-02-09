@@ -1,6 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+*Autores:
+*Franklin Camacho C.I:26.796.912
+*Andres Jiménez C.I: 27.212.052
+*Jesús Leal C.I:26.561.030
+*Elias Escalona C.I 26.568.921
+*Jesús Lopez C.I 27.479.039: 
  */
 package Controladores;
 
@@ -16,11 +20,9 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import Datos.DAOHerramienta;
 import Modelos.Herramienta;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author jemal
- */
 public class ControladorFactura implements ActionListener {
 
     private final Servicio servi;
@@ -30,7 +32,7 @@ public class ControladorFactura implements ActionListener {
         vfac = new VFactura();
         servi = new Servicio();
         this.vfac.btnbuscar.addActionListener(this);
-        this.vfac.btnagregar.addActionListener(this);
+        this.vfac.btnAgregar.addActionListener(this);
         this.vfac.btnVolver.addActionListener(this);
         this.vfac.btnMinimizar.addActionListener(this);
         this.vfac.btnSalir.addActionListener(this);
@@ -89,15 +91,14 @@ public class ControladorFactura implements ActionListener {
 
         Double PrecioServ = serv.getCantidadvigi() * serv.getMonto();
         vfac.txtPrecioServicio.setText(String.valueOf(PrecioServ));
-        Double PrecioAdi = (serv.getPreciobici() * serv.getCantidadbici()) + (serv.getCantidadradio() * serv.getPrecioradio() + manteradio  + mantebici );
+
+        Double PrecioAdi = (serv.getPreciobici() * serv.getCantidadbici()) + (serv.getCantidadradio() * serv.getPrecioradio() + manteradio + mantebici);
+
         vfac.txtPrecioAdicional.setText(String.valueOf(PrecioAdi));
         Double SubTotal = PrecioServ + PrecioAdi;
         vfac.txtSubTotal.setText(String.valueOf(SubTotal));
         vfac.txtTotal.setText(String.valueOf(SubTotal));
         vfac.txtcodigo.setEditable(false);
-        
-        
-
     }
 
     public void Registrar() {
@@ -121,9 +122,8 @@ public class ControladorFactura implements ActionListener {
             return;
         }
         vfac.jDateChooserfecha.setEnabled(false);
-        vfac.btnagregar.setEnabled(false);
+        vfac.btnAgregar.setEnabled(false);
         JOptionPane.showMessageDialog(null, "Nueva Factura Registrada");
-
     }
 
     // GENERA CODIGOS ALEATORIOS
@@ -151,26 +151,26 @@ public class ControladorFactura implements ActionListener {
 
         return builder.toString();
     }
-    
-   public void Limpiar(){
-     vfac.txtRif.setText(""); 
-     vfac.txtcodigo.setEditable(true);
-      vfac.txtCantidadBicicletas.setText(""); 
-        vfac.txtCantidadRadios.setText(""); 
-        vfac.txtCantidadVigilantes.setText(""); 
-        vfac.txtDescripcion.setText(""); 
-        vfac.txtMantenimientoBicicletas.setText(""); 
-        vfac.txtMantenimientoRadio.setText(""); 
-        vfac.txtPrecioAdicional.setText(""); 
-        vfac.txtPrecioServicio.setText(""); 
-        vfac.txtSubTotal.setText(""); 
-        vfac.txtTotal.setText(""); 
-        vfac.txtnumfac.setText(""); 
-        vfac.txtpreciounitario.setText(""); 
-        vfac.txtcodigo.setText(""); 
-       vfac.btnbuscar.setEnabled(true);
-       vfac.jDateChooserfecha.setCalendar(null);
-       vfac.jDateChooserfecha.setEnabled(false);
+
+    public void Limpiar() {
+        vfac.txtRif.setText("");
+        vfac.txtcodigo.setEditable(true);
+        vfac.txtCantidadBicicletas.setText("");
+        vfac.txtCantidadRadios.setText("");
+        vfac.txtCantidadVigilantes.setText("");
+        vfac.txtDescripcion.setText("");
+        vfac.txtMantenimientoBicicletas.setText("");
+        vfac.txtMantenimientoRadio.setText("");
+        vfac.txtPrecioAdicional.setText("");
+        vfac.txtPrecioServicio.setText("");
+        vfac.txtSubTotal.setText("");
+        vfac.txtTotal.setText("");
+        vfac.txtnumfac.setText("");
+        vfac.txtpreciounitario.setText("");
+        vfac.txtcodigo.setText("");
+        vfac.btnbuscar.setEnabled(true);
+        vfac.jDateChooserfecha.setCalendar(null);
+        vfac.jDateChooserfecha.setEnabled(false);
     }
 
     @Override
@@ -178,8 +178,28 @@ public class ControladorFactura implements ActionListener {
         if (e.getSource() == vfac.btnbuscar) {
             Buscar();
         }
-        if (e.getSource() == vfac.btnagregar) {
-            Registrar();
+        if (e.getSource() == vfac.btnAgregar) {
+            //Validamos los textfield, para que se introduzcan los datos correspodientes, agredando los errores a un array
+            List listaErrores = new ArrayList();
+
+            if (vfac.jDateChooserfecha.getDate() == null) {
+                listaErrores.add("No haz introducido la fecha de la factura.");
+            }
+
+            if (listaErrores.isEmpty()) {
+                Registrar();
+            } else {
+
+                String errores = "";
+
+                for (int i = 0; i < listaErrores.toArray().length; i++) {
+                    errores += "* ";
+                    errores += (String) listaErrores.get(i);
+                    errores += "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, "No cumples los parametros.\nVerifica los errores a continuación:\n\n" + errores);
+            }
         }
         if (e.getSource() == vfac.btnLimpiar) {
             Limpiar();
@@ -208,5 +228,4 @@ public class ControladorFactura implements ActionListener {
             System.exit(0);
         }
     }
-
 }

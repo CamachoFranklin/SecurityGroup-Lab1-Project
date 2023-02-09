@@ -68,7 +68,7 @@ public class VFactura extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabelRif16 = new javax.swing.JLabel();
         btnbuscar = new javax.swing.JButton();
-        btnagregar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         jLabelRif12 = new javax.swing.JLabel();
         txtMantenimientoBicicletas = new javax.swing.JTextField();
         jLabelRif17 = new javax.swing.JLabel();
@@ -298,7 +298,7 @@ public class VFactura extends javax.swing.JFrame {
 
         jLabelRif13.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
         jLabelRif13.setText("Al firmar este documento, el cliente acepta los servicios y condiciones de vigilancia");
-        jPanel1.add(jLabelRif13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 620, 20));
+        jPanel1.add(jLabelRif13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 530, 20));
 
         txtTotal.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         txtTotal.setForeground(new java.awt.Color(153, 153, 153));
@@ -332,15 +332,15 @@ public class VFactura extends javax.swing.JFrame {
         });
         jPanel1.add(btnbuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
 
-        btnagregar.setBackground(new java.awt.Color(51, 204, 0));
-        btnagregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnagregar.setText("Agregar");
-        btnagregar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(51, 204, 0));
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnagregarActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 560, -1, -1));
+        jPanel1.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 560, -1, -1));
 
         jLabelRif12.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
         jLabelRif12.setText("Cantidad Radio");
@@ -497,9 +497,9 @@ public class VFactura extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMantenimientoBicicletasActionPerformed
 
-    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnagregarActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
         // TODO add your handling code here:
@@ -626,11 +626,11 @@ public class VFactura extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel Header;
+    public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnLimpiar;
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnVolver;
-    public javax.swing.JButton btnagregar;
     public javax.swing.JButton btnbuscar;
     public com.toedter.calendar.JDateChooser jDateChooserfecha;
     private javax.swing.JLabel jLabel1;

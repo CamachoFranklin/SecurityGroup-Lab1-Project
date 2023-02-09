@@ -32,7 +32,6 @@ public class ControladorMenuPrincipal implements ActionListener {
         this.vmp.btnVolver.addActionListener(this);
         this.vmp.btnSalir.addActionListener(this);
         this.vmp.btnMinimizar.addActionListener(this);
-        
     }
 
     @Override

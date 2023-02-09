@@ -57,7 +57,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
-        btnLimpiar = new javax.swing.JButton();
+        btnDeshacer = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         lblVigilante = new javax.swing.JLabel();
         Header = new javax.swing.JPanel();
@@ -66,6 +66,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
         lblLineaSueldo = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -81,7 +82,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Iconos/IconBuscar.png"))); // NOI18N
         btnBuscar.setBorder(null);
         btnBuscar.setBorderPainted(false);
-        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnBuscarMouseEntered(evt);
@@ -99,11 +100,13 @@ public class VGestionVigilante extends javax.swing.JFrame {
 
         lblGestionVigilante.setBackground(new java.awt.Color(255, 255, 255));
         lblGestionVigilante.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        lblGestionVigilante.setForeground(new java.awt.Color(0, 0, 0));
         lblGestionVigilante.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblGestionVigilante.setText("Gestion Vigilante");
         jPanel1.add(lblGestionVigilante, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 760, -1));
 
         lblCedula.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(0, 0, 0));
         lblCedula.setText("Cedula");
         jPanel1.add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
@@ -112,11 +115,12 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaCedula.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jPanel1.add(lblLineaCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 200, 3));
 
+        txtCedula.setBackground(new java.awt.Color(255, 255, 255));
         txtCedula.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtCedula.setForeground(new java.awt.Color(153, 153, 153));
         txtCedula.setText("Ingrese la Cedula");
         txtCedula.setBorder(null);
-        txtCedula.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCedula.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtCedula.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtCedulaMousePressed(evt);
@@ -130,6 +134,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 165, 20));
 
         lblNombre.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(0, 0, 0));
         lblNombre.setText("Nombre");
         jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, 24));
 
@@ -138,11 +143,12 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
         jPanel1.add(lblLineaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, 3));
 
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtNombre.setText("Ingrese el nombre");
         txtNombre.setBorder(null);
-        txtNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtNombre.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtNombreMousePressed(evt);
@@ -156,6 +162,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 200, 20));
 
         lblApellido.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(0, 0, 0));
         lblApellido.setText("Apellido");
         jPanel1.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
@@ -164,11 +171,12 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaApellido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jPanel1.add(lblLineaApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 200, 3));
 
+        txtApellido.setBackground(new java.awt.Color(255, 255, 255));
         txtApellido.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtApellido.setForeground(new java.awt.Color(153, 153, 153));
         txtApellido.setText("Ingrese el apellido");
         txtApellido.setBorder(null);
-        txtApellido.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtApellido.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtApellido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtApellidoMousePressed(evt);
@@ -182,6 +190,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 200, 20));
 
         lblFechaNacimiento.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblFechaNacimiento.setForeground(new java.awt.Color(0, 0, 0));
         lblFechaNacimiento.setText("Fecha de nacimiento");
         jPanel1.add(lblFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
@@ -190,12 +199,12 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaFechaNac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
         jPanel1.add(lblLineaFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 373, 200, 3));
 
-        jDateFechaNaci.setBackground(new java.awt.Color(255, 255, 255));
         jDateFechaNaci.setDateFormatString("yyyy-MM-dd");
         jDateFechaNaci.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         jPanel1.add(jDateFechaNaci, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 345, 200, 25));
 
         lblCorreo.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblCorreo.setForeground(new java.awt.Color(0, 0, 0));
         lblCorreo.setText("Correo");
         jPanel1.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
 
@@ -204,11 +213,12 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaCorreo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
         jPanel1.add(lblLineaCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 200, 3));
 
+        txtCorreo.setBackground(new java.awt.Color(255, 255, 255));
         txtCorreo.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
         txtCorreo.setText("Ingrese el correo");
         txtCorreo.setBorder(null);
-        txtCorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCorreo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtCorreoMousePressed(evt);
@@ -221,11 +231,12 @@ public class VGestionVigilante extends javax.swing.JFrame {
         });
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 200, 20));
 
+        txtSueldo.setBackground(new java.awt.Color(255, 255, 255));
         txtSueldo.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtSueldo.setForeground(new java.awt.Color(153, 153, 153));
         txtSueldo.setText("0");
         txtSueldo.setBorder(null);
-        txtSueldo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtSueldo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtSueldo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtSueldoMousePressed(evt);
@@ -239,10 +250,12 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(txtSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 347, 200, 20));
 
         lblSueldo.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblSueldo.setForeground(new java.awt.Color(0, 0, 0));
         lblSueldo.setText("Sueldo");
         jPanel1.add(lblSueldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
 
         lblDireccion.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblDireccion.setForeground(new java.awt.Color(0, 0, 0));
         lblDireccion.setText("Direccion");
         jPanel1.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
@@ -251,11 +264,12 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaDirección.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
         jPanel1.add(lblLineaDirección, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 200, 3));
 
+        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
         txtDireccion.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtDireccion.setForeground(new java.awt.Color(153, 153, 153));
         txtDireccion.setText("Ingrese la direccion");
         txtDireccion.setBorder(null);
-        txtDireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtDireccion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtDireccion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtDireccionMousePressed(evt);
@@ -269,6 +283,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 200, 20));
 
         lblTelefono.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblTelefono.setForeground(new java.awt.Color(0, 0, 0));
         lblTelefono.setText("Telefono");
         jPanel1.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, -1, -1));
 
@@ -277,11 +292,12 @@ public class VGestionVigilante extends javax.swing.JFrame {
         lblLineaTelefono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
         jPanel1.add(lblLineaTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 200, 3));
 
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
         txtTelefono.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(153, 153, 153));
         txtTelefono.setText("Ingrese el telefono");
         txtTelefono.setBorder(null);
-        txtTelefono.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtTelefono.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtTelefono.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 txtTelefonoMousePressed(evt);
@@ -300,7 +316,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         btnAgregar.setText("Agregar");
         btnAgregar.setBorder(null);
         btnAgregar.setBorderPainted(false);
-        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAgregar.setPreferredSize(new java.awt.Dimension(100, 40));
         btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -323,7 +339,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         btnModificar.setText("Modificar");
         btnModificar.setBorder(null);
         btnModificar.setBorderPainted(false);
-        btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnModificar.setPreferredSize(new java.awt.Dimension(100, 40));
         btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -340,28 +356,28 @@ public class VGestionVigilante extends javax.swing.JFrame {
         });
         jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 400, 200, -1));
 
-        btnLimpiar.setBackground(new java.awt.Color(38, 172, 239));
-        btnLimpiar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
-        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiar.setText("Limpiar");
-        btnLimpiar.setBorder(null);
-        btnLimpiar.setBorderPainted(false);
-        btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLimpiar.setPreferredSize(new java.awt.Dimension(100, 40));
-        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnDeshacer.setBackground(new java.awt.Color(38, 172, 239));
+        btnDeshacer.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnDeshacer.setForeground(new java.awt.Color(255, 255, 255));
+        btnDeshacer.setText("Deshacer");
+        btnDeshacer.setBorder(null);
+        btnDeshacer.setBorderPainted(false);
+        btnDeshacer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnDeshacer.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnDeshacer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnLimpiarMouseEntered(evt);
+                btnDeshacerMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnLimpiarMouseExited(evt);
+                btnDeshacerMouseExited(evt);
             }
         });
-        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+        btnDeshacer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarActionPerformed(evt);
+                btnDeshacerActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 200, -1));
+        jPanel1.add(btnDeshacer, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 520, 200, -1));
 
         btnEliminar.setBackground(new java.awt.Color(38, 172, 239));
         btnEliminar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
@@ -369,7 +385,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         btnEliminar.setText("Eliminar");
         btnEliminar.setBorder(null);
         btnEliminar.setBorderPainted(false);
-        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEliminar.setPreferredSize(new java.awt.Dimension(100, 40));
         btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -402,7 +418,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Iconos/IconVolver.png"))); // NOI18N
         btnVolver.setBorder(null);
         btnVolver.setBorderPainted(false);
-        btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnVolver.setHideActionText(true);
         btnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -422,7 +438,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         btnMinimizar.setText("_");
         btnMinimizar.setBorder(null);
         btnMinimizar.setBorderPainted(false);
-        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnMinimizar.setPreferredSize(new java.awt.Dimension(40, 40));
         btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -442,7 +458,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
         btnSalir.setText("X");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
-        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSalir.setPreferredSize(new java.awt.Dimension(40, 40));
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -466,6 +482,29 @@ public class VGestionVigilante extends javax.swing.JFrame {
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Login_Logo.png"))); // NOI18N
         jPanel1.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 70, 70));
+
+        btnLimpiar.setBackground(new java.awt.Color(38, 172, 239));
+        btnLimpiar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setBorder(null);
+        btnLimpiar.setBorderPainted(false);
+        btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnLimpiar.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseExited(evt);
+            }
+        });
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, 200, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -515,9 +554,9 @@ public class VGestionVigilante extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
-    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+    private void btnDeshacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeshacerActionPerformed
 
-    }//GEN-LAST:event_btnLimpiarActionPerformed
+    }//GEN-LAST:event_btnDeshacerActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
@@ -627,13 +666,13 @@ public class VGestionVigilante extends javax.swing.JFrame {
         btnEliminar.setBackground(new java.awt.Color(38, 172, 239));
     }//GEN-LAST:event_btnEliminarMouseExited
 
-    private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
+    private void btnDeshacerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeshacerMouseEntered
         btnLimpiar.setBackground(new java.awt.Color(0, 203, 130));
-    }//GEN-LAST:event_btnLimpiarMouseEntered
+    }//GEN-LAST:event_btnDeshacerMouseEntered
 
-    private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
+    private void btnDeshacerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeshacerMouseExited
         btnLimpiar.setBackground(new java.awt.Color(38, 172, 239));
-    }//GEN-LAST:event_btnLimpiarMouseExited
+    }//GEN-LAST:event_btnDeshacerMouseExited
 
     private void txtCedulaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCedulaMousePressed
         // Si el campo tiene el valor por defecto
@@ -705,6 +744,18 @@ public class VGestionVigilante extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtSueldoMousePressed
 
+    private void btnLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarMouseEntered
+
+    private void btnLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarMouseExited
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -744,6 +795,7 @@ public class VGestionVigilante extends javax.swing.JFrame {
     public javax.swing.JPanel Header;
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnDeshacer;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnLimpiar;
     public javax.swing.JButton btnMinimizar;

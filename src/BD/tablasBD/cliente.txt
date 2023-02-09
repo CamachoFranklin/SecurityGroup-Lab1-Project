@@ -1,0 +1,20 @@
+-- Table: public.cliente
+
+-- DROP TABLE IF EXISTS public.cliente;
+
+CREATE TABLE IF NOT EXISTS public.cliente
+(
+    rif character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    nombre character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    descripcion character varying(250) COLLATE pg_catalog."default" NOT NULL,
+    telefono character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    direccion character varying(250) COLLATE pg_catalog."default" NOT NULL,
+    tipocliente character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    estatus character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT cliente_pkey PRIMARY KEY (rif)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.cliente
+    OWNER to postgres;

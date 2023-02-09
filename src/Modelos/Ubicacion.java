@@ -8,9 +8,6 @@
  */
 package Modelos;
 
-//Para usar el tipo de variable Date es necesario importar
-import java.util.Date;
-
 public class Ubicacion {
 
     // Declaración de atributos
@@ -61,5 +58,4 @@ public class Ubicacion {
     public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
-
 }

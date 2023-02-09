@@ -9,18 +9,25 @@
 package Controladores;
 
 import Datos.DAOVigilante;
-
+import Memento.*;
 import Modelos.Vigilante;
 import Vistas.VGestionVigilante;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Date;
+import java.util.List;
 
 public class ControladorVigilante implements ActionListener {
 
     private final VGestionVigilante vvigilante;
+    private Vigilante vigi;
+    private Originator creator;
+    private Caretaker care;
 
     public ControladorVigilante() {
 
@@ -35,6 +42,17 @@ public class ControladorVigilante implements ActionListener {
         this.vvigilante.btnVolver.addActionListener(this);
         this.vvigilante.btnMinimizar.addActionListener(this);
         this.vvigilante.btnSalir.addActionListener(this);
+        this.vvigilante.btnDeshacer.addActionListener(this);
+
+        // Evento de de los txt
+        this.vvigilante.txtCedula.addKeyListener(kl);
+        this.vvigilante.txtNombre.addKeyListener(kl);
+        this.vvigilante.txtApellido.addKeyListener(kl);
+        this.vvigilante.txtDireccion.addKeyListener(kl);
+        this.vvigilante.txtCorreo.addKeyListener(kl);
+        this.vvigilante.txtTelefono.addKeyListener(kl);
+        this.vvigilante.txtSueldo.addKeyListener(kl);
+        this.vvigilante.jDateFechaNaci.addKeyListener(kl);
 
         // Inicializamos los JTextField
         vvigilante.txtCedula.setEditable(true);
@@ -54,11 +72,83 @@ public class ControladorVigilante implements ActionListener {
         // Botones
         vvigilante.btnModificar.setEnabled(false);
         vvigilante.btnEliminar.setEnabled(false);
-
+        vvigilante.btnDeshacer.setEnabled(false);
         // Muestra el Jframe      
         vvigilante.setVisible(true);
         vvigilante.setLocationRelativeTo(null);
     }
+    KeyListener kl = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+            //Evalua solamente letras y numeros
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) //Programamos los eventos para cuando se presiona una tecla en los textfield
+        {
+            // presiono un boton 
+            if (vvigilante.txtNombre == e.getSource()) {
+                String cadena = vvigilante.txtNombre.getText();
+                if (!cadena.matches("^[a-zA-Z]{1,40}$")) {
+                    vvigilante.txtNombre.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vvigilante.txtApellido == e.getSource()) {
+                String cadena = vvigilante.txtApellido.getText();
+                if (!cadena.matches("^[a-zA-Z]{1,40}$")) {
+                    vvigilante.txtApellido.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vvigilante.txtTelefono == e.getSource()) {
+                String cadena = vvigilante.txtTelefono.getText();
+                if (!cadena.matches("^[0-9]{1,11}$")) {
+                    vvigilante.txtTelefono.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vvigilante.txtSueldo == e.getSource()) {
+                String cadena = vvigilante.txtSueldo.getText();
+                if (!cadena.matches("^[0-9]+([\\.][0-9]*)?$")) {
+                    vvigilante.txtSueldo.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) //Programamos los eventos para cuando se suelta una tecla en los textfield
+        {
+            //presiono soltamos el boton
+
+            if (vvigilante.txtNombre == e.getSource()) {
+                String cadena = vvigilante.txtNombre.getText();
+                if (!cadena.matches("^[a-zA-Z]{1,40}$")) {
+                    vvigilante.txtNombre.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vvigilante.txtApellido == e.getSource()) {
+                String cadena = vvigilante.txtApellido.getText();
+                if (!cadena.matches("^[a-zA-Z]{1,40}$")) {
+                    vvigilante.txtApellido.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vvigilante.txtTelefono == e.getSource()) {
+                String cadena = vvigilante.txtTelefono.getText();
+                if (!cadena.matches("^[0-9]{1,11}$")) {
+                    vvigilante.txtTelefono.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+            if (vvigilante.txtSueldo == e.getSource()) {
+                String cadena = vvigilante.txtSueldo.getText();
+                if (!cadena.matches("^[0-9]+([\\.][0-9]*)?$")) {
+                    vvigilante.txtSueldo.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+        }
+    };
 
     // Metodo Buscar
     public void Buscar() {
@@ -88,7 +178,7 @@ public class ControladorVigilante implements ActionListener {
                 vvigilante.txtTelefono.setEditable(true);
                 // INICIALIZAMOS el JDateChooser 
                 vvigilante.jDateFechaNaci.setEnabled(true);
-
+                vvigilante.btnDeshacer.setEnabled(false);
                 System.out.println("Salida");
             }
             return;
@@ -119,7 +209,9 @@ public class ControladorVigilante implements ActionListener {
         // INICIALIZAMOS el JDateChooser 
         vvigilante.jDateFechaNaci.setEnabled(true);
         vvigilante.btnAgregar.setEnabled(false);
+        vvigilante.btnDeshacer.setEnabled(false);
 
+        restaurarDatos(vigi.getCedula(), vigi.getNombre(), vigi.getApellido(), vigi.getDireccion(), vigi.getCorreo(), vigi.getTelefono(), vigi.getEstado(), vigi.getSueldo(), vigi.getFechaNacimiento());
     }
 
     public void Registrar() {
@@ -153,6 +245,7 @@ public class ControladorVigilante implements ActionListener {
     }
 
     public void Limpiar() {
+        //Limpia la informacion de los textfield y regresa los botones a su estado inicial
         vvigilante.txtCedula.setText("");
         vvigilante.txtNombre.setText("");
         vvigilante.txtApellido.setText("");
@@ -182,6 +275,7 @@ public class ControladorVigilante implements ActionListener {
 
         if (confirmar == JOptionPane.YES_OPTION) {
             new DAOVigilante().Eliminar(cedula);
+            vvigilante.btnDeshacer.setEnabled(true);
             JOptionPane.showMessageDialog(null, "La informacion del vigilante ha sido eliminada satisfacctoriamente ");
             Limpiar();
         }
@@ -216,37 +310,117 @@ public class ControladorVigilante implements ActionListener {
         }
     }
 
-    /*
-     private boolean validarcampos() {
-        boolean estado = false;
+    public void restaurarDatos(String cedula, String nombre, String apellido, String direccion, String correo, String telefono, String estado, double sueldo, Date fechaNacimiento) {
 
-        if (vvigilante.txtCedula.getText().length() < 8) {
-            Mensajes.mvacio("Ingrese un numero de cedula valido", "Error", vvigilante.txtCedula);
-        } else if (vvigilante.txtNombre.getText().isEmpty()) {
-            Mensajes.mvacio("Ingrese Nombre", "Error", vvigilante.txtNombre);
-        } else if (vvigilante.txtApellido.getText().isEmpty()) {
-            Mensajes.mvacio("Ingrese Apellido", "Error", vvigilante.txtApellido);
-        } else if (vvigilante.txtDireccion.getText().isEmpty() || vvigilante.txtDireccion.getText().length() < 4) {
-            Mensajes.mvacio("Ingrese una Direccion valida", "Error", vvigilante.txtDireccion);
-        } else if (vvigilante.txtTelefono.getText().isEmpty() || vvigilante.txtTelefono.getText().length() < 5) {
-            Mensajes.mvacio("Ingrese Nro de telefono valido", "Error", vvigilante.txtTelefono);
-        } else if (vvigilante.txtCorreo.getText().isEmpty()) {
-            Mensajes.mvacio("Ingrese un Correo electronico", "Error", vvigilante.txtCorreo);
-        } else {
-            estado = true;
-        }
+        //Creamos el objeto Originador
+        creator = new Originator(cedula, nombre, apellido, direccion, correo, telefono, estado, sueldo, fechaNacimiento);
+        //Creamos Caretaker
+        care = new Caretaker();
 
-        return estado;
-
+        //Creamos el Memento y vinculamos al objeto que va a gestionarlo
+        care.setMemento(creator.cearMemento());
     }
-     */
+
+    public void Desmontar() {
+        // Obtiene los datos del objeto
+        creator.setMemento(care.getMemento());
+        vvigilante.txtCedula.setText(creator.getCedula());
+        vvigilante.txtNombre.setText(creator.getNombre());
+        vvigilante.txtApellido.setText(creator.getApellido());
+        vvigilante.txtDireccion.setText(creator.getDireccion());
+        vvigilante.txtCorreo.setText(creator.getCorreo());
+        String Sueldo = String.valueOf(creator.getSueldo());
+        vvigilante.txtSueldo.setText(Sueldo);
+        vvigilante.jDateFechaNaci.setDate(creator.getFechaNacimiento());
+
+        vigi = new DAOVigilante().Buscar(creator.getCedula());
+
+        if (vigi != null) {
+
+            ActualizarDesmontar();
+
+        } else {
+            RegistroDesmontar();
+        }
+    }
+
+    public void ActualizarDesmontar() {
+        String cedula = vvigilante.txtCedula.getText();
+        String nombre = vvigilante.txtNombre.getText();
+        String apellido = vvigilante.txtApellido.getText();
+        String direccion = vvigilante.txtDireccion.getText();
+        String correo = vvigilante.txtCorreo.getText();
+        String telefono = vvigilante.txtTelefono.getText();
+        Double sueldo = Double.parseDouble(vvigilante.txtSueldo.getText());
+
+        Date fecha = vvigilante.jDateFechaNaci.getDate();
+        long d = fecha.getTime();
+        java.sql.Date fechaNacimiento = new java.sql.Date(d);
+        new DAOVigilante().Modificar(cedula, nombre, apellido, direccion, correo, telefono, fechaNacimiento, sueldo);
+    }
+
+    public void RegistroDesmontar() {
+
+        String cedula = vvigilante.txtCedula.getText();
+        String nombre = vvigilante.txtNombre.getText();
+        String apellido = vvigilante.txtApellido.getText();
+        String direccion = vvigilante.txtDireccion.getText();
+        String correo = vvigilante.txtCorreo.getText();
+        String telefono = vvigilante.txtTelefono.getText();
+        Double sueldo = Double.parseDouble(vvigilante.txtSueldo.getText());
+        Date fecha = vvigilante.jDateFechaNaci.getDate();
+        long d = fecha.getTime();
+        java.sql.Date fechaNacimiento = new java.sql.Date(d);
+
+        Vigilante vigi = new DAOVigilante().Agregar(cedula, nombre, apellido, direccion, correo, telefono, fechaNacimiento, sueldo, "A");
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vvigilante.btnBuscar) {
             Buscar();
         }
         if (e.getSource() == vvigilante.btnAgregar) {
-            Registrar();
+
+            //Validamos los textfield, para que se introduzcan los datos correspodientes, agredando los errores a un array
+            List listaErrores = new ArrayList();
+
+            if (!vvigilante.txtSueldo.getText().matches("^[0-9]+([\\.][0-9]*)?$") || vvigilante.txtSueldo.getText().equals("") || vvigilante.txtSueldo.getText().equals("0")) {
+                listaErrores.add("No haz introducido un sueldo.");
+            }
+            if (!vvigilante.txtTelefono.getText().matches("^[0-9]{11,11}$") || vvigilante.txtTelefono.getText().equals("")) {
+                listaErrores.add("No haz introducido un numero de telefono o esta incompleto.");
+            }
+            if (!vvigilante.txtNombre.getText().matches("^[a-zA-Z]{1,40}$") || vvigilante.txtNombre.getText().equals("")) {
+                listaErrores.add("No haz introducido un nombre.");
+            }
+            if (!vvigilante.txtApellido.getText().matches("^[a-zA-Z]{1,40}$") || vvigilante.txtApellido.getText().equals("")) {
+                listaErrores.add("No haz introducido un apellido.");
+            }
+            if (vvigilante.txtDireccion.getText().equals("")) {
+                listaErrores.add("No haz introducido una direccion.");
+            }
+            if (!vvigilante.txtCorreo.getText().matches("^(([^<>()\\[\\]\\\\.,;:\\s@”]+(\\.[^<>()\\[\\]\\\\.,;:\\s@”]+)*)|(“.+”))@((\\[[0–9]{1,3}\\.[0–9]{1,3}\\.[0–9]{1,3}\\.[0–9]{1,3}])|(([a-zA-Z\\-0–9]+\\.)+[a-zA-Z]{2,}))$") || vvigilante.txtCorreo.getText().equals("")) {
+                listaErrores.add("El correo no es valido o esta vacio.");
+            }
+            if (vvigilante.jDateFechaNaci.getDate() == null) {
+                listaErrores.add("No haz introducido una fecha.");
+            }
+
+            if (listaErrores.isEmpty()) {
+                Registrar();
+            } else {
+
+                String errores = "";
+
+                for (int i = 0; i < listaErrores.toArray().length; i++) {
+                    errores += "* ";
+                    errores += (String) listaErrores.get(i);
+                    errores += "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, "No cumples los parametros.\nVerifica los errores a continuación:\n\n" + errores);
+            }
         }
 
         if (e.getSource() == vvigilante.btnLimpiar) {
@@ -257,32 +431,61 @@ public class ControladorVigilante implements ActionListener {
             Eliminar();
         }
 
-        /*  Boton Modificar.
-            Ejecuta el metodo de modificación
-         */
-        if (e.getSource() == vvigilante.btnModificar) {
-            Modificar();
+        if (e.getSource() == vvigilante.btnDeshacer) {
+            Desmontar();
         }
 
-        /*  Boton Volver.
-            Cierra la Vista Vigilante
-            Regresa al Menu Principal
-         */
+        if (e.getSource() == vvigilante.btnModificar) {
+            //Validamos los textfield, para que se introduzcan los datos correspodientes, agredando los errores a un array
+            List listaErrores = new ArrayList();
+
+            if (!vvigilante.txtSueldo.getText().matches("^[0-9]+([\\.][0-9]*)?$") || vvigilante.txtSueldo.getText().equals("") || vvigilante.txtSueldo.getText().equals("0")) {
+                listaErrores.add("No haz introducido un sueldo.");
+            }
+            if (!vvigilante.txtTelefono.getText().matches("^[0-9]{11,11}$") || vvigilante.txtTelefono.getText().equals("")) {
+                listaErrores.add("No haz introducido un numero de telefono o esta incompleto.");
+            }
+            if (!vvigilante.txtNombre.getText().matches("^[a-zA-Z]{1,40}$") || vvigilante.txtNombre.getText().equals("")) {
+                listaErrores.add("No haz introducido un nombre.");
+            }
+            if (!vvigilante.txtApellido.getText().matches("^[a-zA-Z]{1,40}$") || vvigilante.txtApellido.getText().equals("")) {
+                listaErrores.add("No haz introducido un apellido.");
+            }
+            if (vvigilante.txtDireccion.getText().equals("")) {
+                listaErrores.add("No haz introducido una direccion.");
+            }
+            if (!vvigilante.txtCorreo.getText().matches("^(([^<>()\\[\\]\\\\.,;:\\s@”]+(\\.[^<>()\\[\\]\\\\.,;:\\s@”]+)*)|(“.+”))@((\\[[0–9]{1,3}\\.[0–9]{1,3}\\.[0–9]{1,3}\\.[0–9]{1,3}])|(([a-zA-Z\\-0–9]+\\.)+[a-zA-Z]{2,}))$") || vvigilante.txtCorreo.getText().equals("")) {
+                listaErrores.add("El correo no es valido o esta vacio.");
+            }
+            if (vvigilante.jDateFechaNaci.getDate() == null) {
+                listaErrores.add("No haz introducido una fecha.");
+            }
+
+            if (listaErrores.isEmpty()) {
+                Modificar();
+            } else {
+
+                String errores = "";
+
+                for (int i = 0; i < listaErrores.toArray().length; i++) {
+                    errores += "* ";
+                    errores += (String) listaErrores.get(i);
+                    errores += "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, "No cumples los parametros.\nVerifica los errores a continuación:\n\n" + errores);
+            }
+        }
+
         if (e.getSource() == vvigilante.btnVolver) {
             vvigilante.dispose();
             new ControladorMenuPrincipal();
         }
 
-        /*  Boton Minimizar.
-            Minimiza la vista actual
-         */
         if (e.getSource() == vvigilante.btnMinimizar) {
             vvigilante.setExtendedState(ICONIFIED);
         }
 
-        /*  Boton Salir.
-            Cierra el programa
-         */
         if (e.getSource() == vvigilante.btnSalir) {
             System.exit(0);
         }

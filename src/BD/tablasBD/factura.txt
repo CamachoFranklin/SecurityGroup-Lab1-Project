@@ -1,0 +1,19 @@
+-- Table: public.factura
+
+-- DROP TABLE IF EXISTS public.factura;
+
+CREATE TABLE IF NOT EXISTS public.factura
+(
+    idfactura character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    idservicio character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    fechafactura date NOT NULL,
+    montofactura double precision NOT NULL,
+    rifcliente character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    estado character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT factura_pkey PRIMARY KEY (idfactura)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.factura
+    OWNER to postgres;

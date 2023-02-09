@@ -1,6 +1,10 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+*Autores:
+*Franklin Camacho C.I:26.796.912
+*Andres Jiménez C.I: 27.212.052
+*Jesús Leal C.I:26.561.030
+*Elias Escalona C.I 26.568.921
+*Jesús Lopez C.I 27.479.039: 
  */
 package Datos;
 
@@ -9,15 +13,9 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
-/*
-*Autores:
-*Franklin Camacho C.I:26.796.912
-*Andres Jiménez C.I: 27.212.052
-*Jesús Leal C.I:26.561.030
-*Elias Escalona C.I 26.568.921
-*Jesús Lopez C.I 27.479.039: 
- */
 public class DAOFactura {
+
+    private static final Conexion con = Conexion.saberEstado();
 
     public Factura Agregar(
             String idFactura,
@@ -34,13 +32,11 @@ public class DAOFactura {
                 + rifCliente + "','"
                 + estado + "')";
 
-        if (new Conexion().queryInsertar(sql) > 0) {
+        if (con.actualizar(sql) > 0) {
 
             return new Factura(idFactura, idServicio, fechaFactura, montoFactura, rifCliente, estado);
-
         }
         return null;
-
     }
 
     public int Modificar(String idFactura, String idServicio, Date fechaFactura, double montoFactura, String rifCliente, String estado) {
@@ -51,14 +47,14 @@ public class DAOFactura {
                 + rifCliente + "',estado='"
                 + estado + "' WHERE idfactura='"
                 + idFactura + "'";
-        return new Conexion().queryInsertar(sql);
+        return con.actualizar(sql);
     }
 
     public Factura Buscar(String idServicio) {
         String sql = "SELECT * FROM  factura WHERE idservicio = '"
                 + idServicio + "'";
 
-        List<Map> registros = new Conexion().ejecutar(sql);
+        List<Map> registros = con.ejecutar(sql);
         Factura fact = null;
 
         for (Map registro : registros) {
@@ -68,7 +64,6 @@ public class DAOFactura {
                     (double) registro.get("montofactura"),
                     (String) registro.get("rifcliente"),
                     (String) registro.get("estado"));
-
         }
         return fact;
     }
@@ -76,7 +71,6 @@ public class DAOFactura {
     public int Eliminar(String idfactura) {
         String sql = "DELETE FROM  factura WHERE idfactura = '"
                 + idfactura + "'";
-        return new Conexion().queryInsertar(sql);
-
+        return con.actualizar(sql);
     }
 }

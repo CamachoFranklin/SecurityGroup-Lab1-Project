@@ -1,10 +1,3 @@
-package Datos;
-
-import Modelos.Cliente;
-import java.sql.Date;
-import java.util.List;
-import java.util.Map;
-
 /*
 *Autores:
 *Franklin Camacho C.I:26.796.912
@@ -13,7 +6,15 @@ import java.util.Map;
 *Elias Escalona C.I 26.568.921
 *Jesús Lopez C.I 27.479.039: 
  */
+package Datos;
+
+import Modelos.Cliente;
+import java.util.List;
+import java.util.Map;
+
 public class DAOCliente {
+
+    private static final Conexion con = Conexion.saberEstado();
 
     public Cliente Agregar(
             String rif,
@@ -23,7 +24,7 @@ public class DAOCliente {
             String direccion,
             String tipoCliente,
             String estatus
-           ) {
+    ) {
         String sql = "INSERT INTO cliente (rif,nombre,descripcion,telefono,direccion,tipocliente,estatus) VALUES('"
                 + rif + "','"
                 + nombre + "','"
@@ -31,15 +32,13 @@ public class DAOCliente {
                 + telefono + "','"
                 + direccion + "','"
                 + tipoCliente + "','"
-        + estatus + "')";
+                + estatus + "')";
 
-        if (new Conexion().queryInsertar(sql) > 0) {
+        if (con.actualizar(sql) > 0) {
 
-            return new Cliente(rif, nombre, descripcion, telefono, direccion, tipoCliente,estatus);
-
+            return new Cliente(rif, nombre, descripcion, telefono, direccion, tipoCliente, estatus);
         }
         return null;
-
     }
 
     public int Modificar(String rif, String nombre,
@@ -53,14 +52,14 @@ public class DAOCliente {
                 + tipoCliente + "',estatus='"
                 + estatus + "' WHERE rif='"
                 + rif + "'";
-        return new Conexion().queryInsertar(sql);
+        return con.actualizar(sql);
     }
 
     public Cliente Buscar(String rif) {
         String sql = "SELECT * FROM  cliente WHERE rif = '"
                 + rif + "'";
 
-        List<Map> registros = new Conexion().ejecutar(sql);
+        List<Map> registros = con.ejecutar(sql);
         Cliente clie = null;
 
         for (Map registro : registros) {
@@ -72,7 +71,6 @@ public class DAOCliente {
                     (String) registro.get("tipocliente"),
                     (String) registro.get("estatus")
             );
-
         }
         return clie;
     }
@@ -80,9 +78,6 @@ public class DAOCliente {
     public int Eliminar(String rif) {
         String sql = "DELETE FROM  cliente WHERE rif = '"
                 + rif + "'";
-        return new Conexion().queryInsertar(sql);
-
+        return con.actualizar(sql);
     }
-
-    
 }

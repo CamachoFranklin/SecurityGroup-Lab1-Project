@@ -11,10 +11,13 @@ package Controladores;
 import Datos.DAOHerramienta;
 import Modelos.Herramienta;
 import Vistas.VHerramientas;
-import java.awt.Color;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ControladorHerramienta implements ActionListener {
@@ -25,7 +28,7 @@ public class ControladorHerramienta implements ActionListener {
     public ControladorHerramienta() {
         vherra = new VHerramientas();
         herra = new Herramienta();
-
+        // evento de los botones
         this.vherra.btnAgregar.addActionListener(this);
         this.vherra.btnModificar.addActionListener(this);
         this.vherra.btnLimpiar.addActionListener(this);
@@ -36,6 +39,11 @@ public class ControladorHerramienta implements ActionListener {
         this.vherra.btnVolver.addActionListener(this);
         this.vherra.btnMinimizar.addActionListener(this);
         this.vherra.btnSalir.addActionListener(this);
+        // Evento de de los txt
+        this.vherra.txtCantidad.addKeyListener(kl);
+        this.vherra.txtCantidadDisponible.addKeyListener(kl);
+        this.vherra.txtPrecioMantenimiento.addKeyListener(kl);
+        this.vherra.txtPrecioAlquiler.addKeyListener(kl);
 
         vherra.txtCantidad.setEditable(true);
         vherra.btnModificar.setEnabled(false);
@@ -50,7 +58,6 @@ public class ControladorHerramienta implements ActionListener {
         vherra.lblRadio.setVisible(false);
         vherra.lblBicicleta.setVisible(false);
         vherra.btnAgregar.setEnabled(false);
-
     }
 
     public void RegistrarCantidad() {
@@ -73,6 +80,77 @@ public class ControladorHerramienta implements ActionListener {
             Limpiar();
         }
     }
+
+    KeyListener kl = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+//Programamos los eventos para cuando se presiona una tecla en los textfield
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (vherra.txtCantidad == e.getSource()) {
+                String cadena = vherra.txtCantidad.getText();
+                if (!cadena.matches("^[0-9]+$")) {
+                    vherra.txtCantidad.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vherra.txtCantidadDisponible == e.getSource()) {
+                String cadena = vherra.txtCantidadDisponible.getText();
+                if (!cadena.matches("^[0-9]+$")) {
+                    vherra.txtCantidadDisponible.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vherra.txtPrecioMantenimiento == e.getSource()) {
+                String cadena = vherra.txtPrecioMantenimiento.getText();
+                if (!cadena.matches("^[0-9]+([\\.][0-9]*)?$")) {
+                    vherra.txtPrecioMantenimiento.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vherra.txtPrecioAlquiler == e.getSource()) {
+                String cadena = vherra.txtPrecioAlquiler.getText();
+                if (!cadena.matches("^[0-9]+([\\.][0-9]*)?$")) {
+                    vherra.txtPrecioAlquiler.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) //Programamos los eventos para cuando se suelta una tecla en los textfield
+        {
+            if (vherra.txtCantidad == e.getSource()) {
+                String cadena = vherra.txtCantidad.getText();
+                if (!cadena.matches("^[0-9]+$")) {
+                    vherra.txtCantidad.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vherra.txtCantidadDisponible == e.getSource()) {
+                String cadena = vherra.txtCantidadDisponible.getText();
+                if (!cadena.matches("^[0-9]+$")) {
+                    vherra.txtCantidadDisponible.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vherra.txtPrecioMantenimiento == e.getSource()) {
+                String cadena = vherra.txtPrecioMantenimiento.getText();
+                if (!cadena.matches("^[0-9]+([\\.][0-9]*)?$")) {
+                    vherra.txtPrecioMantenimiento.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vherra.txtPrecioAlquiler == e.getSource()) {
+                String cadena = vherra.txtPrecioAlquiler.getText();
+                if (!cadena.matches("^[0-9]+([\\.][0-9]*)?$")) {
+                    vherra.txtPrecioAlquiler.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+        }
+    };
 
     public void ModificarPrecios() {
 
@@ -134,7 +212,6 @@ public class ControladorHerramienta implements ActionListener {
             vherra.txtPrecioMantenimiento.setText(String.valueOf(he.getMantenimiento()));
 
         } else if (tipoHerramientas.equals("Bicicleta")) {
-
             vherra.txtCantidadDisponible.setText(String.valueOf(he.getCantidad()));
             vherra.txtPrecioAlquiler.setText(String.valueOf(he.getPrecio()));
             vherra.txtPrecioMantenimiento.setText(String.valueOf(he.getMantenimiento()));
@@ -144,7 +221,6 @@ public class ControladorHerramienta implements ActionListener {
 
         vherra.btnModificar.setEnabled(true);
         vherra.btnEliminar.setEnabled(true);
-
     }
 
     public void Limpiar() {
@@ -155,17 +231,44 @@ public class ControladorHerramienta implements ActionListener {
         vherra.jComboBoxTipo.setSelectedIndex(0);
         vherra.lblBicicleta.setVisible(false);
         vherra.lblRadio.setVisible(false);
+        vherra.txtCantidad.setEditable(true);
+        vherra.btnModificar.setEnabled(false);
+        vherra.btnEliminar.setEnabled(false);
+        vherra.txtPrecioMantenimiento.setEnabled(false);
+        vherra.txtPrecioAlquiler.setEnabled(false);
+        vherra.txtCantidadDisponible.setEnabled(false);
+        vherra.jComboBoxTipo.setEnabled(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == vherra.btnAgregar) {
-            RegistrarCantidad();
-            vherra.btnRestar.setEnabled(false);
-            vherra.btnAceptar.setEnabled(false);
-            vherra.btnEliminar.setEnabled(false);
-            vherra.btnModificar.setEnabled(false);
+
+            //Validamos los textfield, para que se introduzcan los datos correspodientes, agredando los errores a un array
+            List listaErrores = new ArrayList();
+            if (!vherra.txtCantidad.getText().matches("^[0-9]+$") || vherra.txtCantidad.getText().equals("") || vherra.txtCantidad.getText().equals("0")) {
+                listaErrores.add("No haz introducido una cantidad a sumar.");
+            }
+
+            if (listaErrores.isEmpty()) {
+                RegistrarCantidad();
+                vherra.btnRestar.setEnabled(false);
+                vherra.btnAceptar.setEnabled(false);
+                vherra.btnEliminar.setEnabled(false);
+                vherra.btnModificar.setEnabled(false);
+            } else {
+
+                String errores = "";
+
+                for (int i = 0; i < listaErrores.toArray().length; i++) {
+                    errores += "* ";
+                    errores += (String) listaErrores.get(i);
+                    errores += "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, "No cumples los parametros.\nVerifica los errores a continuación:\n\n" + errores);
+            }
         }
         if (e.getSource() == vherra.btnLimpiar) {
             Limpiar();
@@ -173,11 +276,8 @@ public class ControladorHerramienta implements ActionListener {
             vherra.btnAceptar.setEnabled(false);
             vherra.btnAgregar.setEnabled(false);
             vherra.btnEliminar.setEnabled(false);
-
         }
-        /*  ComboboxTipoHerramienta
-            
-         */
+
         if (e.getSource() == vherra.jComboBoxTipo) {
             String tipoHerramientas = vherra.getCbxTipoHerramienta().getSelectedItem().toString();
             if ("Seleccionar".equals(tipoHerramientas)) {
@@ -228,14 +328,38 @@ public class ControladorHerramienta implements ActionListener {
             vherra.btnAgregar.setEnabled(false);
             vherra.btnEliminar.setEnabled(false);
             vherra.btnModificar.setEnabled(false);
+            vherra.jComboBoxTipo.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Se ha habilitado la opcion de modificar ambos precios");
         }
         // Boton Aceptar. Se usa para aceptar la modificación realizada
         if (e.getSource() == vherra.btnAceptar) {
-            ModificarPrecios();
-            vherra.btnAceptar.setEnabled(false);
-            vherra.txtPrecioAlquiler.setEnabled(false);
-            vherra.btnAceptar.setEnabled(false);
+
+            //Validamos los textfield, para que se introduzcan los datos correspodientes, agredando los errores a un array
+            List listaErrores = new ArrayList();
+            if (!vherra.txtPrecioAlquiler.getText().matches("^[0-9]+([\\.][0-9]*)?$") || vherra.txtPrecioAlquiler.getText().equals("") || vherra.txtPrecioAlquiler.getText().equals("0")) {
+                listaErrores.add("El valor no puede ser nulo o cero en el precio del alquiler");
+            }
+            if (!vherra.txtPrecioMantenimiento.getText().matches("^[0-9]+([\\.][0-9]*)?$") || vherra.txtPrecioMantenimiento.getText().equals("") || vherra.txtPrecioMantenimiento.getText().equals("0")) {
+                listaErrores.add("El valor no puede ser nulo o cero en el precio del mantenimiento");
+            }
+
+            if (listaErrores.isEmpty()) {
+                ModificarPrecios();
+                vherra.btnAceptar.setEnabled(false);
+                vherra.txtPrecioAlquiler.setEnabled(false);
+                vherra.btnAceptar.setEnabled(false);
+            } else {
+
+                String errores = "";
+
+                for (int i = 0; i < listaErrores.toArray().length; i++) {
+                    errores += "* ";
+                    errores += (String) listaErrores.get(i);
+                    errores += "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, "No cumples los parametros.\nVerifica los errores a continuación:\n\n" + errores);
+            }
         }
 
         /*  Boton Restar.
@@ -245,14 +369,32 @@ public class ControladorHerramienta implements ActionListener {
             Desactiva el Campo de texto de cantidad a eliminar 
          */
         if (e.getSource() == vherra.btnRestar) {
-            EliminarCantidad();
-            vherra.btnRestar.setEnabled(false);
-            vherra.txtCantidad.setEnabled(false);
+            //Validamos los textfield, para que se introduzcan los datos correspodientes, agredando los errores a un array
+            List listaErrores = new ArrayList();
+            if (!vherra.txtCantidad.getText().matches("^[0-9]+$") || vherra.txtCantidad.getText().equals("") || vherra.txtCantidad.getText().equals("0")) {
+                listaErrores.add("No haz introducido una cantidad a restar.");
+            }
+
+            if (listaErrores.isEmpty()) {
+                EliminarCantidad();
+                vherra.btnRestar.setEnabled(false);
+                vherra.txtCantidad.setEnabled(false);
+            } else {
+
+                String errores = "";
+
+                for (int i = 0; i < listaErrores.toArray().length; i++) {
+                    errores += "* ";
+                    errores += (String) listaErrores.get(i);
+                    errores += "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, "No cumples los parametros.\nVerifica los errores a continuación:\n\n" + errores);
+            }
         }
 
         /*  Boton Eliminar.
             Se usa para habilitar los campos cantidad a restar
-            
          */
         if (e.getSource() == vherra.btnEliminar) {
             vherra.txtPrecioMantenimiento.setEnabled(false);
@@ -264,6 +406,7 @@ public class ControladorHerramienta implements ActionListener {
             vherra.btnModificar.setEnabled(false);
             vherra.btnAgregar.setEnabled(false);
             vherra.btnEliminar.setEnabled(false);
+            vherra.jComboBoxTipo.setEnabled(false);
             JOptionPane.showMessageDialog(null, "En la casilla de cantidad, coloque la cantidad a eliminar");
         }
 

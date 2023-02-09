@@ -20,16 +20,14 @@ public class Factura {
     private String rifCliente;
     private String estatus;
 
-  
-
     // Constructor de la clase
-    public Factura(String idFactura, String idServicio, Date fechaFactura, double montoFactura, String rifCliente,String estatus) {
+    public Factura(String idFactura, String idServicio, Date fechaFactura, double montoFactura, String rifCliente, String estatus) {
         this.idFactura = idFactura;
         this.idServicio = idServicio;
         this.fechaFactura = fechaFactura;
         this.montoFactura = montoFactura;
         this.rifCliente = rifCliente;
-        this.estatus=estatus;
+        this.estatus = estatus;
     }
 
     // Creación de los Metodos Getter y Setter
@@ -72,7 +70,8 @@ public class Factura {
     public void setRifCliente(String rifCliente) {
         this.rifCliente = rifCliente;
     }
-  public String getEstatus() {
+
+    public String getEstatus() {
         return estatus;
     }
 

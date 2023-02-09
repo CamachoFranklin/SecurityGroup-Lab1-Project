@@ -92,5 +92,4 @@ public class Cliente {
     public void setEstatus(String estatus) {
         this.estatus = estatus;
     }
-
 }

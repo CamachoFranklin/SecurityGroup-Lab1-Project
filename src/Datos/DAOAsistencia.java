@@ -9,11 +9,12 @@
 package Datos;
 
 import Modelos.Asistencia;
-import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
 public class DAOAsistencia {
+    
+    private static final Conexion con= Conexion.saberEstado();
     
     public Asistencia Agregar(
             String  cedulaVigilante,
@@ -30,13 +31,11 @@ public class DAOAsistencia {
                  + inasistenciaJus + "','"
                 + estado + "')";
 
-        if (new Conexion().queryInsertar(sql) > 0) {
+        if (con.actualizar(sql)>0) {
 
             return new Asistencia( cedulaVigilante, mes,  anio,inasistencia,  inasistenciaJus,  estado);
-
         }
         return null;
-
     }
 
     public int Modificar(String cedulaVigilante, String mes,
@@ -48,14 +47,14 @@ public class DAOAsistencia {
                 + inasistenciaJus  + "',estado='"
                 + estado + "' WHERE cedulavigilante='"
                 + cedulaVigilante + "'";
-        return new Conexion().queryInsertar(sql);
+         return con.actualizar(sql);
     }
 
     public Asistencia Buscar(String cedulaVigilante) {
         String sql = "SELECT * FROM  asistencia WHERE cedulavigilante = '"
                 + cedulaVigilante + "'";
 
-        List<Map> registros = new Conexion().ejecutar(sql);
+        List <Map> registros= con.ejecutar(sql);
         Asistencia asis = null;
 
         for (Map registro : registros) {
@@ -65,16 +64,14 @@ public class DAOAsistencia {
                     (int) registro.get("inasistencia"),
                     (int) registro.get("inasistenciaJus"),
                     (String) registro.get("estado"));
-
         }
         return asis;
     }
     
-    
     public Asistencia BuscarMes(String cedulaVigilante, String mes, String anio) {
         String sql = "SELECT * FROM asistencia WHERE cedulavigilante='"+cedulaVigilante+ "' AND mes='"+mes+ "'  AND anio='"+anio+ "'";
 
-        List<Map> registros = new Conexion().ejecutar(sql);
+        List <Map> registros= con.ejecutar(sql);
         Asistencia asis = null;
 
         for (Map registro : registros) {
@@ -84,7 +81,6 @@ public class DAOAsistencia {
                     (int) registro.get("inasistencia"),
                     (int) registro.get("inasistenciajus"),
                     (String) registro.get("estado"));
-
         }
         return asis;
     }
@@ -92,8 +88,7 @@ public class DAOAsistencia {
     public int Eliminar(String cedulaVigilante) {
         String sql = "DELETE FROM  Asistencia WHERE cedulaVigilante = '"
                 + cedulaVigilante + "'";
-        return new Conexion().queryInsertar(sql);
-
+         return con.actualizar(sql);
     }
 }
     

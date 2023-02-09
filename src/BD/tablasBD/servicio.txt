@@ -1,0 +1,25 @@
+-- Table: public.servicio
+
+-- DROP TABLE IF EXISTS public.servicio;
+
+CREATE TABLE IF NOT EXISTS public.servicio
+(
+    id character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    descripcion character varying(250) COLLATE pg_catalog."default" NOT NULL,
+    fechainicio character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    rif character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    cantidadvigi integer NOT NULL,
+    cantidadbici integer NOT NULL,
+    cantidadradio integer NOT NULL,
+    costo double precision NOT NULL,
+    monto double precision NOT NULL,
+    preciobici double precision NOT NULL,
+    precioradio double precision NOT NULL,
+    estado character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT servicio_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.servicio
+    OWNER to postgres;

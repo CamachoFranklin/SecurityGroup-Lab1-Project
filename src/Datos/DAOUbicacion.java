@@ -1,10 +1,3 @@
-package Datos;
-
-import Modelos.Ubicacion;
-import java.sql.Date;
-import java.util.List;
-import java.util.Map;
-
 /*
 *Autores:
 *Franklin Camacho C.I:26.796.912
@@ -13,7 +6,16 @@ import java.util.Map;
 *Elias Escalona C.I 26.568.921
 *Jesús Lopez C.I 27.479.039: 
  */
+package Datos;
+
+import Modelos.Ubicacion;
+import java.sql.Date;
+import java.util.List;
+import java.util.Map;
+
 public class DAOUbicacion {
+
+    private static final Conexion con = Conexion.saberEstado();
 
     public Ubicacion Agregar(
             String cedulaVigilante,
@@ -27,13 +29,11 @@ public class DAOUbicacion {
                 + idServicio + "','"
                 + estatus + "')";
 
-        if (new Conexion().queryInsertar(sql) > 0) {
+        if (con.actualizar(sql) > 0) {
 
             return new Ubicacion(cedulaVigilante, tipoTurno, idServicio, estatus);
-
         }
         return null;
-
     }
 
     public int Modificar(String cedulaVigilante, int tipoTurno, String idServicio, String estatus) {
@@ -42,14 +42,14 @@ public class DAOUbicacion {
                 + idServicio + "',estatus='"
                 + estatus + "' WHERE cedulaVigilante='"
                 + cedulaVigilante + "'";
-        return new Conexion().queryInsertar(sql);
+        return con.actualizar(sql);
     }
 
     public Ubicacion Buscar(String cedulaVigilante) {
         String sql = "SELECT * FROM  ubicacion WHERE cedulaVigilante = '"
                 + cedulaVigilante + "'";
 
-        List<Map> registros = new Conexion().ejecutar(sql);
+        List<Map> registros = con.ejecutar(sql);
         Ubicacion ubi = null;
 
         for (Map registro : registros) {
@@ -57,7 +57,6 @@ public class DAOUbicacion {
                     (int) registro.get("tipoTurno"),
                     (String) registro.get("idServicio"),
                     (String) registro.get("estatus"));
-
         }
         return ubi;
     }
@@ -65,8 +64,6 @@ public class DAOUbicacion {
     public int Eliminar(String cedulaVigilante) {
         String sql = "DELETE FROM  ubicacion WHERE cedulaVigilante = '"
                 + cedulaVigilante + "'";
-        return new Conexion().queryInsertar(sql);
-
+        return con.actualizar(sql);
     }
-
 }

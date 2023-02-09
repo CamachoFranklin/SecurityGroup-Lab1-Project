@@ -11,15 +11,12 @@ package Datos;
 import Datos.Conexion;
 import Modelos.Vigilante;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
-import java.util.*;
-import java.util.Calendar;
 
-public class DAOVigilante extends Conexion {
+public class DAOVigilante {
+
+    private static final Conexion con = Conexion.saberEstado();
 
     public int Modificar(String cedula, String nombre, String apellidos, String direccion, String correo, String telefono, Date fechaNacimiento, double sueldo) {
         String sql = "UPDATE  vigilante SET nombre = '"
@@ -31,14 +28,14 @@ public class DAOVigilante extends Conexion {
                 + fechaNacimiento + "',sueldo='"
                 + sueldo + "' WHERE cedula='"
                 + cedula + "'";
-        return new Conexion().queryInsertar(sql);
+        return con.actualizar(sql);
     }
 
     public Vigilante Buscar(String cedula) {
         String sql = "SELECT * FROM  vigilante WHERE cedula = '"
                 + cedula + "'";
 
-        List<Map> registros = new Conexion().ejecutar(sql);
+        List<Map> registros = con.ejecutar(sql);
         Vigilante vigi = null;
 
         for (Map registro : registros) {
@@ -58,8 +55,7 @@ public class DAOVigilante extends Conexion {
     public int Eliminar(String cedula) {
         String sql = "DELETE FROM  vigilante WHERE cedula = '"
                 + cedula + "'";
-        return new Conexion().queryInsertar(sql);
-
+        return con.actualizar(sql);
     }
 
     public Vigilante Agregar(String cedula, String nombre, String apellidos, String direccion, String correo, String telefono, Date fechaNacimiento, double sueldo, String estatus) {
@@ -74,12 +70,10 @@ public class DAOVigilante extends Conexion {
                 + sueldo + "','"
                 + estatus + "')";
 
-        if (new Conexion().queryInsertar(sql) > 0) {
+        if (con.actualizar(sql) > 0) {
 
             return new Vigilante(cedula, nombre, apellidos, direccion, correo, telefono, fechaNacimiento, sueldo, estatus);
-
         }
         return null;
     }
-
 }

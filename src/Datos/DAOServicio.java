@@ -1,9 +1,3 @@
-package Datos;
-
-import Modelos.Servicio;
-import java.util.List;
-import java.util.Map;
-
 /*
 *Autores:
 *Franklin Camacho C.I:26.796.912
@@ -12,11 +6,19 @@ import java.util.Map;
 *Elias Escalona C.I 26.568.921
 *Jesús Lopez C.I 27.479.039: 
  */
+package Datos;
+
+import Modelos.Servicio;
+import java.util.List;
+import java.util.Map;
+
 public class DAOServicio {
+
+    private static final Conexion con = Conexion.saberEstado();
 
     public Servicio Agregar(String Id,
             String descripcion,
-             String fechaInicio,
+            String fechaInicio,
             String rif,
             int cantidadvigi,
             int cantidadbici,
@@ -41,18 +43,16 @@ public class DAOServicio {
                 + precioradio + "','" //se esta concatenando lo que se esta recibiendo como parametro
                 + estado + "')";
 
-        if (new Conexion().queryInsertar(sql) > 0) {
+        if (con.actualizar(sql) > 0) {
 
             return new Servicio(Id, descripcion, fechaInicio, rif, cantidadvigi, cantidadbici, cantidadradio, costo, monto, preciobici, precioradio, estado);
-
         }
         return null;
-
     }
 
     public int Modificar(String Id,
             String descripcion,
-             String fechaInicio,
+            String fechaInicio,
             String rif,
             int cantidadvigi,
             int cantidadbici,
@@ -73,14 +73,14 @@ public class DAOServicio {
                 + precioradio + "',estado='"
                 + estado + "' WHERE id='"
                 + Id + "'";
-        return new Conexion().queryInsertar(sql);
+        return con.actualizar(sql);
     }
 
     public Servicio Buscar(String Id) {
         String sql = "SELECT * FROM  servicio WHERE id = '"
                 + Id + "'";
 
-        List<Map> registros = new Conexion().ejecutar(sql);
+        List<Map> registros = con.ejecutar(sql);
         Servicio serv = null;
 
         for (Map registro : registros) {
@@ -103,8 +103,6 @@ public class DAOServicio {
     public int Eliminar(String Id) {
         String sql = "DELETE FROM  Servicio WHERE id = '"
                 + Id + "'";
-        return new Conexion().queryInsertar(sql);
-
+        return con.actualizar(sql);
     }
-
 }

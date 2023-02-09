@@ -30,5 +30,4 @@ public class Nomina {
     public void setCedulaVigilante(String cedulaVigilante) {
         this.cedulaVigilante = cedulaVigilante;
     }
-
 }

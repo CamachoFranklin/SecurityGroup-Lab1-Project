@@ -1,0 +1,22 @@
+-- Table: public.vigilante
+
+-- DROP TABLE IF EXISTS public.vigilante;
+
+CREATE TABLE IF NOT EXISTS public.vigilante
+(
+    cedula character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    nombre character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    apellido character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    direccion character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    correo character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    telefono character varying(12) COLLATE pg_catalog."default" NOT NULL,
+    fechanacimiento date NOT NULL,
+    sueldo double precision NOT NULL,
+    estado character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT vigilante_pkey PRIMARY KEY (cedula)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.vigilante
+    OWNER to postgres;

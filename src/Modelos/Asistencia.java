@@ -11,27 +11,23 @@ package Modelos;
 public class Asistencia {
 
     // Declaración de atributos
-    private  String  cedulaVigilante, mes, anio;
-   private int inasistencia, inasistenciaJus;
-   private String estado;
-
-   
+    private String cedulaVigilante, mes, anio;
+    private int inasistencia, inasistenciaJus;
+    private String estado;
 
     // Constructor de la clase
-    public Asistencia(String cedulaVigilante,String mes, String anio,
-        int inasistencia, int inasistenciaJus, String estado) {
+    public Asistencia(String cedulaVigilante, String mes, String anio,
+            int inasistencia, int inasistenciaJus, String estado) {
         this.cedulaVigilante = cedulaVigilante;
         this.mes = mes;
         this.anio = anio;
         this.inasistencia = inasistencia;
         this.inasistenciaJus = inasistenciaJus;
         this.estado = estado;
-        
-    }
-    
-    public Asistencia() {
     }
 
+    public Asistencia() {
+    }
 
     public String getMes() {
         return mes;
@@ -66,16 +62,13 @@ public class Asistencia {
         this.cedulaVigilante = cedulaVigilante;
     }
 
-
-    
- public int getInasistenciaJus() {
+    public int getInasistenciaJus() {
         return inasistenciaJus;
     }
 
     public void setInasistenciaJus(int inasistenciaJus) {
         this.inasistenciaJus = inasistenciaJus;
     }
-  
 
     public String getEstado() {
         return estado;

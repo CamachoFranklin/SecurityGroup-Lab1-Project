@@ -1,0 +1,18 @@
+-- Table: public.herramienta
+
+-- DROP TABLE IF EXISTS public.herramienta;
+
+CREATE TABLE IF NOT EXISTS public.herramienta
+(
+    cantidad integer NOT NULL,
+    tipoherramienta character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    mantenimiento double precision NOT NULL,
+    precio double precision NOT NULL,
+    estado character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT herramienta_pkey PRIMARY KEY (tipoherramienta)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.herramienta
+    OWNER to postgres;

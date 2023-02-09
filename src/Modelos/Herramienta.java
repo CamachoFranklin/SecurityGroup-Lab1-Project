@@ -22,7 +22,6 @@ public class Herramienta {
         this.mantenimiento = mantenimiento;
         this.precio = precio;
         this.estado = estado;
-
     }
 
     public Herramienta() {

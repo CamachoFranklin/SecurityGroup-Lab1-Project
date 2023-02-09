@@ -14,6 +14,10 @@ import Vistas.VGestionCliente;
 import static java.awt.Frame.ICONIFIED;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ControladorCliente implements ActionListener {
@@ -31,6 +35,11 @@ public class ControladorCliente implements ActionListener {
         this.vcliente.btnEliminar.addActionListener(this);
         this.vcliente.btnModificar.addActionListener(this);
         this.vcliente.btnVolver.addActionListener(this);
+        // Evento de de los txt
+        this.vcliente.txtNombre.addKeyListener(kl);
+        this.vcliente.txtTelefono.addKeyListener(kl);
+        this.vcliente.txtDireccion.addKeyListener(kl);
+        this.vcliente.txtDescripcion.addKeyListener(kl);
         // Campo de la llave primaria
         vcliente.txtNombre.setEditable(true);
         // Se desactivan los botones
@@ -52,8 +61,76 @@ public class ControladorCliente implements ActionListener {
         vcliente.txtTelefono.setEnabled(false);
         vcliente.txtDireccion.setEnabled(false);
         vcliente.cbxTipoCliente.setEnabled(false);
-       
     }
+
+    KeyListener kl = new KeyListener() {
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) //Programamos los eventos para cuando se presiona una tecla en los textfield
+        {
+            if (vcliente.txtNombre == e.getSource()) {
+                String cadena = vcliente.txtNombre.getText();
+                if (!cadena.matches("^[a-zA-Z]{1,40}$")) {
+                    vcliente.txtNombre.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vcliente.txtTelefono == e.getSource()) {
+                String cadena = vcliente.txtTelefono.getText();
+                if (!cadena.matches("^[0-9]{1,8}$")) {
+                    vcliente.txtTelefono.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vcliente.txtDireccion == e.getSource()) {
+                String cadena = vcliente.txtDireccion.getText();
+                if (!cadena.matches("^[\\s\\S]{1,50}$")) {
+                    vcliente.txtDireccion.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vcliente.txtDescripcion == e.getSource()) {
+                String cadena = vcliente.txtDescripcion.getText();
+                if (!cadena.matches("^[\\s\\S]{1,50}$")) {
+                    vcliente.txtDescripcion.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) //Programamos los eventos para cuando se suelta una tecla en los textfield
+        {
+            if (vcliente.txtNombre == e.getSource()) {
+                String cadena = vcliente.txtNombre.getText();
+                if (!cadena.matches("^[a-zA-Z]{1,40}$")) {
+                    vcliente.txtNombre.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vcliente.txtTelefono == e.getSource()) {
+                String cadena = vcliente.txtTelefono.getText();
+                if (!cadena.matches("^[0-9]{1,8}$")) {
+                    vcliente.txtTelefono.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+            if (vcliente.txtDireccion == e.getSource()) {
+                String cadena = vcliente.txtDireccion.getText();
+                if (!cadena.matches("^[\\s\\S]{1,50}$")) {
+                    vcliente.txtDireccion.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+
+            if (vcliente.txtDescripcion == e.getSource()) {
+                String cadena = vcliente.txtDescripcion.getText();
+                if (!cadena.matches("^[\\s\\S]{1,50}$")) {
+                    vcliente.txtDescripcion.setText(cadena.replaceFirst(".$", ""));
+                }
+            }
+        }
+    };
 
     //METODO BUSCAR
     public void Buscar() {
@@ -71,10 +148,10 @@ public class ControladorCliente implements ActionListener {
             vcliente.txtNombre.setEnabled(true);
             vcliente.btnAgregar.setEnabled(true);
             vcliente.txtRif.setEnabled(false);
-        vcliente.txtDescripcion.setEnabled(true);
-        vcliente.txtTelefono.setEnabled(true);
-        vcliente.txtDireccion.setEnabled(true);
-        vcliente.cbxTipoCliente.setEnabled(true);
+            vcliente.txtDescripcion.setEnabled(true);
+            vcliente.txtTelefono.setEnabled(true);
+            vcliente.txtDireccion.setEnabled(true);
+            vcliente.cbxTipoCliente.setEnabled(true);
             return;
         }
         vcliente.txtNombre.setEnabled(true);
@@ -108,10 +185,9 @@ public class ControladorCliente implements ActionListener {
         //ACTIVA LOS BOTONES
         vcliente.btnModificar.setEnabled(true);
         vcliente.btnEliminar.setEnabled(true);
-        
+
         // se activa el combobox
         vcliente.cbxTipoCliente.setEnabled(true);
-
     }
 
     public void Registrar() {
@@ -235,13 +311,48 @@ public class ControladorCliente implements ActionListener {
             Si se da click en dicho boton se ejecuta el metodo de insercion creado en el controlador
          */
         if (e.getSource() == vcliente.btnAgregar) {
-            Registrar();
+            //Validamos los textfield, para que se introduzcan los datos correspodientes, agredando los errores a un array
+            List listaErrores = new ArrayList();
+
+            if (!vcliente.txtTelefono.getText().matches("^[0-9]{8,8}$") || vcliente.txtTelefono.getText().equals("")) {
+                listaErrores.add("No haz introducido un numero de telefono o esta incompleto.");
+            }
+            if (!vcliente.txtNombre.getText().matches("^[a-zA-Z]{1,40}$") || vcliente.txtNombre.getText().equals("")) {
+                listaErrores.add("No haz introducido un nombre.");
+            }
+
+            if (vcliente.txtDireccion.getText().equals("")) {
+                listaErrores.add("No haz introducido una direccion.");
+            }
+            if (vcliente.txtDescripcion.getText().equals("")) {
+                listaErrores.add("No haz introducido una Descripcion.");
+            }
+            if (vcliente.cbxTipoCliente.getSelectedIndex() <= 0) {
+                listaErrores.add("No haz seleccionado un tipo de cliente.");
+            }
+
+            if (listaErrores.isEmpty()) {
+                Registrar();
+                Limpiar();
+            } else {
+
+                String errores = "";
+
+                for (int i = 0; i < listaErrores.toArray().length; i++) {
+                    errores += "* ";
+                    errores += (String) listaErrores.get(i);
+                    errores += "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, "No cumples los parametros.\nVerifica los errores a continuación:\n\n" + errores);
+            }
         }
         /*  Boton Limpiar.
             Si se da click en dicho boton se ejecuta el metodo Limpiar creado en el controlador
          */
         if (e.getSource() == vcliente.btnLimpiar) {
             Limpiar();
+            JOptionPane.showMessageDialog(null, "Introduce un RIF");
         }
         /*  Boton Eliminar.
             Si se da click en dicho boton se ejecuta el metodo Eliminar creado en el controlador
@@ -253,7 +364,40 @@ public class ControladorCliente implements ActionListener {
             Si se da click en dicho boton se ejecuta el metodo Modificar creado en el controlador
          */
         if (e.getSource() == vcliente.btnModificar) {
-            Modificar();
+            //Validamos los textfield, para que se introduzcan los datos correspodientes, agredando los errores a un array
+            List listaErrores = new ArrayList();
+            if (!vcliente.txtTelefono.getText().matches("^[0-9]{8,8}$") || vcliente.txtTelefono.getText().equals("")) {
+                listaErrores.add("No haz introducido un numero de telefono o esta incompleto.");
+            }
+            if (!vcliente.txtNombre.getText().matches("^[a-zA-Z]{1,40}$") || vcliente.txtNombre.getText().equals("")) {
+                listaErrores.add("No haz introducido un nombre.");
+            }
+
+            if (vcliente.txtDireccion.getText().equals("")) {
+                listaErrores.add("No haz introducido una direccion.");
+            }
+            if (vcliente.txtDescripcion.getText().equals("")) {
+                listaErrores.add("No haz introducido una Descripcion.");
+            }
+            if (vcliente.cbxTipoCliente.getSelectedIndex() <= 0) {
+                listaErrores.add("No haz seleccionado un tipo de cliente.");
+            }
+
+            if (listaErrores.isEmpty()) {
+                Modificar();
+                Limpiar();
+            } else {
+
+                String errores = "";
+
+                for (int i = 0; i < listaErrores.toArray().length; i++) {
+                    errores += "* ";
+                    errores += (String) listaErrores.get(i);
+                    errores += "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, "No cumples los parametros.\nVerifica los errores a continuación:\n\n" + errores);
+            }
         }
 
         /*  Boton Volver.

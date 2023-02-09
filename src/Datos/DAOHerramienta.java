@@ -1,16 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+*Autores:
+*Franklin Camacho C.I:26.796.912
+*Andres Jiménez C.I: 27.212.052
+*Jesús Leal C.I:26.561.030
+*Elias Escalona C.I 26.568.921
+*Jesús Lopez C.I 27.479.039: 
  */
 package Datos;
 
 import Modelos.Herramienta;
-import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
 public class DAOHerramienta {
+
+    private static final Conexion con = Conexion.saberEstado();
 
     public int Modificar(int cantidad, String tipoHerramienta,
             double mantenimiento, double precio, String estado) {
@@ -20,14 +24,14 @@ public class DAOHerramienta {
                 + precio + "',estado='"
                 + estado + "' WHERE tipoherramienta='"
                 + tipoHerramienta + "'";
-        return new Conexion().queryInsertar(sql);
+        return con.actualizar(sql);
     }
 
     public Herramienta Buscar(String tipoHerramienta) {
         String sql = "SELECT * FROM  herramienta WHERE tipoherramienta = '"
                 + tipoHerramienta + "'";
 
-        List<Map> registros = new Conexion().ejecutar(sql);
+        List<Map> registros = con.ejecutar(sql);
         Herramienta herra = null;
 
         for (Map registro : registros) {
@@ -38,7 +42,6 @@ public class DAOHerramienta {
                     (double) registro.get("precio"),
                     (String) registro.get("estado")
             );
-
         }
         return herra;
     }
@@ -46,11 +49,10 @@ public class DAOHerramienta {
     public int Eliminar(String id) {
         String sql = "DELETE FROM  herramienta WHERE id = '"
                 + id + "'";
-        return new Conexion().queryInsertar(sql);
-
+        return con.actualizar(sql);
     }
 }
-  /*  public Herramienta Buscar(String tipoHerramientas) {
+/*  public Herramienta Buscar(String tipoHerramientas) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }/*

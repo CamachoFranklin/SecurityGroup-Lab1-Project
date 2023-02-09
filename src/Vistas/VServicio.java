@@ -18,8 +18,7 @@ public class VServicio extends javax.swing.JFrame {
     public VServicio() {
         // Inicializa todas las variables (o mejor dicho componentes) que usa el JFrame.
         initComponents();
-        jRadioButtonSiServicio.setSelected(true);
-
+        rbtnSiServicio.setSelected(true);
     }
 
     /**
@@ -32,63 +31,115 @@ public class VServicio extends javax.swing.JFrame {
     private void initComponents() {
 
         ServicioAdicional = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jLabelDescripcion = new javax.swing.JLabel();
+        Background = new javax.swing.JPanel();
+        btnBuscarServicio = new javax.swing.JButton();
+        lblLineaServicio = new javax.swing.JLabel();
+        lblServicio = new javax.swing.JLabel();
+        txtCodigoServicio = new javax.swing.JTextField();
+        lblLineaDescripcion = new javax.swing.JLabel();
+        lblDescripcion = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jLabelCosto = new javax.swing.JLabel();
+        lblLineaFechaInicio = new javax.swing.JLabel();
+        cbbFechaInicio = new javax.swing.JComboBox<>();
+        lblFechaInicio = new javax.swing.JLabel();
+        lblLineaVigiPorTurno = new javax.swing.JLabel();
+        lblCantVigilantes = new javax.swing.JLabel();
+        cbbVigilantesPorTurno = new javax.swing.JComboBox<>();
+        lblServicioAdicional = new javax.swing.JLabel();
+        rbtnSiServicio = new javax.swing.JRadioButton();
+        rbtnNoServicio = new javax.swing.JRadioButton();
+        btnCalcular = new javax.swing.JButton();
+        lblCosto = new javax.swing.JLabel();
         txtCosto = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jLabelFechaInicio = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabelNombre3 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jRadioButtonNoServicio = new javax.swing.JRadioButton();
-        jLabelNombre4 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jRadioButtonSiServicio = new javax.swing.JRadioButton();
+        lblServicioVigilancia = new javax.swing.JLabel();
         btnFacturar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
-        jLabelCantBicicletas = new javax.swing.JLabel();
+        lblLineaCantidades = new javax.swing.JLabel();
+        lblCantBicicletas = new javax.swing.JLabel();
         txtCantBicicletas = new javax.swing.JTextField();
-        jLabel_cantBici = new javax.swing.JLabel();
-        jLabelCantRadios = new javax.swing.JLabel();
+        lblCantRadios = new javax.swing.JLabel();
         txtCantRadios = new javax.swing.JTextField();
-        jLabel_CantRadios = new javax.swing.JLabel();
-        jComboBoxVigilantes = new javax.swing.JComboBox<>();
-        jComboBoxMes = new javax.swing.JComboBox<>();
-        jLabelRif = new javax.swing.JLabel();
         btnBuscarR = new javax.swing.JButton();
+        lblLineaRIF = new javax.swing.JLabel();
+        lblRif = new javax.swing.JLabel();
         txtRif = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabelCosto1 = new javax.swing.JLabel();
-        txtmonto = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        btnEliminar = new javax.swing.JButton();
-        jLabelServicio = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
-        btnBuscarS = new javax.swing.JButton();
+        lblLineaNombreCliente = new javax.swing.JLabel();
         txtNombreC = new javax.swing.JTextField();
-        btnCalcular = new javax.swing.JButton();
+        lblLineaMontoVigilante = new javax.swing.JLabel();
+        lblMontoPorVigilante = new javax.swing.JLabel();
+        txtMontoPorVigilante = new javax.swing.JTextField();
+        btnEliminar = new javax.swing.JButton();
         Header = new javax.swing.JPanel();
         btnVolver = new javax.swing.JButton();
         btnMinimizar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        lblLogo = new javax.swing.JLabel();
+        lblLineaCosto = new javax.swing.JLabel();
+        lblVigilanteServicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Background.setBackground(new java.awt.Color(255, 255, 255));
+        Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelDescripcion.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelDescripcion.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelDescripcion.setText("Descripcion");
-        jPanel1.add(jLabelDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 135, -1, -1));
+        btnBuscarServicio.setBackground(new java.awt.Color(38, 172, 239));
+        btnBuscarServicio.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        btnBuscarServicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarServicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Iconos/IconBuscar.png"))); // NOI18N
+        btnBuscarServicio.setBorder(null);
+        btnBuscarServicio.setBorderPainted(false);
+        btnBuscarServicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnBuscarServicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarServicioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarServicioMouseExited(evt);
+            }
+        });
+        btnBuscarServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarServicioActionPerformed(evt);
+            }
+        });
+        Background.add(btnBuscarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 128, -1, -1));
 
-        txtDescripcion.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        lblLineaServicio.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaServicio.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaServicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        Background.add(lblLineaServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 200, 3));
+
+        lblServicio.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblServicio.setForeground(new java.awt.Color(0, 0, 0));
+        lblServicio.setText("Servicio");
+        Background.add(lblServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+
+        txtCodigoServicio.setBackground(new java.awt.Color(255, 255, 255));
+        txtCodigoServicio.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        txtCodigoServicio.setForeground(new java.awt.Color(153, 153, 153));
+        txtCodigoServicio.setText("Codigo del Servicio");
+        txtCodigoServicio.setBorder(null);
+        txtCodigoServicio.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtCodigoServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoServicioActionPerformed(evt);
+            }
+        });
+        Background.add(txtCodigoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 200, 20));
+
+        lblLineaDescripcion.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaDescripcion.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaDescripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
+        Background.add(lblLineaDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 200, 3));
+
+        lblDescripcion.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(0, 0, 0));
+        lblDescripcion.setText("Descripcion");
+        Background.add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        txtDescripcion.setBackground(new java.awt.Color(255, 255, 255));
+        txtDescripcion.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtDescripcion.setForeground(new java.awt.Color(153, 153, 153));
         txtDescripcion.setText("Ingrese la descripcion");
         txtDescripcion.setBorder(null);
@@ -98,20 +149,87 @@ public class VServicio extends javax.swing.JFrame {
                 txtDescripcionActionPerformed(evt);
             }
         });
-        jPanel1.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 163, 192, 22));
+        Background.add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 200, 20));
 
-        jLabel10.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel10.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 191, 203, 3));
+        lblLineaFechaInicio.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaFechaInicio.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaFechaInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        Background.add(lblLineaFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 308, 200, 3));
 
-        jLabelCosto.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelCosto.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelCosto.setText("Costo");
-        jPanel1.add(jLabelCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 359, -1, -1));
+        cbbFechaInicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        cbbFechaInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbFechaInicioActionPerformed(evt);
+            }
+        });
+        Background.add(cbbFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 200, -1));
 
-        txtCosto.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        lblFechaInicio.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblFechaInicio.setForeground(new java.awt.Color(0, 0, 0));
+        lblFechaInicio.setText("Fecha de Inicio");
+        Background.add(lblFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+
+        lblLineaVigiPorTurno.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaVigiPorTurno.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaVigiPorTurno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
+        Background.add(lblLineaVigiPorTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 373, 200, 3));
+
+        lblCantVigilantes.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblCantVigilantes.setForeground(new java.awt.Color(0, 0, 0));
+        lblCantVigilantes.setText("Vigilantes por turno ");
+        lblCantVigilantes.setName(""); // NOI18N
+        Background.add(lblCantVigilantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, 26));
+
+        cbbVigilantesPorTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "1", "2", "3", "4", "5", "6", "7", "8" }));
+        Background.add(cbbVigilantesPorTurno, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 345, 203, -1));
+
+        lblServicioAdicional.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblServicioAdicional.setForeground(new java.awt.Color(0, 0, 0));
+        lblServicioAdicional.setText("¿Desea un servicio adicional?");
+        Background.add(lblServicioAdicional, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
+
+        ServicioAdicional.add(rbtnSiServicio);
+        rbtnSiServicio.setText("Si");
+        rbtnSiServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnSiServicioActionPerformed(evt);
+            }
+        });
+        Background.add(rbtnSiServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
+
+        ServicioAdicional.add(rbtnNoServicio);
+        rbtnNoServicio.setText("No");
+        rbtnNoServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnNoServicioActionPerformed(evt);
+            }
+        });
+        Background.add(rbtnNoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, -1, -1));
+
+        btnCalcular.setBackground(new java.awt.Color(38, 172, 239));
+        btnCalcular.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnCalcular.setForeground(new java.awt.Color(255, 255, 255));
+        btnCalcular.setText("Calcular");
+        btnCalcular.setBorder(null);
+        btnCalcular.setBorderPainted(false);
+        btnCalcular.setPreferredSize(new java.awt.Dimension(85, 35));
+        btnCalcular.setRequestFocusEnabled(false);
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
+        Background.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 339, -1, -1));
+
+        lblCosto.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblCosto.setForeground(new java.awt.Color(0, 0, 0));
+        lblCosto.setText("Costo");
+        Background.add(lblCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
+
+        txtCosto.setBackground(new java.awt.Color(255, 255, 255));
+        txtCosto.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtCosto.setForeground(new java.awt.Color(153, 153, 153));
-        txtCosto.setText("Costo");
+        txtCosto.setText("0");
         txtCosto.setBorder(null);
         txtCosto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtCosto.addActionListener(new java.awt.event.ActionListener() {
@@ -119,88 +237,54 @@ public class VServicio extends javax.swing.JFrame {
                 txtCostoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 402, 192, 22));
+        Background.add(txtCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 347, 200, 20));
 
-        jLabel11.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel11.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(777, 330, 203, 3));
+        lblServicioVigilancia.setBackground(new java.awt.Color(204, 255, 204));
+        lblServicioVigilancia.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        lblServicioVigilancia.setForeground(new java.awt.Color(0, 0, 0));
+        lblServicioVigilancia.setText("Servicio de Vigilancia");
+        Background.add(lblServicioVigilancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 760, -1));
 
-        jLabelFechaInicio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelFechaInicio.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelFechaInicio.setText("Fecha de Inicio");
-        jPanel1.add(jLabelFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 191, -1, -1));
-
-        jLabel12.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel12.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 251, 203, 3));
-
-        jLabelNombre3.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelNombre3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelNombre3.setText("Cantidad de vigilantes por turno ");
-        jPanel1.add(jLabelNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 266, -1, 26));
-
-        jLabel13.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel13.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 330, 203, 3));
-
-        jLabel14.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel14.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Servicio de Vigilancia");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 361, -1));
-
-        ServicioAdicional.add(jRadioButtonNoServicio);
-        jRadioButtonNoServicio.setText("No");
-        jRadioButtonNoServicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonNoServicioActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jRadioButtonNoServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 373, -1, -1));
-
-        jLabelNombre4.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelNombre4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelNombre4.setText("¿Desea un servicio adicional?");
-        jPanel1.add(jLabelNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 345, -1, -1));
-
-        jLabel15.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel15.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 407, 203, 4));
-
-        ServicioAdicional.add(jRadioButtonSiServicio);
-        jRadioButtonSiServicio.setText("Si");
-        jRadioButtonSiServicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSiServicioActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jRadioButtonSiServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 373, -1, -1));
-
-        btnFacturar.setBackground(new java.awt.Color(51, 204, 0));
-        btnFacturar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnFacturar.setText("Crear");
+        btnFacturar.setBackground(new java.awt.Color(38, 172, 239));
+        btnFacturar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnFacturar.setForeground(new java.awt.Color(255, 255, 255));
+        btnFacturar.setText("Facturar");
+        btnFacturar.setBorder(null);
+        btnFacturar.setBorderPainted(false);
+        btnFacturar.setPreferredSize(new java.awt.Dimension(110, 40));
         btnFacturar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFacturarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFacturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 500, 113, -1));
+        Background.add(btnFacturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, -1, -1));
 
-        btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLimpiar.setBackground(new java.awt.Color(38, 172, 239));
+        btnLimpiar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setText("Limpiar");
+        btnLimpiar.setBorder(null);
+        btnLimpiar.setBorderPainted(false);
+        btnLimpiar.setPreferredSize(new java.awt.Dimension(110, 40));
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(543, 500, 98, -1));
+        Background.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, -1, -1));
 
-        jLabelCantBicicletas.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelCantBicicletas.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelCantBicicletas.setText("Cantidad de Bicicletas");
-        jPanel1.add(jLabelCantBicicletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 429, 184, -1));
+        lblLineaCantidades.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaCantidades.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaCantidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        Background.add(lblLineaCantidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 485, 230, 3));
 
-        txtCantBicicletas.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        lblCantBicicletas.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblCantBicicletas.setForeground(new java.awt.Color(0, 0, 0));
+        lblCantBicicletas.setText("Cantidad de Bicicletas");
+        Background.add(lblCantBicicletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 184, -1));
+
+        txtCantBicicletas.setBackground(new java.awt.Color(255, 255, 255));
+        txtCantBicicletas.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtCantBicicletas.setForeground(new java.awt.Color(153, 153, 153));
         txtCantBicicletas.setText("0");
         txtCantBicicletas.setBorder(null);
@@ -210,18 +294,15 @@ public class VServicio extends javax.swing.JFrame {
                 txtCantBicicletasActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCantBicicletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 457, 128, 22));
+        Background.add(txtCantBicicletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 40, 20));
 
-        jLabel_cantBici.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel_cantBici.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel_cantBici, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 485, 128, 3));
+        lblCantRadios.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblCantRadios.setForeground(new java.awt.Color(0, 0, 0));
+        lblCantRadios.setText("Cantidad de Radios");
+        Background.add(lblCantRadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, -1));
 
-        jLabelCantRadios.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelCantRadios.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelCantRadios.setText("Cantidad de Radios");
-        jPanel1.add(jLabelCantRadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 509, -1, -1));
-
-        txtCantRadios.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtCantRadios.setBackground(new java.awt.Color(255, 255, 255));
+        txtCantRadios.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtCantRadios.setForeground(new java.awt.Color(153, 153, 153));
         txtCantRadios.setText("0");
         txtCantRadios.setBorder(null);
@@ -231,40 +312,45 @@ public class VServicio extends javax.swing.JFrame {
                 txtCantRadiosActionPerformed(evt);
             }
         });
-        jPanel1.add(txtCantRadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 544, 130, 22));
+        Background.add(txtCantRadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 490, 40, 20));
 
-        jLabel_CantRadios.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel_CantRadios.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel_CantRadios, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 572, 130, 3));
-
-        jComboBoxVigilantes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "1", "2", "3", "4", "5", "6", "7", "8" }));
-        jPanel1.add(jComboBoxVigilantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 298, 203, -1));
-
-        jComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-        jComboBoxMes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxMesActionPerformed(evt);
+        btnBuscarR.setBackground(new java.awt.Color(38, 172, 239));
+        btnBuscarR.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        btnBuscarR.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Iconos/IconBuscar.png"))); // NOI18N
+        btnBuscarR.setBorder(null);
+        btnBuscarR.setBorderPainted(false);
+        btnBuscarR.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnBuscarR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnBuscarRMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnBuscarRMouseExited(evt);
             }
         });
-        jPanel1.add(jComboBoxMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 219, 203, -1));
-
-        jLabelRif.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelRif.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelRif.setText("Rif");
-        jPanel1.add(jLabelRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(553, 118, 31, -1));
-
-        btnBuscarR.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnBuscarR.setText("Buscar");
         btnBuscarR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarRActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBuscarR, new org.netbeans.lib.awtextra.AbsoluteConstraints(699, 146, -1, -1));
+        Background.add(btnBuscarR, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 128, -1, -1));
 
-        txtRif.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        lblLineaRIF.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaRIF.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaRIF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
+        Background.add(lblLineaRIF, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 200, 3));
+
+        lblRif.setBackground(new java.awt.Color(0, 0, 0));
+        lblRif.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblRif.setForeground(new java.awt.Color(0, 0, 0));
+        lblRif.setText("Rif");
+        Background.add(lblRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 31, -1));
+
+        txtRif.setBackground(new java.awt.Color(255, 255, 255));
+        txtRif.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtRif.setForeground(new java.awt.Color(153, 153, 153));
-        txtRif.setText("Ingrese el Rif");
+        txtRif.setText("Ingrese el RIF del cliente");
         txtRif.setBorder(null);
         txtRif.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtRif.addActionListener(new java.awt.event.ActionListener() {
@@ -272,70 +358,15 @@ public class VServicio extends javax.swing.JFrame {
                 txtRifActionPerformed(evt);
             }
         });
-        jPanel1.add(txtRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 157, 192, 22));
+        Background.add(txtRif, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 200, 20));
 
-        jLabel9.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel9.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 182, 203, 3));
+        lblLineaNombreCliente.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaNombreCliente.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaNombreCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        Background.add(lblLineaNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, 200, 3));
 
-        jLabelCosto1.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelCosto1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelCosto1.setText("Monto por Vigilante");
-        jPanel1.add(jLabelCosto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 283, -1, -1));
-
-        txtmonto.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtmonto.setForeground(new java.awt.Color(153, 153, 153));
-        txtmonto.setText("Ingrese monto");
-        txtmonto.setBorder(null);
-        txtmonto.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtmonto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtmontoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtmonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 311, 166, 22));
-
-        jLabel16.setMaximumSize(new java.awt.Dimension(252, 2));
-        jLabel16.setMinimumSize(new java.awt.Dimension(252, 2));
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(777, 407, 203, 3));
-
-        btnEliminar.setBackground(new java.awt.Color(255, 204, 153));
-        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 500, 113, -1));
-
-        jLabelServicio.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabelServicio.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelServicio.setText("Servicio");
-        jPanel1.add(jLabelServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
-
-        txtCodigo.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
-        txtCodigo.setForeground(new java.awt.Color(153, 153, 153));
-        txtCodigo.setText("Codigo del Servicio");
-        txtCodigo.setBorder(null);
-        txtCodigo.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 90, 192, 22));
-
-        btnBuscarS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnBuscarS.setText("Buscar");
-        btnBuscarS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarSActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnBuscarS, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 79, -1, -1));
-
-        txtNombreC.setFont(new java.awt.Font("Roboto", 0, 13)); // NOI18N
+        txtNombreC.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreC.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         txtNombreC.setForeground(new java.awt.Color(153, 153, 153));
         txtNombreC.setText("Nombre del cliente");
         txtNombreC.setBorder(null);
@@ -345,16 +376,44 @@ public class VServicio extends javax.swing.JFrame {
                 txtNombreCActionPerformed(evt);
             }
         });
-        jPanel1.add(txtNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(484, 191, 192, 22));
+        Background.add(txtNombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 200, 20));
 
-        btnCalcular.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnCalcular.setText("Calcular Costo");
-        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+        lblLineaMontoVigilante.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaMontoVigilante.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaMontoVigilante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/5FFFD9.jpg"))); // NOI18N
+        Background.add(lblLineaMontoVigilante, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 200, 3));
+
+        lblMontoPorVigilante.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
+        lblMontoPorVigilante.setForeground(new java.awt.Color(0, 0, 0));
+        lblMontoPorVigilante.setText("Monto por Vigilante");
+        Background.add(lblMontoPorVigilante, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
+
+        txtMontoPorVigilante.setBackground(new java.awt.Color(255, 255, 255));
+        txtMontoPorVigilante.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        txtMontoPorVigilante.setForeground(new java.awt.Color(153, 153, 153));
+        txtMontoPorVigilante.setText("Ingrese monto");
+        txtMontoPorVigilante.setBorder(null);
+        txtMontoPorVigilante.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtMontoPorVigilante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalcularActionPerformed(evt);
+                txtMontoPorVigilanteActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 399, -1, 22));
+        Background.add(txtMontoPorVigilante, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 200, 20));
+
+        btnEliminar.setBackground(new java.awt.Color(38, 172, 239));
+        btnEliminar.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setBorder(null);
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setPreferredSize(new java.awt.Dimension(110, 40));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        Background.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 540, -1, -1));
 
         Header.setBackground(new java.awt.Color(255, 255, 255));
         Header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -429,17 +488,29 @@ public class VServicio extends javax.swing.JFrame {
         });
         Header.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
 
-        jPanel1.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
+        Background.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
+
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/Login_Logo.png"))); // NOI18N
+        Background.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 70, 70));
+
+        lblLineaCosto.setBackground(new java.awt.Color(0, 203, 130));
+        lblLineaCosto.setForeground(new java.awt.Color(0, 203, 130));
+        lblLineaCosto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/00CB82.jpg"))); // NOI18N
+        Background.add(lblLineaCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 372, 200, 3));
+
+        lblVigilanteServicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas.imagenes/VServicio_Background.png"))); // NOI18N
+        lblVigilanteServicio.setDoubleBuffered(true);
+        Background.add(lblVigilanteServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 290, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -453,7 +524,7 @@ public class VServicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCostoActionPerformed
 
-    private void jRadioButtonNoServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNoServicioActionPerformed
+    private void rbtnNoServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnNoServicioActionPerformed
         // TODO add your handling code here:
         txtCantBicicletas.setVisible(false);
         txtCantRadios.setVisible(false);
@@ -461,12 +532,10 @@ public class VServicio extends javax.swing.JFrame {
         txtCantBicicletas.setText("");
         txtCantRadios.setText("");
 
-        jLabelCantBicicletas.setVisible(false);
-        jLabelCantRadios.setVisible(false);
-        jLabelCosto.setVisible(false);
-        jLabel_CantRadios.setVisible(false);
-        jLabel_cantBici.setVisible(false);
-    }//GEN-LAST:event_jRadioButtonNoServicioActionPerformed
+        lblCantBicicletas.setVisible(false);
+        lblCantRadios.setVisible(false);
+        lblCosto.setVisible(false);
+    }//GEN-LAST:event_rbtnNoServicioActionPerformed
 
     private void btnFacturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturarActionPerformed
         // TODO add your handling code here:
@@ -480,8 +549,6 @@ public class VServicio extends javax.swing.JFrame {
         // txtDireccion.setText("");
         //txtTelefono.setText("");
         // txtNumeroLocal.setText("");
-
-
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void txtCantBicicletasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantBicicletasActionPerformed
@@ -492,46 +559,34 @@ public class VServicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCantRadiosActionPerformed
 
-    private void jRadioButtonSiServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSiServicioActionPerformed
+    private void rbtnSiServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnSiServicioActionPerformed
         txtCantBicicletas.setVisible(true);
         txtCantRadios.setVisible(true);
         // TODO add your handling code here:
-        jLabelCantBicicletas.setVisible(true);
-        jLabelCantRadios.setVisible(true);
-        jLabelCosto.setVisible(true);
-
-        jLabel_CantRadios.setVisible(true);
-
-        jLabel_cantBici.setVisible(true);
-    }//GEN-LAST:event_jRadioButtonSiServicioActionPerformed
-
-    private void btnBuscarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarRActionPerformed
+        lblCantBicicletas.setVisible(true);
+        lblCantRadios.setVisible(true);
+        lblCosto.setVisible(true);
+    }//GEN-LAST:event_rbtnSiServicioActionPerformed
 
     private void txtRifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRifActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRifActionPerformed
 
-    private void txtmontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmontoActionPerformed
+    private void txtMontoPorVigilanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoPorVigilanteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtmontoActionPerformed
+    }//GEN-LAST:event_txtMontoPorVigilanteActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jComboBoxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMesActionPerformed
+    private void cbbFechaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbFechaInicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxMesActionPerformed
+    }//GEN-LAST:event_cbbFechaInicioActionPerformed
 
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+    private void txtCodigoServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoServicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
-
-    private void btnBuscarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarSActionPerformed
+    }//GEN-LAST:event_txtCodigoServicioActionPerformed
 
     private void txtNombreCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCActionPerformed
         // TODO add your handling code here:
@@ -607,15 +662,70 @@ public class VServicio extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_HeaderMousePressed
 
+    private void btnBuscarRMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarRMouseEntered
+        btnBuscarR.setBackground(new java.awt.Color(0, 203, 130));
+    }//GEN-LAST:event_btnBuscarRMouseEntered
+
+    private void btnBuscarRMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarRMouseExited
+        btnBuscarR.setBackground(new java.awt.Color(38, 172, 239));
+    }//GEN-LAST:event_btnBuscarRMouseExited
+
+    private void btnBuscarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarRActionPerformed
+
+    private void btnBuscarServicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarServicioMouseEntered
+    }//GEN-LAST:event_btnBuscarServicioMouseEntered
+
+    private void btnBuscarServicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarServicioMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarServicioMouseExited
+
+    private void btnBuscarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarServicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarServicioActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VGestionVigilante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VGestionVigilante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VGestionVigilante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VGestionVigilante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new VServicio().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Background;
     public javax.swing.JPanel Header;
     private javax.swing.ButtonGroup ServicioAdicional;
     public javax.swing.JButton btnBuscarR;
-    public javax.swing.JButton btnBuscarS;
+    public javax.swing.JButton btnBuscarServicio;
     public javax.swing.JButton btnCalcular;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnFacturar;
@@ -623,38 +733,39 @@ public class VServicio extends javax.swing.JFrame {
     public javax.swing.JButton btnMinimizar;
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnVolver;
-    public javax.swing.JComboBox<String> jComboBoxMes;
-    public javax.swing.JComboBox<String> jComboBoxVigilantes;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelCantBicicletas;
-    private javax.swing.JLabel jLabelCantRadios;
-    private javax.swing.JLabel jLabelCosto;
-    private javax.swing.JLabel jLabelCosto1;
-    private javax.swing.JLabel jLabelDescripcion;
-    private javax.swing.JLabel jLabelFechaInicio;
-    private javax.swing.JLabel jLabelNombre3;
-    private javax.swing.JLabel jLabelNombre4;
-    private javax.swing.JLabel jLabelRif;
-    private javax.swing.JLabel jLabelServicio;
-    private javax.swing.JLabel jLabel_CantRadios;
-    private javax.swing.JLabel jLabel_cantBici;
-    private javax.swing.JPanel jPanel1;
-    public javax.swing.JRadioButton jRadioButtonNoServicio;
-    public javax.swing.JRadioButton jRadioButtonSiServicio;
+    public javax.swing.JComboBox<String> cbbFechaInicio;
+    public javax.swing.JComboBox<String> cbbVigilantesPorTurno;
+    private javax.swing.JLabel lblCantBicicletas;
+    private javax.swing.JLabel lblCantRadios;
+    private javax.swing.JLabel lblCantVigilantes;
+    private javax.swing.JLabel lblCosto;
+    private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblFechaInicio;
+    private javax.swing.JLabel lblLineaCantidades;
+    private javax.swing.JLabel lblLineaCosto;
+    private javax.swing.JLabel lblLineaDescripcion;
+    private javax.swing.JLabel lblLineaFechaInicio;
+    private javax.swing.JLabel lblLineaMontoVigilante;
+    private javax.swing.JLabel lblLineaNombreCliente;
+    private javax.swing.JLabel lblLineaRIF;
+    private javax.swing.JLabel lblLineaServicio;
+    private javax.swing.JLabel lblLineaVigiPorTurno;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblMontoPorVigilante;
+    private javax.swing.JLabel lblRif;
+    private javax.swing.JLabel lblServicio;
+    private javax.swing.JLabel lblServicioAdicional;
+    private javax.swing.JLabel lblServicioVigilancia;
+    public javax.swing.JLabel lblVigilanteServicio;
+    public javax.swing.JRadioButton rbtnNoServicio;
+    public javax.swing.JRadioButton rbtnSiServicio;
     public javax.swing.JTextField txtCantBicicletas;
     public javax.swing.JTextField txtCantRadios;
-    public javax.swing.JTextField txtCodigo;
+    public javax.swing.JTextField txtCodigoServicio;
     public javax.swing.JTextField txtCosto;
     public javax.swing.JTextField txtDescripcion;
+    public javax.swing.JTextField txtMontoPorVigilante;
     public javax.swing.JTextField txtNombreC;
     public javax.swing.JTextField txtRif;
-    public javax.swing.JTextField txtmonto;
     // End of variables declaration//GEN-END:variables
 }

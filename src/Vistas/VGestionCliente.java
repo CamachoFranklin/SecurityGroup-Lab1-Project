@@ -660,7 +660,7 @@ public class VGestionCliente extends javax.swing.JFrame {
     private void btnEliminarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseExited
         btnEliminar.setBackground(new java.awt.Color(38, 172, 239));
     }//GEN-LAST:event_btnEliminarMouseExited
-    
+
     public JComboBox<String> getCbxTipoCliente() {
         return cbxTipoCliente;
     }
