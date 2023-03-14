@@ -56,6 +56,7 @@ public class DAOVigilante {
         String sql = "DELETE FROM  vigilante WHERE cedula = '"
                 + cedula + "'";
         return con.actualizar(sql);
+
     }
 
     public Vigilante Agregar(String cedula, String nombre, String apellidos, String direccion, String correo, String telefono, Date fechaNacimiento, double sueldo, String estatus) {

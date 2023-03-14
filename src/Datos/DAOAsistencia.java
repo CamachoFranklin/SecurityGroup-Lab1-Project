@@ -1,10 +1,10 @@
 /**
-*Autores:
-*Franklin Camacho C.I:26.796.912
-*Jesús Leal C.I:26.561.030
-*Elias Escalona C.I 26.568.921
-*Andres Jiménez C.I: 27.212.052
-*Jesús Lopez C.I: 
+ *Autores:
+ *Franklin Camacho C.I:26.796.912
+ *Jesús Leal C.I:26.561.030
+ *Elias Escalona C.I 26.568.921
+ *Andres Jiménez C.I: 27.212.052
+ *Jesús Lopez C.I:
  */
 package Datos;
 
@@ -13,11 +13,11 @@ import java.util.List;
 import java.util.Map;
 
 public class DAOAsistencia {
-    
-    private static final Conexion con= Conexion.saberEstado();
-    
+
+    private static final Conexion con = Conexion.saberEstado();
+
     public Asistencia Agregar(
-            String  cedulaVigilante,
+            String cedulaVigilante,
             String mes,
             String anio,
             int inasistencia,
@@ -28,33 +28,33 @@ public class DAOAsistencia {
                 + mes + "','"
                 + anio + "','" //se esta concatenando lo que se esta recibiendo como parametro
                 + inasistencia + "','"
-                 + inasistenciaJus + "','"
+                + inasistenciaJus + "','"
                 + estado + "')";
 
-        if (con.actualizar(sql)>0) {
+        if (con.actualizar(sql) > 0) {
 
-            return new Asistencia( cedulaVigilante, mes,  anio,inasistencia,  inasistenciaJus,  estado);
+            return new Asistencia(cedulaVigilante, mes, anio, inasistencia, inasistenciaJus, estado);
         }
         return null;
     }
 
     public int Modificar(String cedulaVigilante, String mes,
-            String anno, int inasistencia,int inasistenciaJus, String estado) {
+            String anno, int inasistencia, int inasistenciaJus, String estado) {
         String sql = "UPDATE  Asistencia SET mes = '"
                 + mes + "',anno='"
                 + anno + "',inasistencia='"
                 + inasistencia + "',inasistenciajus='"
-                + inasistenciaJus  + "',estado='"
+                + inasistenciaJus + "',estado='"
                 + estado + "' WHERE cedulavigilante='"
                 + cedulaVigilante + "'";
-         return con.actualizar(sql);
+        return con.actualizar(sql);
     }
 
     public Asistencia Buscar(String cedulaVigilante) {
         String sql = "SELECT * FROM  asistencia WHERE cedulavigilante = '"
                 + cedulaVigilante + "'";
 
-        List <Map> registros= con.ejecutar(sql);
+        List<Map> registros = con.ejecutar(sql);
         Asistencia asis = null;
 
         for (Map registro : registros) {
@@ -67,11 +67,11 @@ public class DAOAsistencia {
         }
         return asis;
     }
-    
-    public Asistencia BuscarMes(String cedulaVigilante, String mes, String anio) {
-        String sql = "SELECT * FROM asistencia WHERE cedulavigilante='"+cedulaVigilante+ "' AND mes='"+mes+ "'  AND anio='"+anio+ "'";
 
-        List <Map> registros= con.ejecutar(sql);
+    public Asistencia BuscarMes(String cedulaVigilante, String mes, String anio) {
+        String sql = "SELECT * FROM asistencia WHERE cedulavigilante='" + cedulaVigilante + "' AND mes='" + mes + "'  AND anio='" + anio + "'";
+
+        List<Map> registros = con.ejecutar(sql);
         Asistencia asis = null;
 
         for (Map registro : registros) {
@@ -88,7 +88,6 @@ public class DAOAsistencia {
     public int Eliminar(String cedulaVigilante) {
         String sql = "DELETE FROM  Asistencia WHERE cedulaVigilante = '"
                 + cedulaVigilante + "'";
-         return con.actualizar(sql);
+        return con.actualizar(sql);
     }
 }
-    
